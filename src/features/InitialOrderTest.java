@@ -5,29 +5,30 @@
 package features;
 
 /**
- *
- * @author Kane
+ * 
+ * @author Kane.Sun
  */
 public class InitialOrderTest {
 
-    static String staticField = "test static field";
-    String field = "test normal field";
+	static String staticField = "test static field";
+	String field = "test normal field";
 
-    static {
-        System.out.println("the staticField is : " + staticField);
-        System.out.println("it's in the static clause");
-    }
+	static {
+		System.out.println("the staticField is : " + staticField);
+		System.out.println("it's in the static clause");
+	}
 
-    {
-        System.out.println("the normal field is : " + field);
-        System.out.println("it's in the normal clause");
-    }
-    
-    public InitialOrderTest(){
-        System.out.println("it's in the constructor ");
-    }
+	{
+		System.out.println("the normal field is : " + field);
+		System.out.println("it's in the normal clause");
+	}
 
-    public static void main(String... args) {
-        InitialOrderTest initialOrderTest = new InitialOrderTest();
-    }
+	public InitialOrderTest() {
+		System.out.println("it's in the constructor ");
+	}
+
+	@SuppressWarnings("unused")
+	public static void main(String... args) {
+		InitialOrderTest initialOrderTest = new InitialOrderTest();
+	}
 }
