@@ -13,6 +13,7 @@ public class LogicKeyWordComparation {
 
 	static Random random = new Random();
 
+	// execute for 10000 times
 	public static void main(String... args) {
 		long start = System.nanoTime();
 		for (int i = 0; i < 10000; i++) {
@@ -36,7 +37,6 @@ public class LogicKeyWordComparation {
 		}
 
 		System.out.println("it takes : " + (System.nanoTime() - start));
-
 	}
 
 }

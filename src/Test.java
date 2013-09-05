@@ -1,3 +1,8 @@
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Random;
 
 /**
@@ -12,28 +17,18 @@ public class Test {
 	static Random random = new Random();
 
 	public static void main(String... args) {
-		long start = System.nanoTime();
-		for (int i = 0; i < 10000; i++) {
-			String str = random.nextBoolean() + "";
-			if (str.equals("true")) {
-			} else if (str.equals("false")) {
+		try {
+			URL cumtURL = new URL("http://www.google.com/finance?q=600016");
+			URLConnection cumtConnection = cumtURL.openConnection();
+			DataInputStream din = new DataInputStream(cumtConnection.getInputStream());
+			String inputLine;
+			while ((inputLine = din.readLine()) != null) {
+				System.out.println(inputLine);
 			}
+			din.close();
+		} catch (MalformedURLException me) {
+		} catch (IOException ioe) {
 		}
-
-		System.out.println("it takes : " + (System.nanoTime() - start));
-
-		start = System.nanoTime();
-		for (int i = 0; i < 10000; i++) {
-			String str = random.nextBoolean() + "";
-			switch (str) {
-			case "true":
-				break;
-			case "false":
-				break;
-			}
-		}
-
-		System.out.println("it takes : " + (System.nanoTime() - start));
-
 	}
+
 }
