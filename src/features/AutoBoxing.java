@@ -19,12 +19,12 @@ public class AutoBoxing {
         Integer f = 312;
         Long g = 3L;
         
-        System.out.println(c == d);
-        //the cache of integer from -128 to 127
-        System.out.println(e == f);
-        System.out.println(c == (a + b));
-        System.out.println(c.equals(a + b));
-        System.out.println(g == (a + b));
-        System.out.println(g.equals(a + b));
+		System.out.println(c == d);
+		// the cache of integer from -128 to 127
+		System.out.println(e == f);
+		System.out.println(c == (a + b));
+		System.out.println(c.equals(a + b));
+		System.out.println(g == (a + b));
+        System.out.println(g.equals(3));
     }
 }
