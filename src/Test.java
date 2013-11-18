@@ -1,7 +1,9 @@
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Random;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 
 /**
  * 
@@ -12,44 +14,60 @@ import java.util.Random;
  */
 public class Test {
 
-	private static Random random = new Random();
-
 	public static void main(String... args) throws Exception {
-		for(int i = 0 ; i < 3;i++){
-			if(i==2)
-				continue;
-			System.out.println("------");
+		Connection conn = null;
+		
+		try {
+		    conn =
+		       DriverManager.getConnection("jdbc:mysql://localhost/rockblade?" +
+		                                   "user=root&password=root");
+		    // Do something with the Connection
+		   
+		} catch (SQLException ex) {
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		}
+
+		// assume that conn is an already created JDBC connection (see previous examples)
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+		    stmt = conn.createStatement();
+		    rs = stmt.executeQuery("SELECT * FROM stockdetail");
+		    // or alternatively, if you don't know ahead of time that
+		    // the query will be a SELECT...
+		    while(rs.next())
+		    {
+		    int result=rs.getInt("stockid");
+		    System.out.println(result);
+		    }
+		}
+		catch (SQLException ex){
+		    // handle any errors
+		    System.out.println("SQLException: " + ex.getMessage());
+		    System.out.println("SQLState: " + ex.getSQLState());
+		    System.out.println("VendorError: " + ex.getErrorCode());
+		}
+		finally {
+		    // it is a good idea to release
+		    // resources in a finally{} block
+		    // in reverse-order of their creation
+		    // if they are no-longer needed
+		    if (rs != null) {
+		        try {
+		            rs.close();
+		        } catch (SQLException sqlEx) { } // ignore
+		        rs = null;
+		    }
+		    if (stmt != null) {
+		        try {
+		            stmt.close();
+		        } catch (SQLException sqlEx) { } // ignore
+		        stmt = null;
+		    }
 		}
 	}
 
-	public static void getMaxmiumSubSum(int[] targetArray) {
-		int length = targetArray.length;
-		int[] minusArray = new int[length - 1];
-		for (int i = 0; i < length - 2; i++) {
-			minusArray[i] = targetArray[i] - targetArray[i + 1];
-		}
-		int sum = 0;
-		int preIndex = 0;
-		int nextIndex = 0;
-		int max = 0;
-
-		for (int i = 0; i < length - 2; i++) {
-			sum += minusArray[i];
-			if (sum > 0) {
-				sum = 0;
-			} else {
-				if (sum == minusArray[i]) {
-					preIndex = i;
-				}
-			}
-
-			if (max > sum) {
-				max = sum;
-				nextIndex = i;
-			}
-		}
-
-		System.out.println("first Number : " + targetArray[preIndex]);
-		System.out.println("second Number : " + targetArray[nextIndex + 1]);
-	}
 }
