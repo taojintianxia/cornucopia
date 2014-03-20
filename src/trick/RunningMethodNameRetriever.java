@@ -12,11 +12,11 @@ public class RunningMethodNameRetriever {
 
 	public static void main(String... args) {
 		RunningMethodNameRetriever test = new RunningMethodNameRetriever();
-		test.testMethodName();
-		test.testMethodName2();
+		test.getCurrentExecutingMethodName1();
+		test.getCurrentExecutingMethodName2();
 	}
 
-	public void testMethodName() {
+	public void getCurrentExecutingMethodName1() {
 
 		try {
 			throw new Throwable() {
@@ -27,7 +27,7 @@ public class RunningMethodNameRetriever {
 		}
 	}
 
-	public void testMethodName2() {
+	public void getCurrentExecutingMethodName2() {
 		System.out.println("what's the current method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
 	}
 

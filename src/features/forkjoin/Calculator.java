@@ -15,6 +15,7 @@ import java.util.concurrent.RecursiveTask;
 
 public class Calculator extends RecursiveTask<Integer> {
 
+	private static final long serialVersionUID = 2983598301924904899L;
 	private static final int THRESHOLD = 2000;
 	private int start;
 	private int end;
