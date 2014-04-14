@@ -46,8 +46,8 @@ public class AsyncClientHttpExchangeFutureCallback {
 
 		httpclient.start();
 		try {
-			final HttpGet[] requests = new HttpGet[] { new HttpGet("http://hq.sinajs.cn/list=sh600005"), new HttpGet("http://hq.sinajs.cn/list=sh600006"),
-					new HttpGet("http://hq.sinajs.cn/list=sh600008"), new HttpGet("http://hq.sinajs.cn/list=sh600009") };
+			final HttpGet[] requests = new HttpGet[] { new HttpGet("http://10.95.196.100/"), new HttpGet("http://hq.sinajs.cn/list=sh600006"), new HttpGet("http://hq.sinajs.cn/list=sh600008"),
+					new HttpGet("http://hq.sinajs.cn/list=sh600009") };
 			final CountDownLatch latch = new CountDownLatch(requests.length);
 			for (final HttpGet request : requests) {
 				httpclient.execute(request, new FutureCallback<HttpResponse>() {
