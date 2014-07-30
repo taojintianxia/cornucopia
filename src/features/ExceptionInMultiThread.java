@@ -16,7 +16,6 @@ public class ExceptionInMultiThread {
 		UncaughtExceptionHandler exceptionHandler = new ErrHandler();
 		testThread.setUncaughtExceptionHandler(exceptionHandler);
 		testThread.start();
-
 	}
 }
 
