@@ -17,9 +17,10 @@ public class IfElseRefactory {
 
 	public static void main(String... args) throws Exception {
 		IfElseRefactory ifElseRefactory = new IfElseRefactory();
-		enumSolution("A");
-		enumSolution("B");
-		dynamicInvokeSolution("C", ifElseRefactory);
+		basicSolution("A");
+		enumSolution("D");
+		dynamicInvokeSolution("B", ifElseRefactory);
+		new IfElseRefactory().new ChainofResponsibilityMutation().invokeHandler("C");
 	}
 
 	public static void basicSolution(String targetStr) {
@@ -95,8 +96,8 @@ public class IfElseRefactory {
 		}
 	}
 
-	public static void dynamicInvokeSolution(String str, IfElseRefactory ifElseRefactory) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException,
-			SecurityException {
+	public static void dynamicInvokeSolution(String str, IfElseRefactory ifElseRefactory) throws IllegalAccessException, IllegalArgumentException,
+			InvocationTargetException, NoSuchMethodException, SecurityException {
 		Map<String, Method> testMap = new HashMap<>();
 		testMap.put("A", IfElseRefactory.class.getDeclaredMethod("handleA"));
 		testMap.put("B", IfElseRefactory.class.getDeclaredMethod("handleB"));
@@ -104,6 +105,45 @@ public class IfElseRefactory {
 		testMap.put("D", IfElseRefactory.class.getDeclaredMethod("handleD"));
 		testMap.put("Other", IfElseRefactory.class.getDeclaredMethod("handleOther"));
 		testMap.get(str).invoke(ifElseRefactory);
+	}
+
+	private class ChainofResponsibilityMutation {
+		public void methodA(String param) {
+			if (param.equals("A")) {
+				System.out.println("A is printing");
+				;
+			} else {
+				methodB(param);
+			}
+		}
+
+		public void methodB(String param) {
+			if (param.equals("B")) {
+				System.out.println("B is printing");
+			} else {
+				methodC(param);
+			}
+		}
+
+		public void methodC(String param) {
+			if (param.equals("C")) {
+				System.out.println("C is printing");
+			} else {
+				methodD(param);
+			}
+		}
+
+		public void methodD(String param) {
+			if (param.equals("D")) {
+				System.out.println("D is printing");
+			} else {
+				System.out.println("there is no method to handle this request");
+			}
+		}
+
+		public void invokeHandler(String param) {
+			methodA(param);
+		}
 	}
 
 	private void handleA() {
