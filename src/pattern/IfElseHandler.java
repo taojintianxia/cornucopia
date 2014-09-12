@@ -111,7 +111,6 @@ public class IfElseHandler {
 		public void methodA(String param) {
 			if (param.equals("A")) {
 				System.out.println("A is printing");
-				;
 			} else {
 				methodB(param);
 			}
@@ -151,7 +150,6 @@ public class IfElseHandler {
 	}
 
 	private void handleB() {
-
 		System.out.println("B is printing ");
 	}
 
