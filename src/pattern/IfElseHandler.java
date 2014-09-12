@@ -13,14 +13,14 @@ import java.util.Map;
  * 
  */
 @SuppressWarnings("unused")
-public class IfElseRefactory {
+public class IfElseHandler {
 
 	public static void main(String... args) throws Exception {
-		IfElseRefactory ifElseRefactory = new IfElseRefactory();
+		IfElseHandler ifElseHandler = new IfElseHandler();
 		basicSolution("A");
 		enumSolution("D");
-		dynamicInvokeSolution("B", ifElseRefactory);
-		new IfElseRefactory().new ChainofResponsibilityMutation().invokeHandler("C");
+		dynamicInvokeSolution("B", ifElseHandler);
+		new IfElseHandler().new ChainofResponsibilityMutation().invokeHandler("C");
 	}
 
 	public static void basicSolution(String targetStr) {
@@ -96,15 +96,15 @@ public class IfElseRefactory {
 		}
 	}
 
-	public static void dynamicInvokeSolution(String str, IfElseRefactory ifElseRefactory) throws IllegalAccessException, IllegalArgumentException,
+	public static void dynamicInvokeSolution(String str, IfElseHandler ifElseHandler) throws IllegalAccessException, IllegalArgumentException,
 			InvocationTargetException, NoSuchMethodException, SecurityException {
 		Map<String, Method> testMap = new HashMap<>();
-		testMap.put("A", IfElseRefactory.class.getDeclaredMethod("handleA"));
-		testMap.put("B", IfElseRefactory.class.getDeclaredMethod("handleB"));
-		testMap.put("C", IfElseRefactory.class.getDeclaredMethod("handleC"));
-		testMap.put("D", IfElseRefactory.class.getDeclaredMethod("handleD"));
-		testMap.put("Other", IfElseRefactory.class.getDeclaredMethod("handleOther"));
-		testMap.get(str).invoke(ifElseRefactory);
+		testMap.put("A", IfElseHandler.class.getDeclaredMethod("handleA"));
+		testMap.put("B", IfElseHandler.class.getDeclaredMethod("handleB"));
+		testMap.put("C", IfElseHandler.class.getDeclaredMethod("handleC"));
+		testMap.put("D", IfElseHandler.class.getDeclaredMethod("handleD"));
+		testMap.put("Other", IfElseHandler.class.getDeclaredMethod("handleOther"));
+		testMap.get(str).invoke(ifElseHandler);
 	}
 
 	private class ChainofResponsibilityMutation {
