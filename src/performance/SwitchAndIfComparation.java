@@ -5,16 +5,16 @@ import java.util.Random;
 public class SwitchAndIfComparation {
 
 	private Random ramdom = new Random();
-	private int ix = 3;
 
 	public static void main(String... args) {
 		SwitchAndIfComparation comparationTest = new SwitchAndIfComparation();
+
 		long switchStart = System.nanoTime();
 		for (int i = 0; i < 10000; i++) {
 			comparationTest.switchTest();
 		}
-
 		long switchEnd = System.nanoTime();
+
 		long ifElsestart = System.nanoTime();
 		for (int i = 0; i < 10000; i++) {
 			comparationTest.testIfElse();
