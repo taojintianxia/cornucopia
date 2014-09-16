@@ -21,8 +21,8 @@ public class SwitchAndIfComparation {
 		}
 		long ifElseEnd = System.nanoTime();
 
-		System.out.println("Switch KeyWord takes " + (switchEnd - switchStart));
-		System.out.println("If Else KeyWord takes " + (ifElseEnd - ifElsestart));
+		System.out.println("Switch KeyWord takes " + (switchEnd - switchStart) / (1000 * 1000 * 1000.0));
+		System.out.println("If Else KeyWord takes " + (ifElseEnd - ifElsestart) / (1000 * 1000 * 1000.0));
 	}
 
 	public void switchTest() {
