@@ -6,9 +6,9 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
 /*
- * sometime we may invoked in this situation : there is a method execute for
- * long time even will be delayed over an expected time. here is my solution to
- * set a delay time for a method which takes a random time
+ * sometime we may involved in this situation : there is a method execute for
+ * long time even delayed over an expected time. here is my solution to set a
+ * delay time for a method
  */
 
 public class TimerForMethodDelayA {
