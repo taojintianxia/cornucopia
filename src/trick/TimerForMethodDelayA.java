@@ -77,7 +77,7 @@ public class TimerForMethodDelayA {
 }
 
 class VarContainer {
-	private volatile int targetVariable = 0;
+	private int targetVariable = 0;
 
 	public int getTargetVariable() {
 		return targetVariable;
