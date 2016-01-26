@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import spring.aop.ArithmeticCalculator;
 
-@Component("arithmeticCalculator")
+@Component
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator{
 	public int add(int i, int j) {
 		int result = i + j;
