@@ -16,6 +16,17 @@
 	        	http://www.springframework.org/schema/util
 	        http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-<context:component-scan base-package="spring"></context:component-scan>
+	<context:component-scan base-package="spring"></context:component-scan>
+
+	<bean id="loggingAspect" class="spring.aop.LoggingAspect"></bean>
+
+
+	<aop:config>
+		<aop:pointcut id="pointcut"
+			expression="execution(public int spring.aop.impl.ArithmeticCalculatorImpl.add(int , int ))" />
+		<aop:aspect ref="loggingAspect">
+			<aop:before pointcut-ref="pointcut" method="beforeMethod" />
+		</aop:aspect>
+	</aop:config>
 
 </beans>
