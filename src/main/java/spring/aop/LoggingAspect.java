@@ -1,10 +1,15 @@
 package spring.aop;
 
-import org.aspectj.lang.annotation.Before;
-
 public class LoggingAspect {
-	@Before("execution(public int spring.aop.impl.ArithmeticCalculatorImpl.add(int , int ))")
-	 public void beforeMethod() {
-		 System.out.println("add方法执行之前打印出来");
+	public void beforeMethod() {
+		System.out.println("方法执行之前打印出来");
+	}
+
+	public void afterMethod() {
+		System.out.println("方法执行之后打印出来");
+	}
+	
+	public void afterThrowing() {
+		System.out.println("Throw方法执行之后打印出来");
 	}
 }

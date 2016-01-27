@@ -22,11 +22,27 @@
 
 
 	<aop:config>
-		<aop:pointcut id="pointcut"
+		<aop:pointcut id="calAdd"
 			expression="execution(public int spring.aop.impl.ArithmeticCalculatorImpl.add(int , int ))" />
+		
+		<aop:pointcut id="calSub"
+			expression="execution(public int spring.aop.impl.ArithmeticCalculatorImpl.sub(int , int ))" />
+		
+		<aop:pointcut id="calDiv"
+			expression="execution(public int spring.aop.impl.ArithmeticCalculatorImpl.div(int , int ))" />
+		
 		<aop:aspect ref="loggingAspect">
-			<aop:before pointcut-ref="pointcut" method="beforeMethod" />
+			<aop:before pointcut-ref="calAdd" method="beforeMethod" />
 		</aop:aspect>
+		
+		<aop:aspect ref="loggingAspect">
+			<aop:after pointcut-ref="calSub" method="afterMethod" />
+		</aop:aspect>
+		
+		<aop:aspect ref="loggingAspect">
+			<aop:after-throwing pointcut-ref="calDiv" method="afterThrowing" />
+		</aop:aspect>
+		
 	</aop:config>
 
 </beans>

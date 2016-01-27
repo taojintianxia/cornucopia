@@ -13,6 +13,19 @@ public class AOPTest {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("springApplicationContext.xml");
 		ArithmeticCalculator arithmeticCalculator = applicationContext.getBean(ArithmeticCalculator.class);
 		int result = arithmeticCalculator.add(3, 9);
-		System.out.println("result = " + result);
+		System.out.println("add result = " + result);
+
+		result = arithmeticCalculator.sub(1, 1);
+		System.out.println("sub result = " + result);
+
+		try {
+			result = arithmeticCalculator.div(1, 0);
+			System.out.println("div result = " + result);
+		} catch (Exception e) {
+			System.out.println("in catch clause");
+		} finally {
+			System.out.println("in finally");
+		}
+
 	}
 }
