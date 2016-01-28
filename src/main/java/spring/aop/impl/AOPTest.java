@@ -27,5 +27,8 @@ public class AOPTest {
 			System.out.println("in finally");
 		}
 
+		result = arithmeticCalculator.mul(2, 3);
+		System.out.println("mul result = " + result);
+
 	}
 }
