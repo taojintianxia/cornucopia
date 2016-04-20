@@ -1,4 +1,4 @@
-package tools.apache_commons_lang;
+package tools.apache.commons.lang;
 
 import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Test;
