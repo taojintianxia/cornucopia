@@ -17,6 +17,7 @@
 		<org.slf4j.version>1.7.21</org.slf4j.version>
 		<commons-lang3.version>3.4</commons-lang3.version>
 		<logback.version>1.1.7</logback.version>
+		<quartz.version>2.2.2</quartz.version>
 	</properties>
 
 	<dependencies>
@@ -99,6 +100,16 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<!-- slf4j -->
 		<dependency>
@@ -120,6 +131,14 @@
 			<version>${logback.version}</version>
 		</dependency>
 		<!-- logback end -->
+
+		<!-- quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>${quartz.version}</version>
+		</dependency>
+
 
 	</dependencies>
 

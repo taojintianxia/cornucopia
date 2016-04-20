@@ -19,8 +19,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ScheduleTaskTest {
 
 	@Test
-	public void testScheduleTask() {
-
+	public void testScheduleTask() throws InterruptedException {
+		// 该测试启动容器即可
+		Thread.sleep(10000);
 	}
 
 }

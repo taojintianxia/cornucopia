@@ -8,9 +8,11 @@ import spring.aop.ArithmeticCalculator;
 
 public class AOPTest {
 
+	private ApplicationContext applicationContext;
+
 	@Test
 	public void testAOP() {
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("springApplicationContext.xml");
+		applicationContext = new ClassPathXmlApplicationContext("springApplicationContext.xml");
 		ArithmeticCalculator arithmeticCalculator = applicationContext.getBean(ArithmeticCalculator.class);
 		int result = arithmeticCalculator.add(3, 9);
 		System.out.println("add result = " + result);
