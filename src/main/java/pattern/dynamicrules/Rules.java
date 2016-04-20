@@ -1,7 +1,5 @@
 package pattern.dynamicrules;
 
-import java.util.Date;
-
 import org.joda.time.DateTime;
 
 public class Rules {
