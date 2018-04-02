@@ -19,6 +19,7 @@ target/
 
 # temp ignore
 logs/
+bin/
 *.doc
 *.log
 *.cache

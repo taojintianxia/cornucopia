@@ -1,0 +1,8 @@
+# black cat
+example.java.util.serviceloader.spi.impl.BlackCat
+
+# white cat
+example.java.util.serviceloader.spi.impl.WhiteCat
+
+# default cat
+example.java.util.serviceloader.spi.impl.DefaultCat
