@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>Experience</groupId>
-	<artifactId>cornucopia</artifactId>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>Experience</groupId>
+    <artifactId>cornucopia</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
@@ -10,147 +10,24 @@
     </modules>
 
     <!-- 属性值定义 -->
-	<properties>
+    <properties>
         <java.version>1.8</java.version>
-		<spring.version>4.2.5.RELEASE</spring.version>
-		<httpclient.version>4.5.1</httpclient.version>
-		<httpasyncclient.version>4.1</httpasyncclient.version>
-		<fluent-hc.version>4.5.1</fluent-hc.version>
-		<joda-time.version>2.9.3</joda-time.version>
-		<junit.version>4.12</junit.version>
-		<guava.version>19.0</guava.version>
-		<org.slf4j.version>1.7.21</org.slf4j.version>
-		<commons-lang3.version>3.4</commons-lang3.version>
-		<logback.version>1.1.7</logback.version>
-		<quartz.version>2.2.2</quartz.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <httpclient.version>4.5.1</httpclient.version>
+        <httpasyncclient.version>4.1</httpasyncclient.version>
+        <fluent-hc.version>4.5.1</fluent-hc.version>
+        <joda-time.version>2.9.3</joda-time.version>
+        <junit.version>4.12</junit.version>
+        <guava.version>19.0</guava.version>
+        <org.slf4j.version>1.7.21</org.slf4j.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <logback.version>1.1.7</logback.version>
+        <quartz.version>2.2.2</quartz.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-	</properties>
+    </properties>
 
-	<dependencies>
-		<!-- httpclient -->
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>${httpclient.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>commons-codec</groupId>
-					<artifactId>commons-codec</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpasyncclient</artifactId>
-			<version>${httpasyncclient.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>fluent-hc</artifactId>
-			<version>${fluent-hc.version}</version>
-		</dependency>
-		<!-- httpclient end -->
-
-		<!-- joda time -->
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>${joda-time.version}</version>
-		</dependency>
-
-		<!-- junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-
-
-        <!-- guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
-		</dependency>
-
-		<!-- apache commons lang3 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>${commons-lang3.version}</version>
-		</dependency>
-
-		<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<!-- slf4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${org.slf4j.version}</version>
-		</dependency>
-
-		<!-- logback start -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-		<!-- logback end -->
-
-		<!-- quartz -->
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
-			<version>${quartz.version}</version>
-		</dependency>
-
-
-	</dependencies>
-
-	<build>
-		<plugins>
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -162,6 +39,6 @@
                 </configuration>
                 <version>${maven-compiler-plugin.version}</version>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 </project>
