@@ -21,7 +21,7 @@ public class ClassRoomConfig {
     /**
      * 座椅数量
      */
-    @Value("${classroom.chair-number:}")
+    @Value("${classroom.chair-number:10}")
     private int chairNumber;
 
     /**
