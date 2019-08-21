@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DynamicSchoolConfig {
 
-    @Value("${school.principal}")
+    @Value("${school.principal:}")
     private String principal;
 
-    @Value("${school.location}")
+    @Value("${school.location:}")
     private String location;
 }
