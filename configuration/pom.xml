@@ -12,7 +12,7 @@
     <artifactId>configuration</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>nacos</module>
+        <module>nacos-example</module>
     </modules>
 
 
