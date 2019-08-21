@@ -1,6 +1,7 @@
 package com.github.taojintianxia.nacos.springboot.controller;
 
 import com.github.taojintianxia.nacos.springboot.config.ClassRoomConfig;
+import com.github.taojintianxia.nacos.springboot.config.DynamicSchoolConfig;
 import com.github.taojintianxia.nacos.springboot.config.SchoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class SchoolController {
     @Autowired
     private SchoolConfig schoolConfig;
 
+    @Autowired
+    private DynamicSchoolConfig dynamicSchoolConfig;
+
     @ResponseBody
     @RequestMapping(value = "/getSchool", method = GET)
     public String getSchool() {
@@ -34,5 +38,11 @@ public class SchoolController {
     public String getClassroom() {
         return "教室面积 : " + classRoomConfig.getArea() + "\n教室座椅数量 : " + classRoomConfig.getChairNumber() + "\n是否是老教室 : "
                 + classRoomConfig.isLegacy();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getDynamicSchool", method = GET)
+    public String getDynamicSchool() {
+        return "学校校长 : " + dynamicSchoolConfig.getPrincipal() + " \n 学校地址 : " + dynamicSchoolConfig.getLocation();
     }
 }
