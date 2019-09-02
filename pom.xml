@@ -15,6 +15,7 @@
         <java.version>1.8</java.version>
         <lombok.version>1.18.8</lombok.version>
         <HikariCP.version>3.3.1</HikariCP.version>
+        <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <httpclient.version>4.5.9</httpclient.version>
@@ -52,6 +53,13 @@
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>${HikariCP.version}</version>
+            </dependency>
+
+            <!-- mysql connector -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
             </dependency>
 
             <!-- sharding sphere -->
