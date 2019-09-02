@@ -1,5 +1,6 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.impl;
 
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.User;
 import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.MasterSlaveService;
 
 import javax.sql.DataSource;
@@ -8,7 +9,7 @@ import javax.sql.DataSource;
  * @author Nianjun Sun
  * @date 2019/9/2 10:32
  */
-public class UserServiceImpl implements MasterSlaveService {
+public class UserServiceImpl implements MasterSlaveService<User> {
 
     private DataSource datasource;
 
@@ -17,12 +18,12 @@ public class UserServiceImpl implements MasterSlaveService {
     }
 
     @Override
-    public void save(Object o) {
+    public void save(User user) {
 
     }
 
     @Override
-    public Object getById(Long id) {
+    public User getById(Long id) {
         return null;
     }
 
@@ -32,7 +33,7 @@ public class UserServiceImpl implements MasterSlaveService {
     }
 
     @Override
-    public void update(Object o) {
+    public void update(User user) {
 
     }
 }

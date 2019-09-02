@@ -1,5 +1,6 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.impl;
 
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.OrderItem;
 import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.MasterSlaveService;
 
 import javax.sql.DataSource;
@@ -8,7 +9,7 @@ import javax.sql.DataSource;
  * @author Nianjun Sun
  * @date 2019/9/2 10:31
  */
-public class OrderItemServiceImpl implements MasterSlaveService {
+public class OrderItemServiceImpl implements MasterSlaveService<OrderItem> {
 
     private DataSource dataSource;
 
@@ -17,12 +18,12 @@ public class OrderItemServiceImpl implements MasterSlaveService {
     }
 
     @Override
-    public void save(Object o) {
+    public void save(OrderItem orderItem) {
 
     }
 
     @Override
-    public Object getById(Long id) {
+    public OrderItem getById(Long id) {
         return null;
     }
 
@@ -32,7 +33,7 @@ public class OrderItemServiceImpl implements MasterSlaveService {
     }
 
     @Override
-    public void update(Object o) {
+    public void update(OrderItem orderItem) {
 
     }
 }
