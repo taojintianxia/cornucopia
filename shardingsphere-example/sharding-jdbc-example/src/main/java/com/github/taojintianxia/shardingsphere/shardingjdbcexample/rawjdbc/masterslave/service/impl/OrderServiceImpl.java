@@ -27,9 +27,11 @@ public class OrderServiceImpl implements MasterSlaveService<Order> {
     @Override
     @SneakyThrows
     public void save(Order order) {
-        String sql = "insert into t_order(order_id,user_id,status) values (null, ?, ?) ";
+        String sql = "INSERT INTO t_order (user_id, status) VALUES (?, ?)";
         PreparedStatement preparedStatement = dataSource.getConnection().prepareStatement(sql);
-        preparedStatement.execute();
+        preparedStatement.setInt(1, order.getUserId());
+        preparedStatement.setString(2, order.getStatus());
+        preparedStatement.executeUpdate();
     }
 
     @Override
