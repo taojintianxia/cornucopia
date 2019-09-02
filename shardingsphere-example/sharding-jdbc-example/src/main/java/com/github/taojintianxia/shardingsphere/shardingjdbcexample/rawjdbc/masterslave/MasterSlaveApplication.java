@@ -14,4 +14,5 @@ public class MasterSlaveApplication {
     public static void main(String... args) throws Exception {
         DataSource dataSource = YamlMasterSlaveDataSourceFactory.createDataSource(new File(""));
     }
+
 }
