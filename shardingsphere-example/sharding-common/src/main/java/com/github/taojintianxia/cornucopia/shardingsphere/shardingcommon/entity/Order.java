@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.shardingcommon.entity;
+package com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity;
 
 import lombok.Data;
 
