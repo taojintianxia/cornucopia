@@ -5,8 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: xx
-          username: xx
-          password: xx
+          uri: https://github.com/taojintianxia/config-repo.git
+          username: 
+          password:
 server:
   port: 12580
