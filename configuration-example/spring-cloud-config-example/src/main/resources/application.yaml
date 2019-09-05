@@ -5,8 +5,8 @@ spring:
     config:
       server:
         git:
-          uri: ssh://git@phabricator.huobidev.com:2222/diffusion/170/config-server-repo.git
-          username: sunnianjun
-          password: 3S99A6Quug
+          uri: xx
+          username: xx
+          password: xx
 server:
   port: 12580
