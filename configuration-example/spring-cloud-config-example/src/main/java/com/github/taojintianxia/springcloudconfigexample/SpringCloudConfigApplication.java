@@ -8,8 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2019/9/5 09:54
  */
 @SpringBootApplication
+@EnableConfigServer
 public class SpringCloudConfigApplication {
-    
+
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudConfigApplication.class, args);
     }

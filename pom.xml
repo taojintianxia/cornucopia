@@ -13,11 +13,12 @@
     <!-- 属性值定义 -->
     <properties>
         <java.version>1.8</java.version>
+        <springboot.version>1.5.22.RELEASE</springboot.version>
+        <spring-cloud-config.version>1.4.7.RELEASE</spring-cloud-config.version>
         <lombok.version>1.18.8</lombok.version>
         <HikariCP.version>3.3.1</HikariCP.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
-        <springboot.version>1.5.22.RELEASE</springboot.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <httpclient.version>4.5.9</httpclient.version>
         <httpasyncclient.version>4.1</httpasyncclient.version>
@@ -39,6 +40,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- spring cloud config -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-config.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
