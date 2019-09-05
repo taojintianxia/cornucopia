@@ -31,6 +31,7 @@
         <logback.version>1.2.3</logback.version>
         <quartz.version>2.3.1</quartz.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <apollo-client.version>1.4.0</apollo-client.version>
     </properties>
 
     <dependencyManagement>
@@ -135,6 +136,13 @@
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-orchestration-reg-zookeeper-curator</artifactId>
                 <version>${shardingsphere.version}</version>
+            </dependency>
+
+            <!-- apollo-client -->
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo-client.verion}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

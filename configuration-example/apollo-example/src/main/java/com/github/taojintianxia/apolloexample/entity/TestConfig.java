@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Data
 @Configuration
-public class DuowenConfig {
-
-    @Value("${test.key:}")
+public class TestConfig {
+    
+    @Value("${test.key:defaultKey}")
     private String testKey;
 
-    @Value("${test.value:}")
+    @Value("${test.value:defaultValue}")
     private String testValue;
 }
