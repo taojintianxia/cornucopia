@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ssh://git@phabricator.huobidev.com:2222/diffusion/170/config-server-repo.git
+          username: sunnianjun
+          password: 3S99A6Quug
+server:
+  port: 12580
