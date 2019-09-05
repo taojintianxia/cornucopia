@@ -1,6 +1,8 @@
 #### 运行 SpringCloudConfigApplication 启动 app，端口设置为 12580
 
-#### 按照如下方式访问配置文件 ：  
+---
+
+#### 按照如下规则访问配置文件 ：  
   - /{application}/{profile}[/{label}]
 
   - /{application}-{profile}.yml
