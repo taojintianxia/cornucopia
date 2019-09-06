@@ -146,7 +146,7 @@
             <dependency>
                 <groupId>com.ctrip.framework.apollo</groupId>
                 <artifactId>apollo-client</artifactId>
-                <version>${apollo-client.verion}</version>
+                <version>${apollo-client.version}</version>
             </dependency>
 
             <!-- nacos spring boot config -->
