@@ -15,7 +15,7 @@ public class ClassRoomConfig {
     /**
      * 教室面积
      */
-    @Value("${classroom.area:}")
+    @Value("${classroom.area:50}")
     private double area;
 
     /**
@@ -27,6 +27,6 @@ public class ClassRoomConfig {
     /**
      * 是否是老教室
      */
-    @Value("${classroom.legacy:}")
+    @Value("${classroom.legacy:false}")
     private boolean legacy;
 }
