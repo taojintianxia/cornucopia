@@ -1,12 +1,12 @@
 package com.github.taojintianxia.testcontainersjavaexample.mysql.container;
 
-import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.FixedHostPortGenericContainer;
 
 /**
  * @author Nianjun Sun
  * @date 2019/9/10 12:56
  */
-public class MySQLContainer extends GenericContainer<MySQLContainer> {
+public class MySQLContainer extends FixedHostPortGenericContainer<MySQLContainer> {
 
     public static final int MySQL_PORT = 13306;
 
@@ -19,6 +19,7 @@ public class MySQLContainer extends GenericContainer<MySQLContainer> {
     public MySQLContainer(String image) {
         super(image);
         addExposedPort(MySQL_PORT);
+        addFixedExposedPort(MySQL_PORT, 3306);
     }
 
     public Integer getPort() {
