@@ -9,6 +9,7 @@
     <modules>
         <module>configuration-example</module>
         <module>shardingsphere-example</module>
+        <module>container-example</module>
     </modules>
 
     <!-- properties -->
@@ -36,6 +37,7 @@
         <nacos-config-spring-boot-starter.version>0.1.3</nacos-config-spring-boot-starter.version>
         <spring-cloud-starter-alibaba-nacos-config.version>0.1.2.RELEASE
         </spring-cloud-starter-alibaba-nacos-config.version>
+        <testcontainers.version>1.12.1</testcontainers.version>
     </properties>
 
     <dependencyManagement>
@@ -159,6 +161,14 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${spring-cloud-starter-alibaba-nacos-config.version}</version>
+            </dependency>
+
+            <!-- testcontainers -->
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers</artifactId>
+                <version>${testcontainers.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
