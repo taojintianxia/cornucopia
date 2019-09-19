@@ -1,7 +1,7 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.impl;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.Order;
-import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.MasterSlaveService;
+import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.CRUDTemplate;
 import com.google.common.io.Resources;
 import lombok.SneakyThrows;
 import org.apache.shardingsphere.shardingjdbc.api.yaml.YamlMasterSlaveDataSourceFactory;
@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
  * @author Nianjun Sun
  * @date 2019/9/2 10:32
  */
-public class OrderServiceImpl implements MasterSlaveService<Order> {
+public class OrderServiceImpl implements CRUDTemplate<Order> {
 
     private DataSource dataSource;
 

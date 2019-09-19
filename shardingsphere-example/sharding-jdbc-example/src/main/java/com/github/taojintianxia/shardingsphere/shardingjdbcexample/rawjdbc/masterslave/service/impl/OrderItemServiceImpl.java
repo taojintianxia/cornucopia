@@ -1,7 +1,6 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.impl;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.OrderItem;
-import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.MasterSlaveService;
 
 import javax.sql.DataSource;
 
@@ -9,7 +8,7 @@ import javax.sql.DataSource;
  * @author Nianjun Sun
  * @date 2019/9/2 10:31
  */
-public class OrderItemServiceImpl implements MasterSlaveService<OrderItem> {
+public class OrderItemServiceImpl implements CRUDTemplate<OrderItem> {
 
     private DataSource dataSource;
 
