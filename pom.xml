@@ -10,6 +10,7 @@
         <module>configuration-example</module>
         <module>shardingsphere-example</module>
         <module>container-example</module>
+        <module>unit-test-example</module>
     </modules>
 
     <!-- properties -->
