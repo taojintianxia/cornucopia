@@ -1,5 +1,7 @@
 package com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.factory;
 
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.enums.ShardingType;
+
 import javax.sql.DataSource;
 import java.sql.SQLException;
 

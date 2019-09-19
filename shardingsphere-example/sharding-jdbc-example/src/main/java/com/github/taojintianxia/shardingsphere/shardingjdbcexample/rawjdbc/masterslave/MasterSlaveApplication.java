@@ -1,9 +1,9 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave;
 
-import org.apache.shardingsphere.shardingjdbc.api.yaml.YamlMasterSlaveDataSourceFactory;
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.enums.ShardingType;
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.factory.YamlDataSourceFactory;
 
 import javax.sql.DataSource;
-import java.io.File;
 
 /**
  * @author Nianjun Sun
@@ -11,8 +11,10 @@ import java.io.File;
  */
 public class MasterSlaveApplication {
 
+    private static ShardingType shardingType = ShardingType.SHARDING_TABLES;
+
     public static void main(String... args) throws Exception {
-        DataSource dataSource = YamlMasterSlaveDataSourceFactory.createDataSource(new File(""));
+        DataSource dataSource = YamlDataSourceFactory.newInstance(shardingType);
     }
 
 }
