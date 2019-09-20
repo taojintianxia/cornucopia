@@ -11,6 +11,7 @@
         <module>shardingsphere-example</module>
         <module>container-example</module>
         <module>unit-test-example</module>
+        <module>database-example</module>
     </modules>
 
     <!-- properties -->
