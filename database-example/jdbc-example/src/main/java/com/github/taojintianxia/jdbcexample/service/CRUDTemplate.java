@@ -37,4 +37,9 @@ public interface CRUDTemplate<T> {
      * @return
      */
     T selectById(long id);
+
+    /**
+     * init
+     */
+    void init();
 }
