@@ -1,6 +1,7 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.impl;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.OrderItem;
+import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.CRUDTemplate;
 
 import javax.sql.DataSource;
 
