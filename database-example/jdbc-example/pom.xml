@@ -10,5 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jdbc-example</artifactId>
 
-
+    <dependencies>
+        <!-- mysql connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
 </project>
