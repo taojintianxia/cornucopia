@@ -1,0 +1,1 @@
+*Discard Server* : The most simplistic protocol in the world is not 'Hello, World!' but DISCARD. It's a protocol that discards any received data without any response.

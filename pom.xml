@@ -24,6 +24,7 @@
         <HikariCP.version>3.3.1</HikariCP.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <shardingsphere.version>4.0.0-RC2</shardingsphere.version>
+        <netty-all.version>4.1.41.Final</netty-all.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <httpclient.version>4.5.9</httpclient.version>
         <httpasyncclient.version>4.1</httpasyncclient.version>
@@ -145,6 +146,12 @@
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-orchestration-reg-zookeeper-curator</artifactId>
                 <version>${shardingsphere.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version>
             </dependency>
 
             <!-- apollo-client -->
