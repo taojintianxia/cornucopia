@@ -12,6 +12,7 @@
         <module>container-example</module>
         <module>unit-test-example</module>
         <module>database-example</module>
+        <module>network-example</module>
     </modules>
 
     <!-- properties -->
