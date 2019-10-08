@@ -24,7 +24,6 @@ public class ClientBootstrap {
     @SneakyThrows
     public static void main(String... args) {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
-
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(workerGroup);
         bootstrap.channel(NioSocketChannel.class);
