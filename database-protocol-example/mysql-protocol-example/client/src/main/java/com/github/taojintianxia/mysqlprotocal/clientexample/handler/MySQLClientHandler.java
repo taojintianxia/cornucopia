@@ -1,26 +1,26 @@
 package com.github.taojintianxia.mysqlprotocal.clientexample.handler;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-
-import java.util.Date;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Nianjun Sun
- * @date 2019/10/8 15:47
+ * @date 2019/10/8 15:54
  */
-public class TimeClientHandler extends ChannelInboundHandlerAdapter {
+@Slf4j
+public class MySQLClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        ByteBuf m = (ByteBuf) msg; // (1)
+        ByteBuf byteBuf = (ByteBuf) msg;
         try {
-            long currentTimeMillis = (m.readUnsignedInt() - 2208988800L) * 1000L;
-            System.out.println(new Date(currentTimeMillis));
+            ByteBufUtil.prettyHexDump(byteBuf);
             ctx.close();
         } finally {
-            m.release();
+            byteBuf.release();
         }
     }
 

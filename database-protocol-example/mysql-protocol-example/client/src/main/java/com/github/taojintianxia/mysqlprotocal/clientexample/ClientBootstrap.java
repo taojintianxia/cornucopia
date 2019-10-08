@@ -1,6 +1,6 @@
 package com.github.taojintianxia.mysqlprotocal.clientexample;
 
-import com.github.taojintianxia.mysqlprotocal.clientexample.handler.TimeClientHandler;
+import com.github.taojintianxia.mysqlprotocal.clientexample.handler.MySQLClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -25,19 +25,19 @@ public class ClientBootstrap {
     public static void main(String... args) {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-        Bootstrap b = new Bootstrap(); // (1)
-        b.group(workerGroup); // (2)
-        b.channel(NioSocketChannel.class); // (3)
-        b.option(ChannelOption.SO_KEEPALIVE, true); // (4)
-        b.handler(new ChannelInitializer<SocketChannel>() {
+        Bootstrap bootstrap = new Bootstrap();
+        bootstrap.group(workerGroup);
+        bootstrap.channel(NioSocketChannel.class);
+        bootstrap.option(ChannelOption.SO_KEEPALIVE, true);
+        bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
-            public void initChannel(SocketChannel ch) throws Exception {
-                ch.pipeline().addLast(new TimeClientHandler());
+            public void initChannel(SocketChannel ch) {
+                ch.pipeline().addLast(new MySQLClientHandler());
             }
         });
 
         // Start the client.
-        ChannelFuture f = b.connect(HOST, DEFAULT_PORT).sync(); // (5)
+        ChannelFuture f = bootstrap.connect(HOST, DEFAULT_PORT).sync();
 
         // Wait until the connection is closed.
         f.channel().closeFuture().sync();
