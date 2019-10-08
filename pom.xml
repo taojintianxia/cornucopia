@@ -13,6 +13,7 @@
         <module>unit-test-example</module>
         <module>database-example</module>
         <module>network-example</module>
+        <module>database-protocol-example</module>
     </modules>
 
     <!-- properties -->

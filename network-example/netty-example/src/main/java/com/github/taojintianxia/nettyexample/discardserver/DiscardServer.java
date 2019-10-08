@@ -1,6 +1,5 @@
 package com.github.taojintianxia.nettyexample.discardserver;
 
-import com.github.taojintianxia.nettyexample.discardserver.handler.DiscardServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -31,7 +30,7 @@ public class DiscardServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new DiscardServerHandler());
+                            System.out.println("running @ 1");
                         }
                     }).option(ChannelOption.SO_BACKLOG, 128).childOption(ChannelOption.SO_KEEPALIVE, true);
 
