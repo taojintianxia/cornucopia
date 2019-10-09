@@ -17,7 +17,8 @@ public class MySQLClientHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf byteBuf = (ByteBuf) msg;
         try {
-            ByteBufUtil.prettyHexDump(byteBuf);
+            log.info("start to print out handshake from server");
+            log.info(ByteBufUtil.prettyHexDump(byteBuf));
             ctx.close();
         } finally {
             byteBuf.release();
