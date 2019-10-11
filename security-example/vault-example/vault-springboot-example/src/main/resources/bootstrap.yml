@@ -1,6 +1,9 @@
 spring:
   cloud:
     vault:
+      generic:
+        enabled: true
+        application-name: fakebank
       uri: https://localhost:8200
       ssl:
         trust-store: classpath:/vault.jks
