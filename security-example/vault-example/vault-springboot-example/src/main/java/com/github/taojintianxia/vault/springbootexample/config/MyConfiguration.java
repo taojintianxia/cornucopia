@@ -7,7 +7,8 @@ package com.github.taojintianxia.vault.springbootexample.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author Mark Paluch
+ * @author Nianjun Sun
+ * @date 2019/10/12 11:03
  */
 @ConfigurationProperties("example")
 public class MyConfiguration {
