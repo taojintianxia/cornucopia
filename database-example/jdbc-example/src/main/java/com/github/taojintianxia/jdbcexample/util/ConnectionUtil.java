@@ -13,7 +13,7 @@ public class ConnectionUtil {
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 
-    static final String DB_URL = "jdbc:mysql://127.0.0.1:13306/demo_ds?useSSL=false";
+    static final String DB_URL = "jdbc:mysql://127.0.0.1:3307/test?useSSL=false";
 
     static final String USER = "root";
 
