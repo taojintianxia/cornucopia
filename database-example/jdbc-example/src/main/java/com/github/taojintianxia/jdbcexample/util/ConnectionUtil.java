@@ -1,9 +1,11 @@
 package com.github.taojintianxia.jdbcexample.util;
 
+import com.github.taojintianxia.jdbcexample.constants.JdbcConstant;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.Properties;
 
 /**
  * @author Nianjun Sun
@@ -11,17 +13,12 @@ import java.sql.DriverManager;
  */
 public class ConnectionUtil {
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-
-    static final String DB_URL = "jdbc:mysql://127.0.0.1:3307/test?useSSL=false";
-
-    static final String USER = "root";
-
-    static final String PASS = "root";
-
     @SneakyThrows
     public static Connection getConnection() {
-        Class.forName(JDBC_DRIVER);
-        return DriverManager.getConnection(DB_URL, USER, PASS);
+        Properties properties = PropertiesReader.readProperties();
+        Class.forName(properties.getProperty(JdbcConstant.DRIVER_CLASS_NAME));
+        return DriverManager
+                .getConnection(properties.getProperty(JdbcConstant.URL), properties.getProperty(JdbcConstant.USERNAME),
+                        properties.getProperty(JdbcConstant.PASSWORD));
     }
 }

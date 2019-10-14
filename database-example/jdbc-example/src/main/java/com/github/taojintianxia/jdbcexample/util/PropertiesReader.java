@@ -12,8 +12,8 @@ public class PropertiesReader {
 
     @SneakyThrows
     public static Properties readProperties() {
-        Properties prop = new Properties();
-        prop.load(PropertiesReader.class.getClassLoader().getResourceAsStream("datasource.properties"));
-        return prop;
+        Properties properties = new Properties();
+        properties.load(PropertiesReader.class.getClassLoader().getResourceAsStream("datasource.properties"));
+        return properties;
     }
 }
