@@ -14,16 +14,14 @@ import java.sql.Statement;
  */
 public class MasterSlaveApplication {
 
-    private static ShardingType shardingType = ShardingType.SHARDING_TABLES;
-
-    private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS t_order_# (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))";
+    private static final String CREATE_TABLE_ORDER = "CREATE TABLE IF NOT EXISTS t_order_# (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))";
 
     @SneakyThrows
     public static void main(String... args) {
-        DataSource dataSource = YamlDataSourceFactory.newInstance(shardingType);
+        DataSource dataSource = YamlDataSourceFactory.newInstance(ShardingType.SHARDING_TABLES);
         Connection connection = dataSource.getConnection();
         Statement statement = connection.createStatement();
-        statement.execute(CREATE_TABLE);
+        statement.execute(CREATE_TABLE_ORDER);
     }
 
 }
