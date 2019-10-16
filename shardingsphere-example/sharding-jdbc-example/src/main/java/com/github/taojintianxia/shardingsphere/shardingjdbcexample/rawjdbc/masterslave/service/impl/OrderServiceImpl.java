@@ -7,7 +7,9 @@ import lombok.SneakyThrows;
 import javax.sql.DataSource;
 import java.security.SecureRandom;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,12 +30,27 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @SneakyThrows
     public void deleteOder(Long orderId) {
-
+        String sql = "delete from t_order where order id = " + orderId;
+        Statement statement = getStatement();
+        statement.executeQuery(sql);
     }
 
     @Override
+    @SneakyThrows
     public List<Order> listOrders() {
+        String sql = "select * from t_order";
+        Statement statement = getStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        List<Order> orders = new ArrayList<>();
+        while (resultSet.next()) {
+            Order order = new Order();
+            order.setOrderId(resultSet.getLong("order_id"));
+            order.setStatus(resultSet.getString("status"));
+            order.setUserId(resultSet.getInt("user_id"));
+            order.setAddressId(resultSet.getLong("address_id"));
+        }
         return null;
     }
 
