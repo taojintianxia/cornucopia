@@ -50,8 +50,10 @@ public class OrderServiceImpl implements OrderService {
             order.setStatus(resultSet.getString("status"));
             order.setUserId(resultSet.getInt("user_id"));
             order.setAddressId(resultSet.getLong("address_id"));
+            orders.add(order);
         }
-        return null;
+
+        return orders;
     }
 
     @Override
