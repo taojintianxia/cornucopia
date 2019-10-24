@@ -34,6 +34,5 @@ public class BaseTest {
 
     @Test
     public void test() {
-
     }
 }

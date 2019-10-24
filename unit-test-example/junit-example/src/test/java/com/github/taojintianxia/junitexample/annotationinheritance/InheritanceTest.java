@@ -33,6 +33,5 @@ public class InheritanceTest extends BaseTest {
     }
 
     @Test
-    public void test() {
-    }
+    public void test() {}
 }
