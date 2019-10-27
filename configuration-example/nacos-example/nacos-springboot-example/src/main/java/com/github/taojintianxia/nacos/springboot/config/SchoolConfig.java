@@ -15,7 +15,7 @@ public class SchoolConfig {
     /**
      * 学校面积
      */
-    @Value("${school.area:}")
+    @Value("${school.area:50}")
     private double area;
 
     /**

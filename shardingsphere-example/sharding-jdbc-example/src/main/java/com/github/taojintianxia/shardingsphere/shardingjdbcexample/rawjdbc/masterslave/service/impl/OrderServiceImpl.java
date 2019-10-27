@@ -1,61 +1,76 @@
 package com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.impl;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.Order;
-import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.MasterSlaveService;
-import com.google.common.io.Resources;
+import com.github.taojintianxia.shardingsphere.shardingjdbcexample.rawjdbc.masterslave.service.OrderService;
 import lombok.SneakyThrows;
-import org.apache.shardingsphere.shardingjdbc.api.yaml.YamlMasterSlaveDataSourceFactory;
 
 import javax.sql.DataSource;
-import java.io.File;
-import java.net.URL;
-import java.sql.PreparedStatement;
+import java.security.SecureRandom;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Nianjun Sun
- * @date 2019/9/2 10:32
+ * @date 2019/10/15 19:20
  */
-public class OrderServiceImpl implements MasterSlaveService<Order> {
+public class OrderServiceImpl implements OrderService {
 
     private DataSource dataSource;
 
-    public OrderServiceImpl(DataSource dataSource) {
-        this.dataSource = dataSource;
+    @Override
+    @SneakyThrows
+    public void saveOrder(Order order) {
+        String sql = "insert into t_order values (null," + new SecureRandom().nextInt(1000) + "," + new SecureRandom()
+                .nextInt(1000) + ", 'ready')";
+        Statement statement = getStatement();
+        statement.executeQuery(sql);
     }
-
 
     @Override
     @SneakyThrows
-    public void save(Order order) {
-        String sql = "INSERT INTO t_order (user_id, status) VALUES (?, ?)";
-        PreparedStatement preparedStatement = dataSource.getConnection().prepareStatement(sql);
-        preparedStatement.setInt(1, order.getUserId());
-        preparedStatement.setString(2, order.getStatus());
-        preparedStatement.executeUpdate();
+    public void deleteOder(Long orderId) {
+        String sql = "delete from t_order where order id = " + orderId;
+        Statement statement = getStatement();
+        statement.executeQuery(sql);
     }
 
     @Override
-    public Order getById(Long id) {
-        return null;
+    @SneakyThrows
+    public List<Order> listOrders() {
+        String sql = "select * from t_order";
+        Statement statement = getStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        List<Order> orders = new ArrayList<>();
+        while (resultSet.next()) {
+            Order order = new Order();
+            order.setOrderId(resultSet.getLong("order_id"));
+            order.setStatus(resultSet.getString("status"));
+            order.setUserId(resultSet.getInt("user_id"));
+            order.setAddressId(resultSet.getLong("address_id"));
+            orders.add(order);
+        }
+
+        return orders;
     }
 
     @Override
-    public void deleteById(Long id) {
-
+    public DataSource getDataSource() {
+        return dataSource;
     }
 
     @Override
-    public void update(Order order) {
-
+    public void setDataSource(DataSource datasource) {
+        this.dataSource = datasource;
     }
 
-    public static void main(String... args) throws Exception {
-        URL url = Resources.getResource("yaml/raw/master-slave/master-slave.yml");
-        DataSource dataSource = YamlMasterSlaveDataSourceFactory.createDataSource(new File(url.getFile()));
-        OrderServiceImpl orderService = new OrderServiceImpl(dataSource);
-        Order order = new Order();
-        order.setUserId(1);
-        order.setStatus("WhatEver");
-        orderService.save(order);
+    @SneakyThrows
+    private Statement getStatement() {
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+
+        return statement;
     }
 }

@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>nacos-example</module>
+        <module>spring-cloud-config-example</module>
+        <module>apollo-example</module>
     </modules>
 
 

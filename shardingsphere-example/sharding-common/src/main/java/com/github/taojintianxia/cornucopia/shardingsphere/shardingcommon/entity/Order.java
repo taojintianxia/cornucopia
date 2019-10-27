@@ -18,4 +18,6 @@ public class Order implements Serializable {
     private int userId;
 
     private String status;
+
+    private Long addressId;
 }
