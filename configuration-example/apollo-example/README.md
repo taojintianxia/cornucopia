@@ -25,5 +25,22 @@ test.value=TEST_VALUE
 
 2. 创建一个 公用的 namespace，就叫做 `hello-world-common` 好了。
 这里有个不太好的体验，就是如果想设置公用 namespace 的文件类型，需要先点 private，然后选了文件类型后在切换回 public 才行
+然后我们编辑这个 namespace，添加配置如下：
+
+```yaml
+common:
+    commonName: hello-world
+    commonConfigCenter: Apollo
+    
+dataSource:
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:13306/demo_ds_master
+```
+
+在项目的 application.properties 中新建一行 `apollo.bootstrap.namespaces = application,YOUR_GROUP_NAME.hello-world-common.yaml
+这里 YOUR_GROUP_NAME 就是你之前新建的 group 的名称，那个配置可以在系统参数 `organizations` 中修改
+这里还需要添加运行时 JVM 的参数，在 idea 中修改 RUN/DEBUG Configurations，添加 jvm 变量 `-Denv=DEV`，当然在 `java -jar` 执行时添加也可以
+
+
 
 
