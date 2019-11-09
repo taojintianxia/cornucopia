@@ -41,6 +41,21 @@ dataSource:
 这里 YOUR_GROUP_NAME 就是你之前新建的 group 的名称，那个配置可以在系统参数 `organizations` 中修改
 这里还需要添加运行时 JVM 的参数，在 idea 中修改 RUN/DEBUG Configurations，添加 jvm 变量 `-Denv=DEV`，当然在 `java -jar` 执行时添加也可以
 
+这时候访问 `http://localhost:8080/getCommonConfig` 就可以看到我们配置的公用的配置内容了。
 
+接下来我们在 Apollo 的配置中心再创建一个新的 private 的 namespace，并关联 `YOUR_GROUP_NAME.hello-world-common.yaml`，名称叫做 `hello-world-private-A`
+我们编辑该 private 的配置如下：
 
+```yaml
+dataSource:
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:13306/demo_ds_slave
+```
+
+这里仅仅编辑跟 public 的 hello-world-common 不同的配置，我们将 jdbc 中的库名修改了。
+我们将 hello-world-private-A 添加到 application.properties 中的 apollo.bootstrap.namespaces 并删除 `YOUR_GROUP_NAME.hello-world-common.yaml`, 这时候的配置看起来应该是这样的:
+
+```properties
+apollo.bootstrap.namespaces = application,hello-world-private-A.yaml 
+```
 

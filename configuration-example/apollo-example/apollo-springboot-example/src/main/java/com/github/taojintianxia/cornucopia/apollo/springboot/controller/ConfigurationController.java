@@ -26,7 +26,9 @@ public class ConfigurationController {
 
     @GetMapping("getCommonConfig")
     public String getCommonConfig() {
-        return String.format("Common Name is : %s , Common Config Center Name is %s", commonConfig.getName(),
-                commonConfig.getConfigCenterName());
+        return String
+                .format("Common Name is : %s , Common Config Center Name is %s, Common Datasource is %s, Common Jdbc URL is : %s",
+                        commonConfig.getName(), commonConfig.getConfigCenterName(), commonConfig.getDriverClassName(),
+                        commonConfig.getJdbcUrl());
     }
 }
