@@ -15,7 +15,7 @@ docker 的方式，客户端会默认根据 eureka 中记录的 docker 容器的
 
 创建依赖环境后，创建项目hello-world。
 
-1. 在默认的 application 中添加键值对如下：
+1. 在默认的 application 中添加键值配置对如下：
 
 ```properties
 test.key=TEST_KEY
@@ -23,5 +23,7 @@ test.value=TEST_VALUE
 ```
 通过 `ApolloSpringBootApplication` 启动 APP，然后访问 `http://localhost:8080/getConfig` 即可看到上面的键值对
 
-2. 
+2. 创建一个 公用的 namespace，就叫做 `hello-world-common` 好了。
+这里有个不太好的体验，就是如果想设置公用 namespace 的文件类型，需要先点 private，然后选了文件类型后在切换回 public 才行
+
 
