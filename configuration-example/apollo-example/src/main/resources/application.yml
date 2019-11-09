@@ -1,6 +1,0 @@
-server:
-  port: 18080
-
-apollo:
-  bootstrap:
-    enabled: true

@@ -12,5 +12,6 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
     - nacos-springboot-example : [nacos 在 springboot 中的使用](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/nacos-example)
   - Apollo
     - apollo example : [apollo 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/apollo-example)
+      - spring cloud example
   - Spring Cloud Config
     - sprig cloud config example : [spring cloud config 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/spring-cloud-config-example)
