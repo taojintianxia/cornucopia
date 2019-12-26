@@ -1,8 +1,8 @@
-package com.github.taojintianxia.nacos.springboot.controller;
+package com.github.taojintianxia.cornucopia.nacos.springboot.controller;
 
-import com.github.taojintianxia.nacos.springboot.config.ClassRoomConfig;
-import com.github.taojintianxia.nacos.springboot.config.DynamicSchoolConfig;
-import com.github.taojintianxia.nacos.springboot.config.SchoolConfig;
+import com.github.taojintianxia.cornucopia.nacos.springboot.config.ClassRoomConfig;
+import com.github.taojintianxia.cornucopia.nacos.springboot.config.DynamicSchoolConfig;
+import com.github.taojintianxia.cornucopia.nacos.springboot.config.SchoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

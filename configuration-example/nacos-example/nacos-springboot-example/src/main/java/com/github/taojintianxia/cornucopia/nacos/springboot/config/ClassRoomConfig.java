@@ -1,4 +1,4 @@
-package com.github.taojintianxia.nacos.springboot.config;
+package com.github.taojintianxia.cornucopia.nacos.springboot.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
