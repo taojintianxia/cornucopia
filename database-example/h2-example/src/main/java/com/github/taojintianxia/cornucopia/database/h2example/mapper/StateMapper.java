@@ -1,7 +1,7 @@
-package com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.mapper;
+package com.github.taojintianxia.cornucopia.database.h2example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.entity.State;
+import com.github.taojintianxia.cornucopia.database.h2example.entity.State;
 
 /**
  * @author Nianjun Sun

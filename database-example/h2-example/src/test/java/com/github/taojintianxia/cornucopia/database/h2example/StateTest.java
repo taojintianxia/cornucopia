@@ -1,7 +1,7 @@
-package com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample;
+package com.github.taojintianxia.cornucopia.database.h2example;
 
-import com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.entity.State;
-import com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.mapper.StateMapper;
+import com.github.taojintianxia.cornucopia.database.h2example.entity.State;
+import com.github.taojintianxia.cornucopia.database.h2example.mapper.StateMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

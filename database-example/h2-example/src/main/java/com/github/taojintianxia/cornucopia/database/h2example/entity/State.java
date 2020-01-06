@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.entity;
+package com.github.taojintianxia.cornucopia.database.h2example.entity;
 
 import lombok.Data;
 
