@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `ARTICLES`(
+    `id`          INTEGER PRIMARY KEY,
+    `state`       VARCHAR(10) NOT NULL,
+    `name`      VARCHAR(30) NOT NULL
+);
