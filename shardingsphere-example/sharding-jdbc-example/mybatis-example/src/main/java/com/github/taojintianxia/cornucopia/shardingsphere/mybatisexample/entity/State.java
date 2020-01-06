@@ -7,7 +7,9 @@ import lombok.Data;
  * @date 2020/1/6 12:36
  */
 @Data
-public class City {
+public class State {
+
+    private int id;
 
     private String state;
 

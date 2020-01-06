@@ -1,6 +1,6 @@
 package com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample;
 
-import com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.mapper.CityMapper;
+import com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample.mapper.StateMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MybatisExampleApplication implements CommandLineRunner {
 
-    private final CityMapper cityMapper;
+    private final StateMapper stateMapper;
 
-    public MybatisExampleApplication(CityMapper cityMapper) {
-        this.cityMapper = cityMapper;
+    public MybatisExampleApplication(StateMapper stateMapper) {
+        this.stateMapper = stateMapper;
     }
 
     public static void main(String[] args) {
@@ -24,6 +24,6 @@ public class MybatisExampleApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(this.cityMapper.findByState("CA"));
+        System.out.println(this.stateMapper.findByState("CA"));
     }
 }
