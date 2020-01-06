@@ -11,7 +11,7 @@ public class State {
 
     private int id;
 
-    private String state;
+    private String stateName;
 
-    private String name;
+    private String fullName;
 }
