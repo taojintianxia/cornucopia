@@ -11,5 +11,4 @@ public class StateApplication {
     public static void main(String[] args) {
         SpringApplication.run(StateApplication.class, args);
     }
-
 }
