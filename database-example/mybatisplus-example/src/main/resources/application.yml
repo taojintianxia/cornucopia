@@ -6,3 +6,5 @@ spring:
     url: jdbc:mysql://localhost:13306/test?useSSL=false
     username: root
     password: root
+  mybatis:
+      config-location: classpath:META-INF/mybatis-config.xml
