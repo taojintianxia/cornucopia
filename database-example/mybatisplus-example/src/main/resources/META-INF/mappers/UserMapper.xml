@@ -13,6 +13,6 @@
     </select>
 
     <select id="selectRange" resultMap="baseResultMap">
-        SELECT * FROM user WHERE id BETWEEN 2 AND 3
+        SELECT * FROM user WHERE id BETWEEN 2 AND 3;
     </select>
 </mapper>
