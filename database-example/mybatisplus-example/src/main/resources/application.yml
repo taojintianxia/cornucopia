@@ -1,11 +1,6 @@
 spring:
-  datasource:
-    driverClassName: com.mysql.jdbc.Driver
-    schema: classpath:db/schema-mysql.sql
-    data: classpath:db/data-mysql.sql
-    url: jdbc:mysql://localhost:13306/test?useSSL=false
-    username: root
-    password: root
+  profiles:
+    active: sharding-databases
 
 mybatis-plus:
   mapper-locations: classpath:META-INF/mappers/*.xml
