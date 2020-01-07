@@ -3,6 +3,6 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     schema: classpath:db/schema-mysql.sql
     data: classpath:db/data-mysql.sql
-    url: jdbc:mysql://localhost:13306/test
+    url: jdbc:mysql://localhost:13306/test?useSSL=false
     username: root
     password: root
