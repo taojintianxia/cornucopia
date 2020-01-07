@@ -7,6 +7,7 @@ import lombok.Data;
  * @date 2020/1/7 17:39
  */
 @Data
+//@TableName("user")
 public class User {
 
     private Long id;
