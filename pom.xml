@@ -28,6 +28,7 @@
         <HikariCP.version>3.3.1</HikariCP.version>
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <h2.version>1.4.200</h2.version>
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
         <shardingsphere.version>4.0.0-RC3</shardingsphere.version>
         <netty-all.version>4.1.41.Final</netty-all.version>
         <spring.version>4.2.5.RELEASE</spring.version>
@@ -71,7 +72,6 @@
                 <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
 
-
             <!-- spring cloud config server -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -114,6 +114,13 @@
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
 
             <!-- sharding sphere -->

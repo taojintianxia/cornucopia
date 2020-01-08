@@ -28,6 +28,6 @@ public class OrderTest {
         mybatisOrderRepository.createTableIfNotExists();
         List<Order> stateList = mybatisOrderRepository.selectList(null);
         //        Assert.assertEquals(4, stateList.size());
-        stateList.forEach(System.out::println);
+//        stateList.forEach(System.out::println);
     }
 }

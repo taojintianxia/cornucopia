@@ -1,5 +1,6 @@
 package com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.io.Serializable;
  * @date 2019/8/29 17:38
  */
 @Data
+@TableName(value = "t_order")
 public class Order implements Serializable {
 
     private static final long serialVersionUID = -6296752216947577911L;
