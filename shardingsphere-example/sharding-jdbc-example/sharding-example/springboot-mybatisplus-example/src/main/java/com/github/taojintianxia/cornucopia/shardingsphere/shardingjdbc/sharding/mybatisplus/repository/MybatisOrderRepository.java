@@ -19,11 +19,9 @@ package com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.Order;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.sql.SQLException;
 
-@Mapper
 public interface MybatisOrderRepository extends BaseMapper<Order> {
 
     void createTableIfNotExists() throws SQLException;
