@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: hello-world-A
+
+server:
+  port: 8090

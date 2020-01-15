@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: hello-world-B
+
+server:
+  port: 8091
