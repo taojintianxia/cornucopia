@@ -1,6 +1,6 @@
 spring:
   application:
-    name: hello-world-A
+    name: hello-world-service
 
 server:
   port: 8090

@@ -15,4 +15,10 @@ public class GreetingController {
     public String greet() {
         return "service 2 is greeting";
     }
+
+    @RequestMapping(value = "/")
+    public String home() {
+        System.out.println("Access /");
+        return "Hi!";
+    }
 }

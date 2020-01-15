@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ribbon-client
+
+server:
+  port: 8888
+
+say-hello:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8090,localhost:8091,localhost:8092
+    ServerListRefreshInterval: 15000
