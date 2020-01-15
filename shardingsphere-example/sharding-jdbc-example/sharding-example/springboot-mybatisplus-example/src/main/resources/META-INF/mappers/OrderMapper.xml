@@ -8,6 +8,15 @@
         <result column="status" property="status" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <resultMap id="sumGroup" type="com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding.mybatisplus.entity.SumGroup">
+        <result column="orderType" property="orderType" jdbcType="INTEGER"/>
+        <result column="sumCount" property="sumCount" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getSumGroup" resultMap="sumGroup">
+        select address_id as orderType,sum(user_id) as sumCount from t_order group by address_id;
+    </select>
+
     <update id="createTableIfNotExists">
         CREATE TABLE IF NOT EXISTS t_order (order_id BIGINT AUTO_INCREMENT, user_id INT NOT NULL, address_id BIGINT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id));
     </update>

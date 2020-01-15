@@ -19,10 +19,14 @@ package com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.Order;
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding.mybatisplus.entity.SumGroup;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface MybatisOrderRepository extends BaseMapper<Order> {
 
     void createTableIfNotExists() throws SQLException;
+
+    List<SumGroup> getSumGroup() throws SQLException;
 }

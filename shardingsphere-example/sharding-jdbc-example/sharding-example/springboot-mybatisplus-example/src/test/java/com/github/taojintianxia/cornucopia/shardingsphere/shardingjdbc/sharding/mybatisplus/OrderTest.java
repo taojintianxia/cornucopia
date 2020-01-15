@@ -1,6 +1,7 @@
 package com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding.mybatisplus;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingcommon.entity.Order;
+import com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding.mybatisplus.entity.SumGroup;
 import com.github.taojintianxia.cornucopia.shardingsphere.shardingjdbc.sharding.mybatisplus.repository.MybatisOrderRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +28,9 @@ public class OrderTest {
         System.out.println(("----- selectAll method test ------"));
         mybatisOrderRepository.createTableIfNotExists();
         List<Order> stateList = mybatisOrderRepository.selectList(null);
+        List<SumGroup> sumGroups = mybatisOrderRepository.getSumGroup();
+        sumGroups.forEach(sumGroup -> System.out.println(sumGroup));
         //        Assert.assertEquals(4, stateList.size());
-//        stateList.forEach(System.out::println);
+        //        stateList.forEach(System.out::println);
     }
 }
