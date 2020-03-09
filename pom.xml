@@ -16,6 +16,7 @@
         <module>database-protocol-example</module>
         <module>security-example</module>
         <module>microservice-example</module>
+        <module>springboot-example</module>
     </modules>
 
     <!-- properties -->
