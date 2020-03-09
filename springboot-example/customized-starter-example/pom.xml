@@ -12,7 +12,7 @@
     <artifactId>customized-starter-example</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>cornucopia-example-springboot-starter</module>
+        <module>cornucopia-example-spring-boot-starter</module>
         <module>cornucopia-application</module>
     </modules>
 

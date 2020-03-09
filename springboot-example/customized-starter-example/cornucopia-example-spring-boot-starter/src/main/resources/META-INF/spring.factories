@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.github.taojintianxia.cornucopia.springboot.customizedstarter.configuration.HelloAutoConfiguration
