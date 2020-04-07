@@ -33,7 +33,7 @@
         <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
         <h2.version>1.4.200</h2.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
-        <shardingsphere.version>4.0.0-RC3</shardingsphere.version>
+        <shardingsphere.version>4.0.1</shardingsphere.version>
         <netty-all.version>4.1.41.Final</netty-all.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <httpclient.version>4.5.9</httpclient.version>
