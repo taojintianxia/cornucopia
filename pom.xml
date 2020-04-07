@@ -17,6 +17,7 @@
         <module>security-example</module>
         <module>microservice-example</module>
         <module>springboot-example</module>
+        <module>shardingsphere</module>
     </modules>
 
     <!-- properties -->
