@@ -11,9 +11,15 @@
     <artifactId>sharding-raw-jdbc</artifactId>
 
     <dependencies>
+        <!-- shardingsphere -->
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>sharding-jdbc-core</artifactId>
+        </dependency>
+        <!-- HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
         </dependency>
     </dependencies>
 </project>

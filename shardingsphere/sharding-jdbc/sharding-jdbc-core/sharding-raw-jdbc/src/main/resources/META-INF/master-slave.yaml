@@ -1,0 +1,24 @@
+dataSources:
+  ds_master: !!com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/demo_ds_master
+    username: root
+    password: root
+  ds_slave0: !!com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/demo_ds_slave_0
+    username: root
+    password: root
+  ds_slave1: !!com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/demo_ds_slave_1
+    username: root
+    password: root
+
+masterSlaveRule:
+  name: ds_ms
+  masterDataSourceName: ds_master
+  slaveDataSourceNames: [ds_slave0, ds_slave1]
+
+props:
+  sql.show: true
