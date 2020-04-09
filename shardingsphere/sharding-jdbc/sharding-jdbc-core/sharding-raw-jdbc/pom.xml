@@ -21,5 +21,16 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
+        <!-- common module -->
+        <dependency>
+            <groupId>com.github.taojintianxia</groupId>
+            <artifactId>shardingsphere-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 </project>
