@@ -17,4 +17,4 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
     - [spring cloud config 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/spring-cloud-config-example)
     
 #### Shardingsphere
-  - [Sharding JDBC](https://github.com/taojintianxia/cornucopia/tree/master/shardingsphere/sharding-jdbc)
+  - [Sharding JDBC](https://github.com/taojintianxia/cornucopia/tree/master/shardingsphere/)
