@@ -9,9 +9,9 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
 
 #### Configuration
   - Nacos
-    - [nacos 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/nacos-example)
+    - [nacos 例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/nacos-example)
   - Apollo
-    - [apollo 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/apollo-example)
+    - [apollo 例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/apollo-example)
     - spring cloud example
   - Spring Cloud Config
     - [spring cloud config 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/spring-cloud-config-example)
