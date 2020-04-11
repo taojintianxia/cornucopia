@@ -1,7 +1,7 @@
 dataSources:
   datasource: !!com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:13306/datasource
+    url: jdbc:mysql://localhost:13306/demo_ds_master?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: root
 
