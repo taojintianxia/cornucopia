@@ -44,6 +44,6 @@ public class MasterSlaveDemo {
     }
 
     public static void testCURD(DataSource dataSource) {
-        JDBCUtil.executeSQL(dataSource, SQLConstant.INSERT_TABLE_ORDER);
+        JDBCUtil.execute(dataSource, SQLConstant.INSERT_TABLE_ORDER);
     }
 }

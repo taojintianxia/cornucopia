@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 
@@ -16,10 +17,18 @@ import java.util.List;
 public class JDBCUtil {
 
     @SneakyThrows
-    public static void executeSQL(DataSource dataSource, String sql) {
+    public static void execute(DataSource dataSource, String sql) {
         try (Connection connection = dataSource.getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute(sql);
+        }
+    }
+
+    @SneakyThrows
+    public static ResultSet executeQuery(DataSource dataSource, String sql) {
+        try (Connection connection = dataSource.getConnection()) {
+            Statement statement = connection.createStatement();
+            return statement.executeQuery(sql);
         }
     }
 
@@ -34,11 +43,11 @@ public class JDBCUtil {
     }
 
     public static void createSchema(DataSource dataSource) {
-        executeSQL(dataSource, SQLConstant.CREATE_SCHEMA);
+        execute(dataSource, SQLConstant.CREATE_SCHEMA);
     }
 
     public static void dropSchema(DataSource dataSource) {
-        executeSQL(dataSource, SQLConstant.DROP_SCHEMA);
+        execute(dataSource, SQLConstant.DROP_SCHEMA);
     }
 
     public static void createTable(DataSource dataSource) {
@@ -47,8 +56,6 @@ public class JDBCUtil {
     }
 
     public static void initData(DataSource dataSource) {
-        dropSchema(dataSource);
-        createSchema(dataSource);
         createTable(dataSource);
     }
 }
