@@ -16,7 +16,7 @@ import java.util.List;
 public class JDBCUtil {
 
     @SneakyThrows
-    private static void executeSQL(DataSource dataSource, String sql) {
+    public static void executeSQL(DataSource dataSource, String sql) {
         try (Connection connection = dataSource.getConnection()) {
             Statement statement = connection.createStatement();
             statement.execute(sql);
