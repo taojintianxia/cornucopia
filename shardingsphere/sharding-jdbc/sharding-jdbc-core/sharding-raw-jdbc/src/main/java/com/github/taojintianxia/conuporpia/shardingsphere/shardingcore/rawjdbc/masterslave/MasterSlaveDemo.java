@@ -26,21 +26,6 @@ public class MasterSlaveDemo {
         DataSource dataSource = YamlDataSourceFactory.newInstance(ShardingType.MASTER_SLAVE);
         JDBCUtil.initData(dataSource);
         testCURD(dataSource);
-
-//        Connection connection = dataSource.getConnection();
-//        PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-//        preparedStatement.setInt(1, 10);
-//        preparedStatement.setInt(2, 1001);
-//        ResultSet resultSet = preparedStatement.executeQuery();
-//        while (resultSet.next()) {
-//            OrderItem orderItem = new OrderItem();
-//            orderItem.setOrderItemId(resultSet.getLong(TableConstant.ORDER_ITEM_ORDER_ITEM_ID));
-//            orderItem.setOrderId(resultSet.getLong(TableConstant.ORDER_ITEM_ORDER_ID));
-//            orderItem.setUserId(resultSet.getInt(TableConstant.ORDER_ITEM_USER_ID));
-//            orderItem.setStatus(resultSet.getString(TableConstant.ORDER_ITEM_STATUS));
-//            log.info("order item is : {}", orderItem);
-//        }
-
     }
 
     public static void testCURD(DataSource dataSource) {

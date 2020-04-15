@@ -16,8 +16,12 @@ public interface SQLConstant {
 
     String INSERT_TABLE_ORDER = "INSERT INTO demo_ds.t_order VALUES(1002, 10, 'init')";
 
-    String INSERT_TABLE_ORDER_ITEM_1 = "INSERT INTO demo_ds.t_order_item VALUES(31052, 1000, 10, 'init')";
+    String INSERT_TABLE_ORDER_ITEM_1 = "INSERT INTO demo_ds.t_order_item VALUES(10000, 1000, 11, 'init')";
 
-    String INSERT_TABLE_ORDER_ITEM_2 = "INSERT INTO demo_ds.t_order_item VALUES(35060, 1000, 10, 'init')";
+    String INSERT_TABLE_ORDER_ITEM_2 = "INSERT INTO demo_ds.t_order_item VALUES(10001, 1000, 11, 'init')";
+
+    String INSERT_TABLE_ORDER_ITEM_3 = "INSERT INTO demo_ds.t_order_item VALUES(10002, 1001, 12, 'init')";
+
+    String INSERT_TABLE_ORDER_ITEM_4 = "INSERT INTO demo_ds.t_order_item VALUES(10003, 1002, 13, 'init')";
 
 }
