@@ -18,6 +18,7 @@
         <module>microservice-example</module>
         <module>spring-boot</module>
         <module>shardingsphere</module>
+        <module>libraries</module>
     </modules>
 
     <!-- properties -->
