@@ -9,4 +9,49 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mysql-replicated</artifactId>
+
+    <dependencies>
+        <!-- ratis -->
+        <dependency>
+            <groupId>org.apache.ratis</groupId>
+            <artifactId>ratis-thirdparty-misc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ratis</groupId>
+            <artifactId>ratis-proto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ratis</groupId>
+            <artifactId>ratis-tools</artifactId>
+        </dependency>
+        <dependency>
+            <artifactId>ratis-common</artifactId>
+            <groupId>org.apache.ratis</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>ratis-client</artifactId>
+            <groupId>org.apache.ratis</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>ratis-server</artifactId>
+            <groupId>org.apache.ratis</groupId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <artifactId>ratis-grpc</artifactId>
+            <groupId>org.apache.ratis</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>ratis-netty</artifactId>
+            <groupId>org.apache.ratis</groupId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
 </project>

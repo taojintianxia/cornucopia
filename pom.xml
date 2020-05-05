@@ -44,8 +44,9 @@
         <fluent-hc.version>4.5.1</fluent-hc.version>
         <joda-time.version>2.9.3</joda-time.version>
         <junit.version>4.12</junit.version>
-        <guava.version>28.2-jre</guava.version>
-        <ratis.version>0.6.0-SNAPSHOT</ratis.version>
+        <guava.version>29.0-jre</guava.version>
+        <ratis.version>0.5.0</ratis.version>
+        <ratis-thirdparty-misc.version>0.4.0</ratis-thirdparty-misc.version>
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <commons-lang3.version>3.10</commons-lang3.version>
@@ -218,7 +219,7 @@
             <dependency>
                 <groupId>org.apache.ratis</groupId>
                 <artifactId>ratis-thirdparty-misc</artifactId>
-                <version>${ratis.version}</version>
+                <version>${ratis-thirdparty-misc.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.ratis</groupId>
