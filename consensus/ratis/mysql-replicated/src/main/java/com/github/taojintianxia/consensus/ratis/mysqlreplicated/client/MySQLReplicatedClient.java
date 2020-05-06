@@ -33,5 +33,4 @@ public class MySQLReplicatedClient {
                 "INSERT INTO t_order(order_id,user_id,address_id,status) VALUES(1, 1, 1, 'INIT')");
         client.send(sqlMessage);
     }
-
 }
