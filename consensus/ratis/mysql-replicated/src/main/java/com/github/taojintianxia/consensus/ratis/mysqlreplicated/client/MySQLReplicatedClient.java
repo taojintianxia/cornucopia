@@ -17,8 +17,9 @@ import java.io.IOException;
  * @author Nianjun Sun
  * @date 2020/5/6 14:45
  */
-public class MySQLReplicatedClient {
+public class MySQLReplicatedClient implements RatisClient {
 
+    @Override
     public void run() throws IOException {
         String raftGroupId = "demoRaftGroup123";
         RaftProperties raftProperties = new RaftProperties();

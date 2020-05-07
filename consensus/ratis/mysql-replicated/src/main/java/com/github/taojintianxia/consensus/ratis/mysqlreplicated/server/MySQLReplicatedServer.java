@@ -40,7 +40,7 @@ public class MySQLReplicatedServer implements RatisServer {
         StateMachine stateMachine = new MySQLReplicatedStateMachine();
 
         final RaftGroup raftGroup = RaftGroup
-                .valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(raftGroupId)), JVMParamUtil.getPeer(raftPeerId));
+                .valueOf(RaftGroupId.valueOf(ByteString.copyFromUtf8(raftGroupId)), JVMParamUtil.getPeers());
         RaftServer raftServer = RaftServer.newBuilder().setServerId(raftPeerId).setStateMachine(stateMachine)
                 .setProperties(properties).setGroup(raftGroup).build();
         raftServer.start();

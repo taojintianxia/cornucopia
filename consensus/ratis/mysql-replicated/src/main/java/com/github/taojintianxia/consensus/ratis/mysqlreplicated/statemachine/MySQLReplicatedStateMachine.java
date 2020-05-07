@@ -1,6 +1,6 @@
 package com.github.taojintianxia.consensus.ratis.mysqlreplicated.statemachine;
 
-import org.apache.ratis.examples.arithmetic.AssignmentMessage;
+import com.github.taojintianxia.consensus.ratis.mysqlreplicated.message.SQLMessage;
 import org.apache.ratis.examples.arithmetic.expression.Expression;
 import org.apache.ratis.proto.RaftProtos;
 import org.apache.ratis.protocol.Message;
@@ -13,6 +13,7 @@ import org.apache.ratis.statemachine.StateMachineStorage;
 import org.apache.ratis.statemachine.TransactionContext;
 import org.apache.ratis.statemachine.impl.SimpleStateMachineStorage;
 import org.apache.ratis.statemachine.impl.SingleFileSnapshotInfo;
+import org.apache.ratis.thirdparty.com.google.protobuf.ByteString;
 import org.apache.ratis.util.AutoCloseableLock;
 import org.apache.ratis.util.JavaUtils;
 
@@ -147,26 +148,27 @@ public class MySQLReplicatedStateMachine extends BaseStateMachine {
     @Override
     public CompletableFuture<Message> applyTransaction(TransactionContext trx) {
         final RaftProtos.LogEntryProto entry = trx.getLogEntry();
-        final AssignmentMessage assignment = new AssignmentMessage(entry.getStateMachineLogEntry().getLogData());
+        ByteString byteString = entry.getStateMachineLogEntry().getLogData();
+        final SQLMessage sqlMessage = new SQLMessage(byteString.toStringUtf8());
+        System.out.println(byteString.toStringUtf8());
 
         final long index = entry.getIndex();
-        final Double result;
+        final Double result = 0D;
         try(AutoCloseableLock writeLock = writeLock()) {
-            result = assignment.evaluate(variables);
             updateLastAppliedTermIndex(entry.getTerm(), index);
         }
         final Expression r = Expression.Utils.double2Expression(result);
         final CompletableFuture<Message> f = CompletableFuture.completedFuture(Expression.Utils.toMessage(r));
 
         final RaftProtos.RaftPeerRole role = trx.getServerRole();
-        if (role == RaftProtos.RaftPeerRole.LEADER) {
-            LOG.info("{}:{}-{}: {} = {}", role, getId(), index, assignment, r);
-        } else {
-            LOG.debug("{}:{}-{}: {} = {}", role, getId(), index, assignment, r);
-        }
-        if (LOG.isTraceEnabled()) {
-            LOG.trace("{}-{}: variables={}", getId(), index, variables);
-        }
+//        if (role == RaftProtos.RaftPeerRole.LEADER) {
+//            LOG.info("{}:{}-{}: {} = {}", role, getId(), index, assignment, r);
+//        } else {
+//            LOG.debug("{}:{}-{}: {} = {}", role, getId(), index, assignment, r);
+//        }
+//        if (LOG.isTraceEnabled()) {
+//            LOG.trace("{}-{}: variables={}", getId(), index, variables);
+//        }
         return f;
     }
 }
