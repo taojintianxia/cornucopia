@@ -1,7 +1,7 @@
 package com.github.taojintianxia.consensus.ratis.databaseraplicated;
 
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.client.MySQLReplicatedClient;
-import com.github.taojintianxia.consensus.ratis.databaseraplicated.client.RatisClient;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.api.client.RatisClient;
 
 import java.io.IOException;
 

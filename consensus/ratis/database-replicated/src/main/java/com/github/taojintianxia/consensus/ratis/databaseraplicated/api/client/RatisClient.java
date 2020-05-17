@@ -1,4 +1,4 @@
-package com.github.taojintianxia.consensus.ratis.databaseraplicated.client;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.api.client;
 
 import java.io.IOException;
 

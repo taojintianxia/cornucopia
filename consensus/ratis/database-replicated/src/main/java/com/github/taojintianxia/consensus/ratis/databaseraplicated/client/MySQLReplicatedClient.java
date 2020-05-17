@@ -1,5 +1,6 @@
 package com.github.taojintianxia.consensus.ratis.databaseraplicated.client;
 
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.api.client.RatisClient;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.message.SQLMessage;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.util.JVMParamUtil;
 import org.apache.ratis.client.RaftClient;

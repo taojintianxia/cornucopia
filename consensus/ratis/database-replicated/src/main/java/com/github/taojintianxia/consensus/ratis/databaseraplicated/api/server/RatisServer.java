@@ -1,4 +1,4 @@
-package com.github.taojintianxia.consensus.ratis.databaseraplicated.server;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.api.server;
 
 /**
  * @author Nianjun Sun

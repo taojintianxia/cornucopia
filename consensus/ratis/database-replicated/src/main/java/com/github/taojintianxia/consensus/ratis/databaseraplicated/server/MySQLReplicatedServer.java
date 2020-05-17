@@ -1,5 +1,6 @@
 package com.github.taojintianxia.consensus.ratis.databaseraplicated.server;
 
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.api.server.RatisServer;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.constant.ParamConstant;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.statemachine.MySQLReplicatedStateMachine;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.util.JVMParamUtil;
