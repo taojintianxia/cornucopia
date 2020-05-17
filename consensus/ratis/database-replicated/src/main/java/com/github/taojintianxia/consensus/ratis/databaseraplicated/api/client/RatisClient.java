@@ -8,5 +8,5 @@ import java.io.IOException;
  */
 public interface RatisClient {
 
-    void run () throws IOException;
+    void run (String sql) throws IOException;
 }

@@ -11,8 +11,9 @@ import java.io.IOException;
  */
 public class ClientRunner {
 
-    public static void main(String...args) throws IOException {
+    public static void main(String... args) throws IOException {
         RatisClient ratisClient = new MySQLReplicatedClient();
-        ratisClient.run();
+        String sql = "INSERT INTO t_order(order_id,user_id,address_id,status) VALUES(1, 1, 1, 'INIT')";
+        ratisClient.run(sql);
     }
 }

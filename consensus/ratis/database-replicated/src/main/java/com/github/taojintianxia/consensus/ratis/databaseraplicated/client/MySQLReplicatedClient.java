@@ -21,7 +21,7 @@ import java.io.IOException;
 public class MySQLReplicatedClient implements RatisClient {
 
     @Override
-    public void run() throws IOException {
+    public void run(String sql) throws IOException {
         String raftGroupId = "demoRaftGroup123";
         RaftProperties raftProperties = new RaftProperties();
         final RaftGroup raftGroup = RaftGroup
@@ -31,8 +31,7 @@ public class MySQLReplicatedClient implements RatisClient {
         builder.setRaftGroup(raftGroup);
         builder.setClientRpc(new GrpcFactory(new Parameters()).newRaftClientRpc(ClientId.randomId(), raftProperties));
         RaftClient client = builder.build();
-        SQLMessage sqlMessage = new SQLMessage(
-                "INSERT INTO t_order(order_id,user_id,address_id,status) VALUES(1, 1, 1, 'INIT')");
+        SQLMessage sqlMessage = new SQLMessage(sql);
         client.send(sqlMessage);
     }
 }
