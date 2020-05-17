@@ -1,8 +1,4 @@
-package com.github.taojintianxia.consensus.ratis.mysqlreplicated.constant;
-
-import com.google.common.collect.Lists;
-
-import java.util.List;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.constant;
 
 /**
  * @author Nianjun Sun

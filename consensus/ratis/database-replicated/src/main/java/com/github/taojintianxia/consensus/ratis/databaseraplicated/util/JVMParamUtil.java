@@ -1,6 +1,6 @@
-package com.github.taojintianxia.consensus.ratis.mysqlreplicated.util;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.util;
 
-import com.github.taojintianxia.consensus.ratis.mysqlreplicated.constant.ParamConstant;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.constant.ParamConstant;
 import org.apache.ratis.protocol.RaftPeer;
 import org.apache.ratis.protocol.RaftPeerId;
 

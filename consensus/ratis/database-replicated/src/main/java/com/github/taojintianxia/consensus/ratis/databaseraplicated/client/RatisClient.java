@@ -1,4 +1,4 @@
-package com.github.taojintianxia.consensus.ratis.mysqlreplicated.client;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.client;
 
 import java.io.IOException;
 

@@ -1,8 +1,8 @@
-package com.github.taojintianxia.consensus.ratis.mysqlreplicated.server;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.server;
 
-import com.github.taojintianxia.consensus.ratis.mysqlreplicated.constant.ParamConstant;
-import com.github.taojintianxia.consensus.ratis.mysqlreplicated.statemachine.MySQLReplicatedStateMachine;
-import com.github.taojintianxia.consensus.ratis.mysqlreplicated.util.JVMParamUtil;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.constant.ParamConstant;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.statemachine.MySQLReplicatedStateMachine;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.util.JVMParamUtil;
 import org.apache.ratis.conf.RaftProperties;
 import org.apache.ratis.grpc.GrpcConfigKeys;
 import org.apache.ratis.protocol.RaftGroup;

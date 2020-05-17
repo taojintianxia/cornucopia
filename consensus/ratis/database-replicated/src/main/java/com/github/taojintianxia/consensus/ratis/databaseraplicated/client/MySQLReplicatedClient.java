@@ -1,7 +1,7 @@
-package com.github.taojintianxia.consensus.ratis.mysqlreplicated.client;
+package com.github.taojintianxia.consensus.ratis.databaseraplicated.client;
 
-import com.github.taojintianxia.consensus.ratis.mysqlreplicated.message.SQLMessage;
-import com.github.taojintianxia.consensus.ratis.mysqlreplicated.util.JVMParamUtil;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.message.SQLMessage;
+import com.github.taojintianxia.consensus.ratis.databaseraplicated.util.JVMParamUtil;
 import org.apache.ratis.client.RaftClient;
 import org.apache.ratis.conf.Parameters;
 import org.apache.ratis.conf.RaftProperties;
