@@ -12,7 +12,7 @@
     <artifactId>ratis</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>mysql-replicated</module>
+        <module>database-replicated</module>
     </modules>
 
 
