@@ -18,3 +18,6 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
     
 #### Shardingsphere
   - [Sharding JDBC](https://github.com/taojintianxia/cornucopia/tree/master/shardingsphere/)
+
+#### Consensus
+  - [Ratis 数据多写](https://github.com/taojintianxia/cornucopia/tree/master/consensus/ratis/database-replicated)
