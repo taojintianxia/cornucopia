@@ -1,4 +1,4 @@
-package com.github.taojintianxia.consensus.ratis.databaseraplicated.message;
+package com.github.taojintianxia.consensus.ratis.databasereplicated.server.message;
 
 import org.apache.ratis.protocol.Message;
 import org.apache.ratis.thirdparty.com.google.protobuf.ByteString;

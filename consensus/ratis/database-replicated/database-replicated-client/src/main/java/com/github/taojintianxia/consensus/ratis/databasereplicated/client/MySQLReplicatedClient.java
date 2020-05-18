@@ -1,8 +1,8 @@
-package com.github.taojintianxia.consensus.ratis.databaseraplicated.client;
+package com.github.taojintianxia.consensus.ratis.databasereplicated.client;
 
-import com.github.taojintianxia.consensus.ratis.databaseraplicated.api.client.RatisClient;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.message.SQLMessage;
 import com.github.taojintianxia.consensus.ratis.databaseraplicated.util.JVMParamUtil;
+import com.github.taojintianxia.consensus.ratis.databasereplicated.client.api.ReplicatedClient;
 import org.apache.ratis.client.RaftClient;
 import org.apache.ratis.conf.Parameters;
 import org.apache.ratis.conf.RaftProperties;
@@ -18,10 +18,10 @@ import java.io.IOException;
  * @author Nianjun Sun
  * @date 2020/5/6 14:45
  */
-public class MySQLReplicatedClient implements RatisClient {
+public class MySQLReplicatedClient implements ReplicatedClient {
 
     @Override
-    public void run(String sql) throws IOException {
+    public long execute(String sql) throws IOException {
         String raftGroupId = "demoRaftGroup123";
         RaftProperties raftProperties = new RaftProperties();
         final RaftGroup raftGroup = RaftGroup
@@ -33,5 +33,6 @@ public class MySQLReplicatedClient implements RatisClient {
         RaftClient client = builder.build();
         SQLMessage sqlMessage = new SQLMessage(sql);
         client.send(sqlMessage);
+        return 1L;
     }
 }

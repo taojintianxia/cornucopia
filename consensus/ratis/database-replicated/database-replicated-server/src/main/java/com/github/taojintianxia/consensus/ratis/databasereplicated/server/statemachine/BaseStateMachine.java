@@ -1,4 +1,4 @@
-package com.github.taojintianxia.consensus.ratis.databaseraplicated.statemachine;
+package com.github.taojintianxia.consensus.ratis.databasereplicated.server.statemachine;
 
 import com.codahale.metrics.Timer;
 import org.apache.ratis.proto.RaftProtos;
@@ -201,7 +201,7 @@ public class BaseStateMachine implements StateMachine {
                 + (!server.isDone() ? "uninitialized" : getId() + ":" + groupId);
     }
 
-    protected CompletableFuture<Message> recordTime(Timer timer, com.github.taojintianxia.consensus.ratis.databaseraplicated.statemachine.BaseStateMachine.Task task) {
+    protected CompletableFuture<Message> recordTime(Timer timer, Task task) {
         final Timer.Context timerContext = timer.time();
         try {
             return task.run();
