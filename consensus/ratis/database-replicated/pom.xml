@@ -11,8 +11,8 @@
     <artifactId>database-replicated</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>database-replicated-server</module>
         <module>database-replicated-client</module>
-        <module>database-raplicated-server</module>
     </modules>
 
     <dependencies>
