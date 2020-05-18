@@ -57,11 +57,18 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
         <!-- replicated common -->
         <dependency>
             <groupId>com.github.taojintianxia.cornucopia</groupId>
             <artifactId>database-replicated-common</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
         </dependency>
     </dependencies>
 </project>

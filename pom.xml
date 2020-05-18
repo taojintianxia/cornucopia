@@ -57,6 +57,7 @@
         <nacos-config-spring-boot-starter.version>0.1.3</nacos-config-spring-boot-starter.version>
         <testcontainers.version>1.13.0</testcontainers.version>
         <okhttp.version>4.5.0</okhttp.version>
+        <snakeyaml.version>1.26</snakeyaml.version>
     </properties>
 
     <dependencyManagement>
@@ -296,6 +297,13 @@
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
+            </dependency>
+
+            <!-- snakeyaml -->
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
