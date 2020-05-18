@@ -1,6 +1,6 @@
 package com.github.taojintianxia.consensus.ratis.databasereplicated.server.statemachine;
 
-import com.github.taojintianxia.consensus.ratis.databaseraplicated.message.SQLMessage;
+import com.github.taojintianxia.consensus.ratis.databasereplicated.common.message.SQLMessage;
 import org.apache.ratis.examples.arithmetic.expression.Expression;
 import org.apache.ratis.proto.RaftProtos;
 import org.apache.ratis.protocol.Message;

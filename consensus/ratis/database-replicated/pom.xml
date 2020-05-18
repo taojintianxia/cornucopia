@@ -13,6 +13,7 @@
     <modules>
         <module>database-replicated-server</module>
         <module>database-replicated-client</module>
+        <module>database-replicated-common</module>
     </modules>
 
     <dependencies>

@@ -56,7 +56,14 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <version>1.18.12</version>
+        </dependency>
+
+        <!-- replicated common -->
+        <dependency>
+            <groupId>com.github.taojintianxia.cornucopia</groupId>
+            <artifactId>database-replicated-common</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
