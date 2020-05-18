@@ -2,6 +2,7 @@ package com.github.taojintianxia.consensus.ratis.databasereplicated.client.util;
 
 import com.github.taojintianxia.consensus.ratis.databasereplicated.client.configuration.ClientYamlConfiguration;
 import com.github.taojintianxia.consensus.ratis.databasereplicated.client.constant.ClientConstant;
+import com.google.common.io.Resources;
 import lombok.SneakyThrows;
 import org.yaml.snakeyaml.Yaml;
 
@@ -16,7 +17,9 @@ public class ConfigurationUtil {
 
     @SneakyThrows
     public static ClientYamlConfiguration loadClientYamlConfiguration() {
-        InputStream inputStream = new FileInputStream(ClientConstant.CLIENT_YAML_CONFIG_PATH);
-        return new Yaml().loadAs(inputStream, ClientYamlConfiguration.class);
+        try (InputStream inputStream = new FileInputStream(
+                Resources.getResource(ClientConstant.CLIENT_YAML_CONFIG_PATH).getFile())) {
+            return new Yaml().loadAs(inputStream, ClientYamlConfiguration.class);
+        }
     }
 }
