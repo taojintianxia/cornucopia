@@ -12,4 +12,6 @@ import java.util.List;
 public class ClientYamlConfiguration {
 
     private List<String> peers;
+
+    private String raftGroupId;
 }
