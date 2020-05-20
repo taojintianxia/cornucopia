@@ -13,7 +13,7 @@ import java.io.InputStream;
  * @author Nianjun Sun
  * @date 2020/5/18 18:38
  */
-public class ConfigurationUtil {
+public class ClientConfigurationUtil {
 
     @SneakyThrows
     public static ClientYamlConfiguration loadClientYamlConfiguration() {

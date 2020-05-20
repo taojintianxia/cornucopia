@@ -2,7 +2,7 @@ package com.github.taojintianxia.consensus.ratis.databasereplicated.client;
 
 import com.github.taojintianxia.consensus.ratis.databasereplicated.client.api.ReplicatedClient;
 import com.github.taojintianxia.consensus.ratis.databasereplicated.client.configuration.ClientConfiguration;
-import com.github.taojintianxia.consensus.ratis.databasereplicated.client.util.ConfigurationUtil;
+import com.github.taojintianxia.consensus.ratis.databasereplicated.client.util.ClientConfigurationUtil;
 import com.github.taojintianxia.consensus.ratis.databasereplicated.common.message.SQLMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ratis.client.RaftClient;
@@ -24,7 +24,7 @@ public class MySQLReplicatedClient implements ReplicatedClient {
     @Override
     public long execute(String sql) throws IOException {
         ClientConfiguration clientConfiguration = new ClientConfiguration()
-                .swap(ConfigurationUtil.loadClientYamlConfiguration());
+                .swap(ClientConfigurationUtil.loadClientYamlConfiguration());
         RaftProperties raftProperties = new RaftProperties();
         RaftClient.Builder builder = RaftClient.newBuilder().setProperties(raftProperties);
         builder.setRaftGroup(clientConfiguration.getRaftGroup());

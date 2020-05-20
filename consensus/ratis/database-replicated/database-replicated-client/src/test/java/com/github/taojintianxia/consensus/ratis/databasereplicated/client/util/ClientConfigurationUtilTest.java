@@ -11,11 +11,11 @@ import static org.junit.Assert.assertNotNull;
  * @date 2020/5/18 18:47
  */
 
-public class ConfigurationUtilTest {
+public class ClientConfigurationUtilTest {
 
     @Test
     public void testLoadClientYamlConfiguration() {
-        ClientYamlConfiguration clientYamlConfiguration = ConfigurationUtil.loadClientYamlConfiguration();
+        ClientYamlConfiguration clientYamlConfiguration = ClientConfigurationUtil.loadClientYamlConfiguration();
         assertNotNull("clientYamlConfiguration should not be null", clientYamlConfiguration);
         assertFalse("peers should not be empty", clientYamlConfiguration.getPeers().isEmpty());
     }
