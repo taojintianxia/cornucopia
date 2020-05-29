@@ -7,17 +7,21 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
 
 - - -
 
+#### Code Generator
+  - Freemarker
+    -[Java Generator](code-generator/freemarker/java-generator)
+
 #### Configuration
   - Nacos
-    - [nacos 例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/nacos-example)
+    - [nacos 例子](configuration-example/nacos-example)
   - Apollo
-    - [apollo 例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/apollo-example)
+    - [apollo 例子](configuration-example/apollo-example)
     - spring cloud example
   - Spring Cloud Config
-    - [spring cloud config 的例子](https://github.com/taojintianxia/cornucopia/tree/master/configuration-example/spring-cloud-config-example)
+    - [spring cloud config 的例子](configuration-example/spring-cloud-config-example)
     
 #### Shardingsphere
-  - [Sharding JDBC](https://github.com/taojintianxia/cornucopia/tree/master/shardingsphere/)
+  - [Sharding JDBC](shardingsphere/)
 
 #### Consensus
-  - [Ratis 数据多写](https://github.com/taojintianxia/cornucopia/tree/master/consensus/ratis/database-replicated)
+  - [Ratis 数据多写](consensus/ratis/database-replicated)
