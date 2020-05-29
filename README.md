@@ -19,7 +19,6 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
     - [nacos 例子](configuration-example/nacos-example)
   - Apollo
     - [apollo 例子](configuration-example/apollo-example)
-    - spring cloud example
   - Spring Cloud Config
     - [spring cloud config 的例子](configuration-example/spring-cloud-config-example)
     
