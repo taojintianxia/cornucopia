@@ -6,11 +6,11 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
 - - -
 
 - [Configuration](#Configuration)
-- [Code Generator](#CodeGenerator)
+- [Code Generator](#Code-Generator)
 
 - - -
 
-#### CodeGenerator
+#### Code-Generator
   - Freemarker
     - [Java Generator](code-generator/freemarker/java-generator)
 
