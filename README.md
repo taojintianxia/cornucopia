@@ -10,7 +10,7 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
 
 #### CodeGenerator
   - Freemarker
-    -[Java Generator](code-generator/freemarker/java-generator)
+    - [Java Generator](code-generator/freemarker/java-generator)
 
 #### Configuration
   - Nacos
