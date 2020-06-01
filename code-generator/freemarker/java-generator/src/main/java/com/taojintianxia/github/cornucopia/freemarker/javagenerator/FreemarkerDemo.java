@@ -16,7 +16,7 @@ import java.util.Map;
  * @date 2020/5/29 18:29
  */
 public class FreemarkerDemo {
-    private static final String TEMPLATE_PATH = "src/main/resources/template";
+    private static final String TEMPLATE_PATH = "";
     private static final String CLASS_PATH = "com.taojintianxia.github.cornucopia.freemarker.javagenerator/hello";
 
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class FreemarkerDemo {
             dataMap.put("userName", "userName");
             dataMap.put("password","password");
             // step4 加载模版文件
-            Template template = configuration.getTemplate("test.ftl");
+            Template template = configuration.getTemplate("java.ftl");
             // step5 生成数据
             File docFile = new File(CLASS_PATH + "\\" + "User.java");
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
