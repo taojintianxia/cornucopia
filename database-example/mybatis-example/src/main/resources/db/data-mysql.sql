@@ -1,8 +1,8 @@
-DELETE FROM user;
+truncate demo_ds.t_order;
 
-INSERT INTO user (id, name, age, email) VALUES
-(1, 'Jone', 18, 'test1@baomidou.com'),
-(2, 'Jack', 20, 'test2@baomidou.com'),
-(3, 'Tom', 28, 'test3@baomidou.com'),
-(4, 'Sandy', 21, 'test4@baomidou.com'),
-(5, 'Billie', 24, 'test5@baomidou.com');
+INSERT INTO demo_ds.t_order (id, user_id, status)
+VALUES (1, 35, 'init'),
+       (2, 12, 'init'),
+       (3, 28, 'init'),
+       (4, 21, 'run'),
+       (5, 24, 'finished');
