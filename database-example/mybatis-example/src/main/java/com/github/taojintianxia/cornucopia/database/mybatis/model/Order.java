@@ -7,13 +7,11 @@ import lombok.Data;
  * @date 2020/3/12 12:52
  */
 @Data
-public class User {
-
+public class Order {
+    
     private Long id;
-
-    private String name;
-
-    private Integer age;
-
-    private String email;
+    
+    private Integer userId;
+    
+    private String status;
 }
