@@ -13,4 +13,8 @@ public interface OrderService {
     List<Order> listAll();
     
     List<Order> listOrdersByUserIds(List<Integer> userIdList);
+    
+    int insert(Order order);
+    
+    int batchInsert(List<Order> orderList);
 }

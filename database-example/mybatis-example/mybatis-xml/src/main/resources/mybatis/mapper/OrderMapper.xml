@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.github.taojintianxia.cornucopia.database.mybatis.mapper.OrderMapper">
-    <resultMap id="BaseResultMap" type="com.github.taojintianxia.cornucopia.database.mybatis.model.Order">
+    <resultMap id="BaseResultMap" type="Order">
         <id column="id" property="id" jdbcType="BIGINT"/>
         <result column="user_id" property="userId" jdbcType="INTEGER"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
@@ -16,6 +16,18 @@
         <include refid="Base_Column_List"/>
         FROM t_order;
     </select>
+
+    <insert id="insert" parameterType="Order">
+        insert into t_order(<include refid="Base_Column_List"/>)
+        values (null, #{userId}, #{status})
+    </insert>
+
+    <insert id="batchInsert">
+        insert into t_order(<include refid="Base_Column_List"/>) values
+        <foreach collection="orderList" item="order" separator=",">
+            (null, #{order.userId}, #{order.status})
+        </foreach>
+    </insert>
 
     <select id="listByUserIds" resultMap="BaseResultMap">
         SELECT
