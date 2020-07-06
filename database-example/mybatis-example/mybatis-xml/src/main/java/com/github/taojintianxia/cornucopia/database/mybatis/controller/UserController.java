@@ -39,10 +39,7 @@ public class UserController {
     
     @RequestMapping("/createOrders")
     public boolean createOrders() {
-        for(int i =0 ; i < 10000 ; i++){
-            List<Order> orderList = DataUtil.generateOrderList(200);
-             orderService.batchInsert(orderList) ;
-        }
-        return true;
+        List<Order> orderList = DataUtil.generateOrderList(200);
+        return orderService.batchInsert(orderList) > 0;
     }
 }
