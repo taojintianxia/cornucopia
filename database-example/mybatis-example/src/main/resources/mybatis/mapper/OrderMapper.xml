@@ -8,7 +8,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id, userId, status
+        id, user_id, status
     </sql>
 
     <select id="listAll" resultMap="BaseResultMap">
