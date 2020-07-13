@@ -13,7 +13,7 @@
 
     <modules>
         <module>nacos-example</module>
-        <module>spring-cloud-config-example</module>
-        <module>apollo-example</module>
+        <module>spring-cloud-config</module>
+        <module>apollo</module>
     </modules>
 </project>
