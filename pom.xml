@@ -8,9 +8,8 @@
 
     <modules>
         <module>configuration</module>
-        <module>shardingsphere-example</module>
         <module>container</module>
-        <module>unit-test-example</module>
+        <module>unit-test</module>
         <module>database</module>
         <module>network</module>
         <module>security</module>
