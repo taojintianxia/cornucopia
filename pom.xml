@@ -11,7 +11,7 @@
         <module>shardingsphere-example</module>
         <module>container</module>
         <module>unit-test-example</module>
-        <module>database-example</module>
+        <module>database</module>
         <module>network-example</module>
         <module>security</module>
         <module>microservice-example</module>
