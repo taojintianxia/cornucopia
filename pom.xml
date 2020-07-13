@@ -7,13 +7,12 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <modules>
-        <module>configuration-example</module>
+        <module>configuration</module>
         <module>shardingsphere-example</module>
         <module>container</module>
         <module>unit-test-example</module>
         <module>database-example</module>
         <module>network-example</module>
-        <module>database-protocol-example</module>
         <module>security-example</module>
         <module>microservice-example</module>
         <module>spring-boot</module>
@@ -21,6 +20,7 @@
         <module>libraries</module>
         <module>consensus</module>
         <module>code-generator</module>
+        <module>protocol</module>
     </modules>
 
     <!-- properties -->
