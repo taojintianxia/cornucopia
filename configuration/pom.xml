@@ -8,11 +8,11 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>configuration-example</artifactId>
+    <artifactId>configuration</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>nacos-example</module>
+        <module>nacos</module>
         <module>spring-cloud-config</module>
         <module>apollo</module>
     </modules>
