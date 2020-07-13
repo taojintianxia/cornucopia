@@ -12,7 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>cornucopia-example-spring-boot-starter</module>
-        <module>cornucopia-application</module>
+        <module>spring-boot-starter</module>
+        <module>spring-boot-application</module>
     </modules>
 </project>
