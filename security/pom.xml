@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>vault-example</module>
+        <module>vault</module>
     </modules>
-
 </project>

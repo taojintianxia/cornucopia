@@ -13,7 +13,7 @@
         <module>unit-test-example</module>
         <module>database-example</module>
         <module>network-example</module>
-        <module>security-example</module>
+        <module>security</module>
         <module>microservice-example</module>
         <module>spring-boot</module>
         <module>shardingsphere</module>
