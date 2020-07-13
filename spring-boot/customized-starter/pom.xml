@@ -3,18 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>springboot-example</artifactId>
-        <groupId>com.github.taojintianxia</groupId>
+        <artifactId>spring-boot</artifactId>
+        <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>customized-starter-example</artifactId>
+    <artifactId>customized-starter</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>cornucopia-example-spring-boot-starter</module>
         <module>cornucopia-application</module>
     </modules>
-
-
 </project>

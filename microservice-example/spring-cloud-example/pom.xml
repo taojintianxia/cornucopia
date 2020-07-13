@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>microservice-example</artifactId>
-        <groupId>com.github.taojintianxia</groupId>
+        <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -14,6 +14,5 @@
     <modules>
         <module>zuul-example</module>
         <module>ribbon-example</module>
-        <module>eureka-feign-example</module>
     </modules>
 </project>
