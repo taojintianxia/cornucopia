@@ -12,7 +12,7 @@
         <module>container</module>
         <module>unit-test-example</module>
         <module>database</module>
-        <module>network-example</module>
+        <module>network</module>
         <module>security</module>
         <module>microservice</module>
         <module>spring-boot</module>
