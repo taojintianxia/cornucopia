@@ -16,11 +16,11 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
 
 #### Configuration
   - Nacos
-    - [nacos 例子](configuration-example/nacos-example)
+    - [nacos 例子](configuration/nacos)
   - Apollo
-    - [apollo 例子](configuration-example/apollo-example)
+    - [apollo 例子](configuration/apollo)
   - Spring Cloud Config
-    - [spring cloud config 的例子](configuration-example/spring-cloud-config-example)
+    - [spring cloud config 的例子](configuration/spring-cloud-config)
     
 #### ShardingSphere
   - [Sharding JDBC](shardingsphere)
