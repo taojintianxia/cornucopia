@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>database-replicated</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>database-replicated-server</module>
         <module>database-replicated-client</module>

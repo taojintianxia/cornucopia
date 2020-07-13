@@ -9,7 +9,7 @@
     <modules>
         <module>configuration-example</module>
         <module>shardingsphere-example</module>
-        <module>container-example</module>
+        <module>container</module>
         <module>unit-test-example</module>
         <module>database-example</module>
         <module>network-example</module>

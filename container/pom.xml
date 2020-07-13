@@ -3,18 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>container-example</artifactId>
+        <artifactId>cornucopia</artifactId>
         <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>testcontainers-java-example</artifactId>
+    <artifactId>container</artifactId>
+    <packaging>pom</packaging>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>testcontainers-java</module>
+    </modules>
 </project>
