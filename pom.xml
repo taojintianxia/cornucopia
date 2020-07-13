@@ -14,7 +14,7 @@
         <module>database</module>
         <module>network-example</module>
         <module>security</module>
-        <module>microservice-example</module>
+        <module>microservice</module>
         <module>spring-boot</module>
         <module>shardingsphere</module>
         <module>libraries</module>
