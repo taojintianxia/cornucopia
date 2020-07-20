@@ -13,13 +13,14 @@
         <module>database</module>
         <module>network</module>
         <module>security</module>
-        <module>microservice</module>
+        <module>spring-cloud</module>
         <module>spring-boot</module>
         <module>shardingsphere</module>
         <module>libraries</module>
         <module>consensus</module>
         <module>code-generator</module>
         <module>protocol</module>
+        <module>spring-cloud-alibaba</module>
     </modules>
 
     <!-- properties -->
