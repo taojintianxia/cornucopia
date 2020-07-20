@@ -1,4 +1,4 @@
-package com.taojintianxia.cornucopia.springcloud.alibaba.dubbo.api.service;
+package com.github.taojintianxia.cornucopia.springcloud.alibaba.dubbo.api.entity;
 
 import lombok.Data;
 

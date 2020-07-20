@@ -1,4 +1,6 @@
-package com.taojintianxia.cornucopia.springcloud.alibaba.dubbo.api.service;
+package com.github.taojintianxia.cornucopia.springcloud.alibaba.dubbo.api.service;
+
+import com.github.taojintianxia.cornucopia.springcloud.alibaba.dubbo.api.entity.User;
 
 /**
  * @author Nianjun Sun
