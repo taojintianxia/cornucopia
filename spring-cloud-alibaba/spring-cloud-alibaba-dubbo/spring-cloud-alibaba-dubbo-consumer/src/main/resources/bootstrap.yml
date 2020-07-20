@@ -1,8 +1,11 @@
 spring:
   application:
-    name: spring-cloud-alibaba-dubbo-provider
+    name: spring-cloud-alibaba-dubbo-consumer
   main:
     allow-bean-definition-overriding: true
+  sentinel:
+    transport:
+      dashboard: localhost:9999
   cloud:
     nacos:
       discovery:
@@ -11,11 +14,11 @@ spring:
         server-addr: 127.0.0.1:8848
 
 server:
-  port: 8890
+  port: 8891
 
 dubbo:
   scan:
-    base-packages: com.github.taojintianxia.cornucopia.springcloud.alibaba.provider.service
+    base-packages: com.github.taojintianxia.cornucopia.springcloud.alibaba.consumer.service
   protocol:
     name: dubbo
     port: -1
