@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Nianjun Sun
  */
 @SpringBootApplication
-public class SpringCloudAlibabaDubboConsumerApplication {
+public class ConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringCloudAlibabaDubboConsumerApplication.class, args);
+        SpringApplication.run(ConsumerApplication.class, args);
     }
 
 }
