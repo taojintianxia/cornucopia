@@ -3,15 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cornucopia</artifactId>
+        <artifactId>spring-cloud-dubbo</artifactId>
         <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-cloud-alibaba</artifactId>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>spring-cloud-alibaba-dubbo</module>
-    </modules>
+    <artifactId>spring-cloud-alibaba-dubbo-api</artifactId>
+
+
 </project>
