@@ -13,8 +13,8 @@
 
     <modules>
         <module>jdbc</module>
-        <module>h2</module>
         <module>mybatisplus</module>
         <module>mybatis</module>
+        <module>h2</module>
     </modules>
 </project>

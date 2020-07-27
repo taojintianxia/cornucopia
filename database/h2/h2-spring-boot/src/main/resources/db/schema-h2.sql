@@ -1,3 +1,5 @@
+drop schema if exists test;
+create schema test;
 drop table IF EXISTS state;
 
 create TABLE state
