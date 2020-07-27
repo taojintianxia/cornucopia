@@ -12,7 +12,6 @@
         <module>unit-test</module>
         <module>database</module>
         <module>network</module>
-        <module>security</module>
         <module>spring-cloud</module>
         <module>spring-boot</module>
         <module>shardingsphere</module>
