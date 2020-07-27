@@ -41,12 +41,13 @@ public class UserServiceImpl implements CRUDTemplate<User> {
     public void init() {
         Connection connection = ConnectionUtil.getConnection();
         Statement statement = connection.createStatement();
-        String sql = "CREATE TABLE IF NOT EXISTS t_order_# (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id))";
+        String sql = "UPDATE t_frozen_subaccount\n" + "      SET f_version = f_version + 1\n"
+                + "      WHERE f_id = 1000 and f_user_id = 1000 ;\n" + "\n"
+                + "      UPDATE t_subaccount SET f_version = f_version + 1\n"
+                + "      WHERE f_id = 2000 AND f_version = 2000 and f_user_id = 2000;";
 
-        for (int i = 0; i < 2000; i++) {
-            String executedSql = sql.replace("#", i + "");
-            System.out.println("the executed sql is " + executedSql);
-            statement.execute(executedSql);
-        }
+
+            statement.execute(sql);
+
     }
 }

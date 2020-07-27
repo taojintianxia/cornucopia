@@ -3,15 +3,15 @@ spring:
     name: spring-cloud-alibaba-dubbo-consumer
   main:
     allow-bean-definition-overriding: true
-  sentinel:
-    transport:
-      dashboard: localhost:9999
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
       config:
         server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8899
 
 server:
   port: 8891
