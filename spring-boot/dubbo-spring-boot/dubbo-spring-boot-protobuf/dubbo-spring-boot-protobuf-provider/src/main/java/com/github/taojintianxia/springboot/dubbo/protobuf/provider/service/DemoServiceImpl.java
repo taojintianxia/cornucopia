@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.taojintianxia.springboot.dubbo.protobuf.provider;
+package com.github.taojintianxia.springboot.dubbo.protobuf.provider.service;
 
 import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.demo.DemoServiceDubbo;
@@ -27,10 +27,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 
-@DubboService(version = "1.0.1")
+
 @Service
+@DubboService(version = "${demo.service.version}")
 public class DemoServiceImpl implements DemoServiceDubbo.IDemoService {
-    private static final Logger logger = LoggerFactory.getLogger(com.github.taojintianxia.springboot.dubbo.protobuf.provider.DemoServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
     @Override
     public HelloReply sayHello(HelloRequest request) {

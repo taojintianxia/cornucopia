@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: simple-dubbo-consumer-sample
+
+server:
+  port: 18081
+
+endpoints:
+  dubbo:
+    enabled: true
+    sensitive: false
+  dubboshutdown:
+    enabled: true
+  dubboconfigs:
+    enabled: true
+  dubboservices:
+    enabled: true
+  dubboreferences:
+    enabled: true
+  dubboproperties:
+    enabled: true
+
+demo:
+  service:
+    version: 1.0.0
+    url: dubbo://localhost:12345
