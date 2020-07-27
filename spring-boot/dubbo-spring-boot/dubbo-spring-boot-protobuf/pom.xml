@@ -25,7 +25,8 @@
         <dubbo.compiler.version>0.0.1</dubbo.compiler.version>
         <dubbo.version>2.7.7</dubbo.version>
         <dubbo-spring-boot-starter>2.7.7</dubbo-spring-boot-starter>
-        <spring-boot.version>1.5.22.RELEASE</spring-boot.version>    </properties>
+        <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -45,7 +46,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>1.5.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
