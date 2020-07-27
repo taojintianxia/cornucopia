@@ -16,19 +16,19 @@
  */
 package com.github.taojintianxia.springboot.dubbo.protobuff.consumer;
 
-import org.apache.dubbo.demo.DemoServiceDubbo.IDemoService;
-import org.apache.dubbo.demo.HelloReply;
-import org.apache.dubbo.demo.HelloRequest;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class ConsumerApplication {
     public static void main(String[] args) throws Exception {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-consumer.xml");
-        context.start();
-        IDemoService demoService = context.getBean("demoService", IDemoService.class);
-        HelloRequest request = HelloRequest.newBuilder().setName("Hello").build();
-        HelloReply reply = demoService.sayHello(request);
-        System.out.println("result: " + reply.getMessage());
-        System.in.read();
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/dubbo-consumer.xml");
+//        context.start();
+//        IDemoService demoService = context.getBean("demoService", IDemoService.class);
+//        HelloRequest request = HelloRequest.newBuilder().setName("Hello").build();
+//        HelloReply reply = demoService.sayHello(request);
+//        System.out.println("result: " + reply.getMessage());
+//        System.in.read();
+        SpringApplication.run(ConsumerApplication.class, args);
     }
 }

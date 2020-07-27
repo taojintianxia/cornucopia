@@ -23,10 +23,12 @@ import org.apache.dubbo.demo.HelloRequest;
 import org.apache.dubbo.rpc.RpcContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 
 @DubboService(version = "1.0.1")
+@Service
 public class DemoServiceImpl implements DemoServiceDubbo.IDemoService {
     private static final Logger logger = LoggerFactory.getLogger(com.github.taojintianxia.springboot.dubbo.protobuf.provider.DemoServiceImpl.class);
 
