@@ -16,6 +16,7 @@
  */
 package com.github.taojintianxia.springboot.dubbo.protobuf.provider;
 
+import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.demo.DemoServiceDubbo;
 import org.apache.dubbo.demo.HelloReply;
 import org.apache.dubbo.demo.HelloRequest;
@@ -25,6 +26,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.CompletableFuture;
 
+@DubboService(version = "1.0.1")
 public class DemoServiceImpl implements DemoServiceDubbo.IDemoService {
     private static final Logger logger = LoggerFactory.getLogger(com.github.taojintianxia.springboot.dubbo.protobuf.provider.DemoServiceImpl.class);
 
