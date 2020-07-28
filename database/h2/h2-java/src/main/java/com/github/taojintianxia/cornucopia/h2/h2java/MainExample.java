@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.h2java;
+package com.github.taojintianxia.cornucopia.h2.h2java;
 
 /**
  * @author Nianjun Sun

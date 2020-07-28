@@ -3,16 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cornucopia</artifactId>
+        <artifactId>network</artifactId>
         <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>network</artifactId>
-    <packaging>pom</packaging>
 
+    <artifactId>ok-http</artifactId>
+    <packaging>pom</packaging>
     <modules>
-        <module>netty</module>
-        <module>ok-http</module>
+        <module>ok-http-server</module>
+        <module>ok-http-client</module>
     </modules>
+
+
 </project>
