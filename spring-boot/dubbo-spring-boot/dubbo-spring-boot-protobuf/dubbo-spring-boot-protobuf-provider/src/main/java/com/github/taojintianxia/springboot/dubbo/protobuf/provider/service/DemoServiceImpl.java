@@ -35,10 +35,10 @@ public class DemoServiceImpl implements DemoServiceDubbo.IDemoService {
 
     @Override
     public HelloReply sayHello(HelloRequest request) {
-        logger.info("Hello " + request.getName() + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
-        return HelloReply.newBuilder()
-                .setMessage("Hello " + request.getName() + ", response from provider: "
-                        + RpcContext.getContext().getLocalAddress())
+        logger.info("Hello " + request.getName() + ", request from consumer: " + RpcContext.getContext()
+                .getRemoteAddress());
+        return HelloReply.newBuilder().setMessage(
+                "Hello " + request.getName() + ", response from provider: " + RpcContext.getContext().getLocalAddress())
                 .build();
     }
 
