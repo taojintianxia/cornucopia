@@ -18,7 +18,7 @@ public class DemoController {
     private DemoServiceDubbo.IDemoService demoService;
 
     @GetMapping("/provider/demoService")
-    public String sayHello(@RequestParam String name) {
+    public String sayHello(@RequestParam(defaultValue = "Kane") String name) {
         HelloRequest request = HelloRequest.newBuilder().setName(name).build();
         HelloReply helloReply = demoService.sayHello(request);
         return helloReply.getMessage();
