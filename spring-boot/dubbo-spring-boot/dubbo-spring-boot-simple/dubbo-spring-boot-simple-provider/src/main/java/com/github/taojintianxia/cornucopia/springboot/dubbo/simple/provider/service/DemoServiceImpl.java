@@ -32,14 +32,14 @@ import java.util.concurrent.CompletableFuture;
 @DubboService(version = "${demo.service.version}")
 public class DemoServiceImpl implements DemoServiceDubbo.IDemoService {
     private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
-
+    
     @Override
     public HelloReply sayHello(HelloRequest request) {
         logger.info("Hello " + request.getName() + ", request from consumer: " + RpcContext.getContext()
                 .getRemoteAddress());
         return HelloReply.newBuilder().setMessage("").build();
     }
-
+    
     @Override
     public CompletableFuture<HelloReply> sayHelloAsync(HelloRequest request) {
         return CompletableFuture.completedFuture(sayHello(request));
