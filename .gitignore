@@ -26,6 +26,8 @@ bin/
 *.diff
 *.patch
 *.tmp
+classes/
+build/
 
 # system ignore
 .DS_Store
