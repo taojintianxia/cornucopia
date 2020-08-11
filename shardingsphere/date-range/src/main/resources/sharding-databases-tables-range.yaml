@@ -1,0 +1,33 @@
+
+dataSources:
+  ds_0: !!com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/date_range_0?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+  ds_1: !!com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/date_range_1?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+
+shardingRule:
+  tables:
+    t_order: 
+      actualDataNodes: ds_${0..1}.t_order_$->{2020}$->{['01','02','03','04','05','06','07','08','09','10','11','12']}
+      tableStrategy:
+        complex:
+          algorithmClassName: com.github.taojintianxia.cornucopia.shardingsphere.datarange.algorithm.MonthRangeShardingAlgorithm
+      keyGenerator:
+        type: SNOWFLAKE
+        column: order_id
+        props:
+          worker.id: 123        
+
+  defaultDatabaseStrategy:
+    none:
+  defaultTableStrategy:
+    none:
+
+props:
+  sql.show: false
