@@ -3,19 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cornucopia</artifactId>
+        <artifactId>shardingsphere</artifactId>
         <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>shardingsphere</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>date-range</artifactId>
 
-    <modules>
-        <module>sharding-jdbc</module>
-        <module>shardingsphere-common</module>
-        <module>strategy</module>
-        <module>preciseStrategy</module>
-        <module>date-range</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-core-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>
