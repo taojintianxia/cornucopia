@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.shardingsphere.datarange.algorithm;
+package com.github.taojintianxia.cornucopia.shardingsphere.datarange.algorithm.table;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.datarange.util.DateRangeShardingUtil;
 import com.google.common.collect.Range;
@@ -13,19 +13,18 @@ import java.util.Set;
 /**
  * @author Nianjun Sun
  */
-public class DayRangeShardingAlgorithm implements ComplexKeysShardingAlgorithm<Long> {
+public class MonthRangeTableShardingAlgorithm implements ComplexKeysShardingAlgorithm<Long> {
 
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames,
             ComplexKeysShardingValue<Long> shardingValue) {
         Set<String> result = new LinkedHashSet<>();
-        Map<String, Collection<Long>> columnNameAndShardingValuesMap = shardingValue
-                .getColumnNameAndShardingValuesMap();
+        Map<String, Collection<Long>> columnNameAndShardingValuesMap = shardingValue.getColumnNameAndShardingValuesMap();
         Map<String, Range<Long>> columnNameAndRangeValuesMap = shardingValue.getColumnNameAndRangeValuesMap();
         if (!columnNameAndShardingValuesMap.isEmpty()) {
             columnNameAndShardingValuesMap.forEach((key, value) -> {
                 value.forEach(time -> {
-                    result.add(shardingValue.getLogicTableName() + "_" + DateRangeShardingUtil.getDateFromTime(time));
+                    result.add(shardingValue.getLogicTableName() + "_" + DateRangeShardingUtil.getToMonthFromTime(time));
                 });
             });
         } else if (!columnNameAndRangeValuesMap.isEmpty()) {

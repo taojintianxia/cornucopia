@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.shardingsphere.datarange.algorithm;
+package com.github.taojintianxia.cornucopia.shardingsphere.datarange.algorithm.table;
 
 import com.github.taojintianxia.cornucopia.shardingsphere.datarange.util.DateRangeShardingUtil;
 import com.google.common.collect.Range;
@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * @author Nianjun Sun
  */
-public class MonthRangeShardingAlgorithm implements ComplexKeysShardingAlgorithm<Long> {
+public class DayRangeTableShardingAlgorithm implements ComplexKeysShardingAlgorithm<Long> {
 
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames,
@@ -25,7 +25,7 @@ public class MonthRangeShardingAlgorithm implements ComplexKeysShardingAlgorithm
         if (!columnNameAndShardingValuesMap.isEmpty()) {
             columnNameAndShardingValuesMap.forEach((key, value) -> {
                 value.forEach(time -> {
-                    result.add(shardingValue.getLogicTableName() + "_" + DateRangeShardingUtil.getToMonthFromTime(time));
+                    result.add(shardingValue.getLogicTableName() + "_" + DateRangeShardingUtil.getDateFromTime(time));
                 });
             });
         } else if (!columnNameAndRangeValuesMap.isEmpty()) {
