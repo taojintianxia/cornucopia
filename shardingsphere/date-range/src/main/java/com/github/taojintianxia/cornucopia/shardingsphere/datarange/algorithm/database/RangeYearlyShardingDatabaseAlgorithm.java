@@ -32,13 +32,13 @@ public final class RangeYearlyShardingDatabaseAlgorithm implements RangeSharding
         Set<String> result = new LinkedHashSet<>();
         if (Range.closed(1, 5).encloses(shardingValueRange.getValueRange())) {
             for (String each : databaseNames) {
-                if (each.endsWith("2019")) {
+                if (each.endsWith("0")) {
                     result.add(each);
                 }
             }
         } else if (Range.closed(6, 10).encloses(shardingValueRange.getValueRange())) {
             for (String each : databaseNames) {
-                if (each.endsWith("2020")) {
+                if (each.endsWith("1")) {
                     result.add(each);
                 }
             }
