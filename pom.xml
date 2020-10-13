@@ -20,6 +20,7 @@
         <module>code-generator</module>
         <module>protocol</module>
         <module>spring-cloud-alibaba</module>
+        <module>jdk</module>
     </modules>
 
     <!-- properties -->
