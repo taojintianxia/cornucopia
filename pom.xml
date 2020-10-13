@@ -51,7 +51,7 @@
         <httpasyncclient.version>4.1</httpasyncclient.version>
         <fluent-hc.version>4.5.1</fluent-hc.version>
         <joda-time.version>2.9.3</joda-time.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <guava.version>29.0-jre</guava.version>
         <ratis.version>0.5.0</ratis.version>
         <ratis-thirdparty-misc.version>0.4.0</ratis-thirdparty-misc.version>
