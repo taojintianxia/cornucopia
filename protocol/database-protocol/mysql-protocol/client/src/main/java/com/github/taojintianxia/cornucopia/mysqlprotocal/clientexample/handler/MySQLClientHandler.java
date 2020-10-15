@@ -1,4 +1,4 @@
-package com.github.taojintianxia.mysqlprotocal.clientexample.handler;
+package com.github.taojintianxia.cornucopia.mysqlprotocal.clientexample.handler;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufUtil;

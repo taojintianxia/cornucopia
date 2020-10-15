@@ -1,6 +1,6 @@
-package com.github.taojintianxia.mysqlprotocal.clientexample;
+package com.github.taojintianxia.cornucopia.mysqlprotocal.clientexample;
 
-import com.github.taojintianxia.mysqlprotocal.clientexample.handler.MySQLClientHandler;
+import com.github.taojintianxia.cornucopia.mysqlprotocal.clientexample.handler.MySQLClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
