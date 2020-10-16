@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.testcontainer.mysql.container;
+package com.github.taojintianxia.cornucopia.testcontainers.mysql.container;
 
 import org.testcontainers.containers.FixedHostPortGenericContainer;
 
