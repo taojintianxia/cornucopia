@@ -1,4 +1,4 @@
-package com.github.taojintianxia.testcontainersjavaexample.mongodb.container;
+package com.github.taojintianxia.cornucopia.testcontainer.mongodb.container;
 
 import org.jetbrains.annotations.NotNull;
 import org.testcontainers.containers.Container;

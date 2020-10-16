@@ -1,6 +1,6 @@
-package com.github.taojintianxia.testcontainersjavaexample.mysql;
+package com.github.taojintianxia.cornucopia.testcontainer.mysql;
 
-import com.github.taojintianxia.testcontainersjavaexample.mysql.container.MySQLContainer;
+import com.github.taojintianxia.cornucopia.testcontainer.mysql.container.MySQLContainer;
 import org.junit.Test;
 
 /**

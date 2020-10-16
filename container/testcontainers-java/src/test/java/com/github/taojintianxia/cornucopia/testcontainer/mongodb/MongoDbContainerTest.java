@@ -1,6 +1,6 @@
-package com.github.taojintianxia.testcontainersjavaexample.mongodb;
+package com.github.taojintianxia.cornucopia.testcontainer.mongodb;
 
-import com.github.taojintianxia.testcontainersjavaexample.mongodb.container.MongoDbContainer;
+import com.github.taojintianxia.cornucopia.testcontainer.mongodb.container.MongoDbContainer;
 import org.junit.Test;
 
 import java.io.IOException;
