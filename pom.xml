@@ -51,7 +51,7 @@
         <joda-time.version>2.10.6</joda-time.version>
         <junit.version>4.13.1</junit.version>
         <guava.version>29.0-jre</guava.version>
-        <ratis.version>1.0.0</ratis.version>
+        <ratis.version>0.5.0</ratis.version>
         <ratis-thirdparty-misc.version>0.5.0</ratis-thirdparty-misc.version>
         <slf4j.version>1.7.30</slf4j.version>
         <logback.version>1.2.3</logback.version>
