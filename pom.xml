@@ -62,7 +62,6 @@
         <testcontainers.version>1.14.3</testcontainers.version>
         <okhttp.version>4.9.0</okhttp.version>
         <snakeyaml.version>1.27</snakeyaml.version>
-        <spring-boot-maven-plugin.version>2.4.4</spring-boot-maven-plugin.version>
         <!-- plugins properties -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
@@ -318,13 +317,6 @@
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
                 <version>${snakeyaml.version}</version>
-            </dependency>
-
-            <!-- spring-boot-maven-plugi -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot-maven-plugin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
