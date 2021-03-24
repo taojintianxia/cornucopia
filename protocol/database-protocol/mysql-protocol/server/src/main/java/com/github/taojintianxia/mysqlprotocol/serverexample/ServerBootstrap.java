@@ -1,4 +1,4 @@
-package com.github.taojintianxia.mysqlprotocal.serverexample;
+package com.github.taojintianxia.mysqlprotocol.serverexample;
 
 /**
  * @author Nianjun Sun
