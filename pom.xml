@@ -30,7 +30,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
-        <springboot.version>1.5.22.RELEASE</springboot.version>
+        <springboot.version>2.4.4.RELEASE</springboot.version>
         <mybatis-spring-boot-starter.version>1.3.5</mybatis-spring-boot-starter.version>
         <mybatis-plus-boot-starter.version>3.3.0</mybatis-plus-boot-starter.version>
         <spring-cloud-dependencies.version>Edgware.SR6</spring-cloud-dependencies.version>
@@ -62,7 +62,7 @@
         <testcontainers.version>1.14.3</testcontainers.version>
         <okhttp.version>4.9.0</okhttp.version>
         <snakeyaml.version>1.27</snakeyaml.version>
-
+        <spring-boot-maven-plugin.version>2.4.4</spring-boot-maven-plugin.version>
         <!-- plugins properties -->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
@@ -318,6 +318,13 @@
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
                 <version>${snakeyaml.version}</version>
+            </dependency>
+
+            <!-- spring-boot-maven-plugi -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot-maven-plugin.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
