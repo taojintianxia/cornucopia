@@ -1,14 +1,21 @@
 # DataSource Config
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    schema: classpath:db/schema-h2.sql
-    data: classpath:db/data-h2.sql
-    url: jdbc:h2:mem:test
-    username: root
-    password: test
+    datasource:
+        driver-class-name: org.h2.Driver
+        schema: classpath:db/schema-h2.sql
+        data: classpath:db/data-h2.sql
+        url: jdbc:h2:mem:testdb
+        username: sa
+        password: password
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+    h2:
+        console:
+            # by default, H2 doesn't enable the console
+            # after starting the application, we can access http://localhost:8080/h2-console
+            enabled: true
 
 # Logger Config
 logging:
-  level:
-    com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample: debug
+    level:
+        com.github.taojintianxia.cornucopia.shardingsphere.mybatisexample: debug
