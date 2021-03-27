@@ -44,7 +44,6 @@
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <shardingsphere.version>4.1.1</shardingsphere.version>
         <netty-all.version>4.1.53.Final</netty-all.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <fluent-hc.version>4.5.13</fluent-hc.version>
