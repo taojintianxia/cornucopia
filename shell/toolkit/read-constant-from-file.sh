@@ -4,7 +4,7 @@ FILE_NAME=$1
 CONSTANT_NAME=$2
 
 if [ -z "${FILE_NAME}" ]; then
-    echo "file name is empty"
+    echo "file name is null"
     exit
 fi
 
@@ -13,7 +13,7 @@ if [ ! -f "${FILE_NAME}" ]; then
 fi
 
 if [ -z "${CONSTANT_NAME}" ]; then
-    echo "constant name is empty"
+    echo "constant doesn't exist"
     exit
 fi
 
