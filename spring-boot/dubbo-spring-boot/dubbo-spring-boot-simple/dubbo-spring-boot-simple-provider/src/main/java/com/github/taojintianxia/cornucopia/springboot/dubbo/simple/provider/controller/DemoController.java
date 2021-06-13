@@ -27,8 +27,9 @@ public class DemoController {
     }
 
     @GetMapping("sayHello")
-    public String sayHello(@RequestParam String name) {
+    public String sayHello(@RequestParam String name ) {
         System.out.println("GETTING DATA FROM REST");
         return demoService.sayHello(name);
     }
 }
+
