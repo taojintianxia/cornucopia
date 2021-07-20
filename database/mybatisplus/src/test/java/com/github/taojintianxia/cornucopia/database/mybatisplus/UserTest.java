@@ -2,9 +2,10 @@ package com.github.taojintianxia.cornucopia.database.mybatisplus;
 
 import com.github.taojintianxia.cornucopia.database.mybatisplus.entity.User;
 import com.github.taojintianxia.cornucopia.database.mybatisplus.mapper.UserMapper;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
@@ -12,7 +13,6 @@ import java.util.List;
  * @author Nianjun Sun
  * @date 2020/1/7 17:40
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserTest {
 
@@ -23,7 +23,7 @@ public class UserTest {
     public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
         List<User> userList = userMapper.selectAll();
-        Assert.assertEquals(5, userList.size());
+        assertThat(5).isEqualTo(userList.size());
         userList.forEach(System.out::println);
     }
 }
