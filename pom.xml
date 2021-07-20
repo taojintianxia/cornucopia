@@ -21,6 +21,7 @@
         <module>protocol</module>
         <module>spring-cloud-alibaba</module>
         <module>jdk</module>
+        <module>benchmark</module>
     </modules>
 
     <properties>
