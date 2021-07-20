@@ -7,6 +7,8 @@ import lombok.SneakyThrows;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Nianjun Sun
@@ -36,18 +38,32 @@ public class UserServiceImpl implements CRUDTemplate<User> {
         return null;
     }
 
+    private static final Map<Integer,Statement> STATEMENT_MAP = new HashMap<>();
+
+    private static final int THREAD_POOL_SIZE = 500;
+
     @Override
     @SneakyThrows
     public void init() {
         Connection connection = ConnectionUtil.getConnection();
         Statement statement = connection.createStatement();
-        String sql = "UPDATE t_frozen_subaccount\n" + "      SET f_version = f_version + 1\n"
-                + "      WHERE f_id = 1000 and f_user_id = 1000 ;\n" + "\n"
-                + "      UPDATE t_subaccount SET f_version = f_version + 1\n"
-                + "      WHERE f_id = 2000 AND f_version = 2000 and f_user_id = 2000;";
+        statement.execute("CREATE TABLE IF NOT EXISTS sharding_db.t_order (order_id BIGINT NOT NULL AUTO_INCREMENT, user_id INT NOT NULL, status VARCHAR(50), PRIMARY KEY (order_id));\n");
+        for(int i = 0; i < 5000000 ;i++) {
+            createByThread(i);
+        }
+    }
 
-
-            statement.execute(sql);
-
+    @SneakyThrows
+    public void createByThread(int id) {
+        Statement statement = STATEMENT_MAP.get(id % THREAD_POOL_SIZE);
+        if (statement == null){
+            synchronized (this) {
+                Connection connection = ConnectionUtil.getConnection();
+                statement = connection.createStatement();
+                STATEMENT_MAP.put(id % THREAD_POOL_SIZE,statement);
+            }
+        }
+        String sql = "insert into sharding_db.t_order values("+id+",'test')";
+        statement.execute(sql);
     }
 }
