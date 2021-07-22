@@ -30,4 +30,8 @@ public class EnvironmentContext {
     public static EnvironmentContext getInstance() {
         return INSTANCE;
     }
+
+    public String getProperty(String key) {
+        return environmentMap.get(key);
+    }
 }
