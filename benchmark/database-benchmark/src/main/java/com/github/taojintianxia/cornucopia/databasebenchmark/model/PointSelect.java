@@ -18,8 +18,8 @@ public class PointSelect implements ModelScript {
     private final long table;
 
     public PointSelect() {
-        tableSize = Long.parseLong(EnvironmentContext.getInstance().getProperty("tableSize"));
-        table = Long.parseLong(EnvironmentContext.getInstance().getProperty("table"));
+        tableSize = Long.parseLong(EnvironmentContext.getInstance().getBenchmarkMap().get("tableSize"));
+        table = Long.parseLong(EnvironmentContext.getInstance().getBenchmarkMap().get("table"));
         tableSizeRandom = new Random(tableSize);
         tableRandom = new Random(table);
     }
@@ -30,10 +30,12 @@ public class PointSelect implements ModelScript {
     }
 
     @SneakyThrows
-    public void execute(Connection connection) {
-        String sql = "select c from sbtest%table where id = %tableSize".replace("%tableSize", tableSizeRandom.nextLong() + "")
-                .replace("%table", tableRandom.nextLong() + "");
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    public void execute( Connection connection ) {
+        PreparedStatement preparedStatement = connection.prepareStatement(getSql());
         preparedStatement.execute();
+    }
+
+    private String getSql() {
+        return "select c from sbtest%d where id = ?".replace("%d", tableRandom.nextLong() + "");
     }
 }
