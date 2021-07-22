@@ -1,9 +1,11 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
+import com.github.taojintianxia.cornucopia.databasebenchmark.context.EnvironmentContext;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.SneakyThrows;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
@@ -23,12 +25,13 @@ public class Main {
 
         HikariDataSource dataSource = new HikariDataSource(config);
         int thread = Integer.parseInt(EnvironmentContext.getInstance().getBenchmarkMap().get("thread"));
+        int benchmarkTime = Integer.parseInt(EnvironmentContext.getInstance().getBenchmarkMap().get("benchmarkTime"));
         ExecutorService executor = Executors.newFixedThreadPool(thread);
 
-        for (int i = 0; i < 10; i++) {
-            Terminal terminal = new Terminal();
-            terminal.setDataSource(dataSource);
-            executor.submit(terminal);
+        for (int i = 0; i < thread; i++) {
+            PointSelectTerminal pointSelectTerminal = new PointSelectTerminal();
+            pointSelectTerminal.setDataSource(dataSource);
+            executor.submit(pointSelectTerminal);
         }
 
         new Timer("timer").schedule(new TimerTask() {
@@ -37,6 +40,6 @@ public class Main {
                 System.out.println("current count is : " + GlobalCounter.getInstance().getCount());
                 executor.shutdownNow();
             }
-        }, 10000);
+        }, benchmarkTime * 1000L);
     }
 }

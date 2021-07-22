@@ -1,8 +1,7 @@
-package com.github.taojintianxia.cornucopia.databasebenchmark;
+package com.github.taojintianxia.cornucopia.databasebenchmark.context;
 
 import lombok.SneakyThrows;
 
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;

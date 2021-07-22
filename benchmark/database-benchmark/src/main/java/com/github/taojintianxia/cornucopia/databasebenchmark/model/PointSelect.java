@@ -1,13 +1,16 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.model;
 
-import com.github.taojintianxia.cornucopia.databasebenchmark.EnvironmentContext;
+import com.github.taojintianxia.cornucopia.databasebenchmark.connection.PointSelectConnection;
+import com.github.taojintianxia.cornucopia.databasebenchmark.context.EnvironmentContext;
 import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Random;
 
-public class PointSelect implements ModelScript {
+public class PointSelect implements ModelScript<List<PreparedStatement>> {
 
     private final int tableSize;
 
@@ -26,18 +29,18 @@ public class PointSelect implements ModelScript {
 
     @Override
     public long getId() {
-        System.out.println("---xx--------");
         return tableSizeRandom.nextInt(tableSize);
     }
 
     @Override
-    public void execute( PreparedStatement statement ) throws SQLException {
-        statement.setLong(1, tableSizeRandom.nextLong());
-        statement.executeQuery();
+    public void execute( List<PreparedStatement> statements ) throws SQLException {
+        PreparedStatement preparedStatement = statements.get(tableRandom.nextInt(table));
+        preparedStatement.setLong(1, tableSizeRandom.nextLong());
+        preparedStatement.executeQuery();
         GlobalCounter.getInstance().plus();
     }
 
     public String getSql() {
-        return "select c from sbtest%d where id = ?".replace("%d", Math.abs(tableRandom.nextInt(table)) + "");
+        return "select c from sbtest%d where id = ?";
     }
 }
