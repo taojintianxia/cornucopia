@@ -3,10 +3,10 @@ package com.github.taojintianxia.cornucopia.databasebenchmark;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.SneakyThrows;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
 
@@ -21,13 +21,20 @@ public class Main {
         config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
         HikariDataSource dataSource = new HikariDataSource(config);
-        Connection connection = dataSource.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("select c from sbtest1 where id = ?");
-        preparedStatement.setLong(1, 1);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()) {
-            System.out.println(resultSet.getString(1));
+        int thread = Integer.parseInt(EnvironmentContext.getInstance().getBenchmarkMap().get("thread"));
+        ExecutorService executor = Executors.newFixedThreadPool(thread);
+
+        for (int i = 0; i < 10; i++) {
+            Terminal terminal = new Terminal();
+            terminal.setDataSource(dataSource);
+            executor.submit(terminal);
         }
+
+        new Timer("timer").schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("current count is : " + GlobalCounter.getInstance().getCount());
+            }
+        }, 10000);
     }
 }
-

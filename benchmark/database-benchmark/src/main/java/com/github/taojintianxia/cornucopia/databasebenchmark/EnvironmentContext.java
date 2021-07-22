@@ -24,8 +24,8 @@ public class EnvironmentContext {
     private EnvironmentContext() {
         benchmarkProperties = new Properties();
         databaseProperties = new Properties();
-        benchmarkProperties.load(new FileInputStream("benchmark.properties"));
-        databaseProperties.load(new FileInputStream("database.properties"));
+        benchmarkProperties.load(EnvironmentContext.class.getClassLoader().getResourceAsStream("benchmark.properties"));
+        databaseProperties.load(EnvironmentContext.class.getClassLoader().getResourceAsStream("database.properties"));
         benchmarkMap = new HashMap<>(benchmarkProperties.size());
         databaseMap = new HashMap<>(databaseProperties.size());
         benchmarkProperties.forEach(( key, value ) -> benchmarkMap.put(key.toString(), value.toString()));
