@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.databasebenchmark;
+package com.github.taojintianxia.cornucopia.databasebenchmark.analysis;
 
 import java.util.concurrent.atomic.AtomicLong;
 

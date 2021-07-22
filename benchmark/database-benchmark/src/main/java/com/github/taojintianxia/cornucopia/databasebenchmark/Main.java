@@ -1,5 +1,6 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark;
 
+import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.SneakyThrows;
@@ -34,6 +35,7 @@ public class Main {
             @Override
             public void run() {
                 System.out.println("current count is : " + GlobalCounter.getInstance().getCount());
+                executor.shutdownNow();
             }
         }, 10000);
     }

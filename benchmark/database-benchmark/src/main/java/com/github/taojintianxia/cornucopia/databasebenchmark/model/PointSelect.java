@@ -1,13 +1,10 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.model;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.EnvironmentContext;
-import com.github.taojintianxia.cornucopia.databasebenchmark.GlobalCounter;
-import lombok.SneakyThrows;
+import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Random;
 
 public class PointSelect implements ModelScript {
