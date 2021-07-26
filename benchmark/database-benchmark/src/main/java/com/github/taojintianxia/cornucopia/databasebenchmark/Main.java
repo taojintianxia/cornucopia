@@ -16,12 +16,12 @@ public class Main {
     @SneakyThrows
     public static void main( String... args ) {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/sbtest");
+        config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/sbtest");
         config.setUsername("root");
         config.setPassword("root");
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+//        config.addDataSourceProperty("cachePrepStmts", "true");
+//        config.addDataSourceProperty("prepStmtCacheSize", "250");
+//        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
         HikariDataSource dataSource = new HikariDataSource(config);
         int thread = Integer.parseInt(EnvironmentContext.getInstance().getBenchmarkMap().get("thread"));
@@ -37,7 +37,7 @@ public class Main {
         new Timer("timer").schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("current count is : " + GlobalCounter.getInstance().getCount());
+                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime));
                 executor.shutdownNow();
             }
         }, benchmarkTime * 1000L);
