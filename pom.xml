@@ -22,6 +22,7 @@
         <module>spring-cloud-alibaba</module>
         <module>jdk</module>
         <module>benchmark</module>
+        <module>toolbox</module>
     </modules>
 
     <properties>
