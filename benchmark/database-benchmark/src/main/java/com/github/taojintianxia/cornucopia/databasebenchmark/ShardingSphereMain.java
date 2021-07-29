@@ -43,7 +43,7 @@ public class ShardingSphereMain {
         new Timer("timer").schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime) );
+                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime));
                 executor.shutdownNow();
             }
         }, benchmarkTime * 1000L);
