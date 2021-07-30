@@ -19,9 +19,9 @@ public class Main {
         config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/sbtest");
         config.setUsername("root");
         config.setPassword("root");
-//        config.addDataSourceProperty("cachePrepStmts", "true");
-//        config.addDataSourceProperty("prepStmtCacheSize", "250");
-//        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
 
         HikariDataSource dataSource = new HikariDataSource(config);
         int thread = Integer.parseInt(EnvironmentContext.getInstance().getBenchmarkMap().get("thread"));
