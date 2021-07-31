@@ -15,6 +15,7 @@ public class Main {
 
     @SneakyThrows
     public static void main( String... args ) {
+        //TODO make it from config file or system parameters
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/sbtest");
         config.setUsername("root");
