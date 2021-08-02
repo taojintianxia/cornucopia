@@ -19,7 +19,7 @@ public class Main {
     public static void main( String... args ) {
         String configFileName = args[0];
         Objects.requireNonNull(configFileName, "please specify the config file");
-        File configFile = new File(System.getProperty("user.dir") + File.pathSeparator + configFileName);
+        File configFile = new File(System.getProperty("user.dir") + File.separator + configFileName);
         if (!configFile.exists()) {
             throw new RuntimeException(String.format("config file %s doesn't exist !", configFileName));
         }

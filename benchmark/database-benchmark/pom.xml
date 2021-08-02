@@ -64,7 +64,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.taojintianxia.cornucopia.databasebenchmark.ShardingSphereMain</mainClass>
+                            <mainClass>com.github.taojintianxia.cornucopia.databasebenchmark.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
