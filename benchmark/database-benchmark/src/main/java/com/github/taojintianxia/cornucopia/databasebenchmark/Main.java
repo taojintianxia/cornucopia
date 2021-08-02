@@ -6,6 +6,8 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.SneakyThrows;
 
+import java.io.File;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
@@ -15,6 +17,13 @@ public class Main {
 
     @SneakyThrows
     public static void main( String... args ) {
+        String configFileName = args[0];
+        Objects.requireNonNull(configFileName, "please specify the config file");
+        File configFile = new File(System.getProperty("user.dir") + File.pathSeparator + configFileName);
+        if (!configFile.exists()) {
+            throw new RuntimeException(String.format("config file %s doesn't exist !", configFileName));
+        }
+
         //TODO make it from config file or system parameters
         HikariConfig config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/sbtest");
