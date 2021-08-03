@@ -11,7 +11,7 @@
     <artifactId>benchmark</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>database-benchmark</module>
+        <module>sysbenchJ</module>
     </modules>
 
     <properties>

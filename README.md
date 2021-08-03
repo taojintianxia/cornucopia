@@ -11,7 +11,7 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
 - - -
 
 #### Config
-  -[常用工具的配置文件](config)
+  - [常用工具的配置文件](config)
 
 #### Code-Generator
   - Freemarker
