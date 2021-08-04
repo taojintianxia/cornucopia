@@ -2,8 +2,14 @@ package com.github.taojintianxia.cornucopia.databasebenchmark.executor.param;
 
 import lombok.Data;
 
+import java.sql.PreparedStatement;
+
 @Data
 public class ExecutorParam {
+
+    private PreparedStatement preparedStatement;
+
+    private String script;
 
     private String driver;
 
