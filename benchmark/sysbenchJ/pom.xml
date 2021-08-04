@@ -50,7 +50,7 @@
 <!--                <configuration>-->
 <!--                    <archive>-->
 <!--                        <manifest>-->
-<!--                            <mainClass>com.github.taojintianxia.cornucopia.databasebenchmark.Main</mainClass>-->
+<!--                            <mainClass>com.github.taojintianxia.cornucopia.databasebenchmark.OriginalMain</mainClass>-->
 <!--                        </manifest>-->
 <!--                    </archive>-->
 <!--                    <descriptorRefs>-->
@@ -64,7 +64,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.taojintianxia.cornucopia.databasebenchmark.Main</mainClass>
+                            <mainClass>com.github.taojintianxia.cornucopia.databasebenchmark.OriginalMain</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

@@ -1,6 +1,5 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark;
 
-import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
 import com.github.taojintianxia.cornucopia.databasebenchmark.context.EnvironmentContext;
 import lombok.SneakyThrows;
 import org.apache.shardingsphere.driver.api.ShardingSphereDataSourceFactory;
@@ -9,12 +8,12 @@ import org.apache.shardingsphere.infra.yaml.config.swapper.YamlDataSourceConfigu
 import org.apache.shardingsphere.infra.yaml.config.swapper.YamlRuleConfigurationSwapperEngine;
 import org.apache.shardingsphere.infra.yaml.engine.YamlEngine;
 
-import javax.sql.DataSource;
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import javax.sql.DataSource;
 
 public class ShardingSphereMain {
 
@@ -43,7 +42,7 @@ public class ShardingSphereMain {
         new Timer("timer").schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime));
+//                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime));
                 executor.shutdownNow();
             }
         }, benchmarkTime * 1000L);

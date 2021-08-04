@@ -1,6 +1,5 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark;
 
-import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
 import com.github.taojintianxia.cornucopia.databasebenchmark.context.EnvironmentContext;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -13,7 +12,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Main {
+public class OriginalMain {
 
     @SneakyThrows
     public static void main( String... args ) {
@@ -47,8 +46,8 @@ public class Main {
         new Timer("timer").schedule(new TimerTask() {
             @Override
             public void run() {
-                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime));
-                executor.shutdownNow();
+//                System.out.println("current qps is : " + (GlobalCounter.getInstance().getCount() / benchmarkTime));
+//                executor.shutdownNow();
             }
         }, benchmarkTime * 1000L);
     }

@@ -1,10 +1,7 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.model;
 
-import com.github.taojintianxia.cornucopia.databasebenchmark.connection.PointSelectConnection;
 import com.github.taojintianxia.cornucopia.databasebenchmark.context.EnvironmentContext;
-import com.github.taojintianxia.cornucopia.databasebenchmark.analysis.GlobalCounter;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
@@ -37,7 +34,7 @@ public class PointSelect implements ModelScript<List<PreparedStatement>> {
         PreparedStatement preparedStatement = statements.get(tableRandom.nextInt(table));
         preparedStatement.setLong(1, tableSizeRandom.nextLong());
         preparedStatement.executeQuery();
-        GlobalCounter.getInstance().plus();
+//        GlobalCounter.getInstance().plus();
     }
 
     public String getSql() {
