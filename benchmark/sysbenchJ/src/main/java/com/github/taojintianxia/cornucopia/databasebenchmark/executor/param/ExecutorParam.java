@@ -5,7 +5,7 @@ import lombok.Data;
 import java.sql.PreparedStatement;
 
 @Data
-public class ExecutorParam {
+public final class ExecutorParam {
 
     private PreparedStatement preparedStatement;
 

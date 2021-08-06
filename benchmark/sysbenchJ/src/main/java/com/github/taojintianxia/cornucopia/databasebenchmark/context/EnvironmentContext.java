@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Properties;
 
 
-public class EnvironmentContext {
+public final class EnvironmentContext {
 
     private final Properties benchmarkProperties;
 
