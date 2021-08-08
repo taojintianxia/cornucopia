@@ -1,10 +1,10 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor.param;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Builder
 @Getter
+@SuperBuilder
 public final class PGSQLBenchmarkParam extends BaseBenchmarkParam{
 
     final private String pgsqlHost;

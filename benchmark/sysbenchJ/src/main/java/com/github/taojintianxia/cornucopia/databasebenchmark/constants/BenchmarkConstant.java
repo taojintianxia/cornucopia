@@ -11,13 +11,19 @@ public class BenchmarkConstant {
 
     public final static String TABLE_SIZE = "table-size";
 
+    public final static String THREADS = "threads";
+
     public final static String REPORT_INTERVAL = "report-interval";
 
     public final static String DB_DRIVER = "db-driver";
 
+    public final static String TIME = "time";
+
     public final static String PERCENTILE = "percentile";
 
     public final static String MYSQL_HOST = "mysql-host";
+
+    public final static String MYSQL_PORT = "mysql-port";
 
     public final static String MYSQL_USER = "mysql-user";
 

@@ -1,16 +1,23 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor.param;
 
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@SuperBuilder
 public class BaseBenchmarkParam {
 
-    private int tables;
+    final private int tables;
 
-    private int tableSize;
+    final private int tableSize;
 
-    private int reportInterval;
+    final private int reportInterval;
 
-    private int time;
+    final private int time;
 
-    private int threads;
+    final private int percentile;
 
-    private String command;
+    final private int threads;
+
+    final private String command;
 }

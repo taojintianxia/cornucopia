@@ -1,6 +1,9 @@
-package com.github.taojintianxia.cornucopia.databasebenchmark.executor.param;
+package com.github.taojintianxia.cornucopia.databasebenchmark.executor;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.constants.BenchmarkConstant;
+import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.BaseBenchmarkParam;
+import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.MySQLBenchmarkParam;
+import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.PGSQLBenchmarkParam;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -32,12 +35,22 @@ public class ExecutorParamExtractor {
             }
         }
 
-        BaseBenchmarkParam baseBenchmarkParam;
-
         if (PARAM_MAP.get(BenchmarkConstant.DB_DRIVER) == null || BenchmarkConstant.MYSQL_DB.equals(PARAM_MAP.get(BenchmarkConstant.DB_DRIVER))) {
-            return MySQLBenchmarkParam.builder().mysqlHost(PARAM_MAP.get(BenchmarkConstant.MYSQL_HOST)).build();
+            return MySQLBenchmarkParam.builder()
+                    .tables(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.TABLES)))
+                    .tableSize(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.TABLE_SIZE)))
+                    .threads(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.THREADS)))
+                    .reportInterval(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.REPORT_INTERVAL)))
+                    .time(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.TIME)))
+                    .percentile(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.PERCENTILE)))
+                    .command(COMMAND)
+                    .mysqlDb(PARAM_MAP.get(BenchmarkConstant.MYSQL_DB))
+                    .mysqlPort(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.MYSQL_PORT)))
+                    .mysqlHost(PARAM_MAP.get(BenchmarkConstant.MYSQL_HOST))
+                    .mysqlUser(PARAM_MAP.get(BenchmarkConstant.MYSQL_USER))
+                    .mysqlPassword(PARAM_MAP.get(BenchmarkConstant.MYSQL_PASSWORD))
+                    .build();
         }
-
         if (BenchmarkConstant.PGSQL_DB_DRIVER.equals(PARAM_MAP.get(BenchmarkConstant.DB_DRIVER))) {
             return PGSQLBenchmarkParam.builder().pgsqlDb(PARAM_MAP.get(BenchmarkConstant.DB_DRIVER)).build();
         }
