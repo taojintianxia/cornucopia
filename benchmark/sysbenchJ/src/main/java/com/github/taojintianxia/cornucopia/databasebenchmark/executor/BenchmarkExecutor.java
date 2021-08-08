@@ -1,10 +1,14 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor;
 
-import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.ExecutorParam;
+import com.github.taojintianxia.cornucopia.databasebenchmark.statistic.BenchmarkStatistics;
 
 public interface BenchmarkExecutor {
 
-    void statisticize();
+    void prepare();
 
-    void execute(ExecutorParam executorParam);
+    void execute();
+
+    BenchmarkStatistics getStatistics();
+
+    void clean();
 }

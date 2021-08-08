@@ -1,6 +1,6 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.script;
 
-public interface Script {
+public interface BenchmarkScript {
 
     String getName();
 

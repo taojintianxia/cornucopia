@@ -2,14 +2,15 @@ package com.github.taojintianxia.cornucopia.databasebenchmark.script.inernal;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.script.BenchmarkScript;
 
-public class PointSelect implements BenchmarkScript {
+public class ReadOnly implements BenchmarkScript {
 
+    @Override
     public String getName() {
-        return "point_select";
+        return null;
     }
 
-
+    @Override
     public String getScriptContent() {
-        return "SELECT c FROM sbtest%d WHERE id=?";
+        return null;
     }
 }

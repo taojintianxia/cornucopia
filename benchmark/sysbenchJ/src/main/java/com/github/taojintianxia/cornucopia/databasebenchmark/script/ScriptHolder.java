@@ -7,7 +7,7 @@ public class ScriptHolder {
 
     private final static ScriptHolder INSTANCE = new ScriptHolder();
 
-    private final static Map<String, Script> SCRIPT_MAP = new HashMap<>();
+    private final static Map<String, BenchmarkScript> SCRIPT_MAP = new HashMap<>();
 
     private ScriptHolder() {
 //        SCRIPT_MAP.put("point_select", new PointSelect());
