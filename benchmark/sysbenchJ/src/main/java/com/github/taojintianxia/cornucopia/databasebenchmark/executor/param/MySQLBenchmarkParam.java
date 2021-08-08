@@ -1,19 +1,19 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor.param;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
 @Builder
+@Getter
 public final class MySQLBenchmarkParam extends BaseBenchmarkParam{
 
-    private String mysqlHost;
+    final private String mysqlHost;
 
-    private int mysqlPort;
+    final private int mysqlPort;
 
-    private String mysqlUser;
+    final private String mysqlUser;
 
-    private String mysqlPassword;
+    final private String mysqlPassword;
 
-    private String mysqlDb;
+    final private String mysqlDb;
 }
