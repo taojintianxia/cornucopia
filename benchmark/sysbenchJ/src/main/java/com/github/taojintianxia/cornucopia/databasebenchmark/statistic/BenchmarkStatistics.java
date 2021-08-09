@@ -18,4 +18,5 @@ public class BenchmarkStatistics {
     private int errors;
 
     private int reconnects;
+
 }

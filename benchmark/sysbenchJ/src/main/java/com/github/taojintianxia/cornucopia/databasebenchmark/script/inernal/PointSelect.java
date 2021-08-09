@@ -10,6 +10,6 @@ public class PointSelect implements BenchmarkScript {
 
 
     public String getScriptContent() {
-        return "SELECT c FROM sbtest%d WHERE id=?";
+        return "SELECT c FROM sbtest%s WHERE id=?";
     }
 }

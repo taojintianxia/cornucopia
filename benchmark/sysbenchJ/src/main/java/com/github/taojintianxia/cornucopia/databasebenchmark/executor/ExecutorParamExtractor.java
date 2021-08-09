@@ -14,12 +14,11 @@ public class ExecutorParamExtractor {
 
     private final static Map<String, String> PARAM_MAP = new HashMap<>();
 
-    private static String SCRIPT;
-
-    private static String COMMAND;
+    private final static String PARAM_SPLITTER = "=";
 
     public static BaseBenchmarkParam extract( String... args ) {
-        SCRIPT = args[0];
+        String SCRIPT = args[0];
+        String COMMAND = "";
         if (!BenchmarkConstant.getScriptNameList().contains(SCRIPT)) {
             log.error("script name is incorrect : %, it should be like 'oltp_point_select'");
             throw new RuntimeException("please specify the benchmark script name like 'oltp_point_select' and make it as the very first parameter");
@@ -29,7 +28,7 @@ public class ExecutorParamExtractor {
             String parameter = args[i];
             if (parameter.startsWith("--")) {
                 parameter = parameter.substring(2);
-                PARAM_MAP.put(parameter.split("=")[0], parameter.split("=")[1]);
+                PARAM_MAP.put(parameter.split(PARAM_SPLITTER)[0], parameter.split(PARAM_SPLITTER)[1]);
             } else {
                 COMMAND = parameter;
             }

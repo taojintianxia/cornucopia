@@ -9,6 +9,8 @@ import com.zaxxer.hikari.HikariDataSource;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -24,8 +26,17 @@ public class BenchmarkExecutorService {
         for (int i = 0; i < threads; i++) {
             DefaultBenchmarkExecutor defaultBenchmarkExecutor = new DefaultBenchmarkExecutor();
             defaultBenchmarkExecutor.setDataSource(hikariDataSource);
+            defaultBenchmarkExecutor.setBaseBenchmarkParam(baseBenchmarkParam);
             executor.submit(defaultBenchmarkExecutor);
         }
+
+        new Timer("timer").schedule(new TimerTask() {
+            @Override
+            public void run() {
+                log.info("start to shut down thread pool");
+                executor.shutdownNow();
+            }
+        }, baseBenchmarkParam.getTime() * 1000L);
     }
 
     private HikariConfig generateHikariConfig( BaseBenchmarkParam baseBenchmarkParam ) {
