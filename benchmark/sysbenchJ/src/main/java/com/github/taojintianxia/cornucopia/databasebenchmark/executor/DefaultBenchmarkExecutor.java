@@ -1,16 +1,17 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.statistic.BenchmarkStatistics;
+import lombok.Setter;
 
-public class DefaultBenchmarkExecutor implements BenchmarkExecutor{
+import javax.sql.DataSource;
+
+public class DefaultBenchmarkExecutor implements BenchmarkExecutor, Runnable {
+
+    @Setter
+    private DataSource dataSource;
 
     @Override
-    public void prepare() {
-
-    }
-
-    @Override
-    public void execute() {
+    public void run() {
 
     }
 
@@ -19,8 +20,11 @@ public class DefaultBenchmarkExecutor implements BenchmarkExecutor{
         return null;
     }
 
-    @Override
-    public void clean() {
+    private void prepare() {
+
+    }
+
+    private void cleanup() {
 
     }
 }

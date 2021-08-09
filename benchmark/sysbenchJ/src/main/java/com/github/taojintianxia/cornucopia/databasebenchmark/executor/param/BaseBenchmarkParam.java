@@ -20,4 +20,6 @@ public class BaseBenchmarkParam {
     final private int threads;
 
     final private String command;
+
+    final private String driver;
 }

@@ -37,6 +37,7 @@ public class ExecutorParamExtractor {
 
         if (PARAM_MAP.get(BenchmarkConstant.DB_DRIVER) == null || BenchmarkConstant.MYSQL_DB.equals(PARAM_MAP.get(BenchmarkConstant.DB_DRIVER))) {
             return MySQLBenchmarkParam.builder()
+                    .driver(BenchmarkConstant.MYSQL_DB_DRIVER)
                     .tables(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.TABLES)))
                     .tableSize(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.TABLE_SIZE)))
                     .threads(Integer.parseInt(PARAM_MAP.get(BenchmarkConstant.THREADS)))

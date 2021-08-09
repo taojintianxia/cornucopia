@@ -31,6 +31,8 @@ public class BenchmarkConstant {
 
     public final static String MYSQL_DB = "mysql-db";
 
+    public final static String MYSQL_DB_DRIVER = "mysql";
+
     public final static String PGSQL_DB_DRIVER = "pgsql";
 
     public final static String PGSQL_PORT = "pgsql-port";
