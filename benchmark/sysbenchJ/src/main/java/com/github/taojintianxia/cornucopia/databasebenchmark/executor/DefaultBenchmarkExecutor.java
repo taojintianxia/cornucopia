@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.sql.DataSource;
 
 @Setter
@@ -89,7 +90,7 @@ public class DefaultBenchmarkExecutor implements BenchmarkExecutor, Runnable {
 
     private String generateInsertSql( int tableOrder, int id, String sqlTemplate ) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(id);
+        stringBuilder.append(id).append(",").append(ThreadLocalRandom.current().nextInt(1, 999999));
         stringBuilder.append(",\"").append(BenchmarkUtil.generateRandomNumberString(10)).append("\",\"")
                 .append(BenchmarkUtil.generateRandomNumberString(5)).append("\"");
         return String.format(sqlTemplate, tableOrder, stringBuilder.toString());
