@@ -37,6 +37,12 @@ public class BenchmarkConstant {
 
     public final static String PGSQL_PORT = "pgsql-port";
 
+    public final static String COMMAND_PREPARE = "prepare";
+
+    public final static String COMMAND_CLEAN = "clean";
+
+    public final static String COMMAND_RUN = "run";
+
     public static List<String> getScriptNameList() {
         return SCRIPT_NAME_LIST;
     }

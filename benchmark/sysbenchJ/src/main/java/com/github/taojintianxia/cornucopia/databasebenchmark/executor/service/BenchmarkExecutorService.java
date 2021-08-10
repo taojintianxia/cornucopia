@@ -20,6 +20,14 @@ public class BenchmarkExecutorService {
     @SneakyThrows
     public void execute( BaseBenchmarkParam baseBenchmarkParam ) {
         HikariDataSource hikariDataSource = new HikariDataSource(generateHikariConfig(baseBenchmarkParam));
+        if (BenchmarkConstant.COMMAND_PREPARE.equals(baseBenchmarkParam.getCommand())) {
+            new DefaultBenchmarkExecutor(hikariDataSource, baseBenchmarkParam).prepare();
+            return;
+        }
+        if (BenchmarkConstant.COMMAND_CLEAN.equals(baseBenchmarkParam.getCommand())) {
+            new DefaultBenchmarkExecutor(hikariDataSource, baseBenchmarkParam).cleanup();
+            return;
+        }
         int threads = baseBenchmarkParam.getThreads();
         ExecutorService executor = Executors.newFixedThreadPool(threads);
 
@@ -30,7 +38,7 @@ public class BenchmarkExecutorService {
             executor.submit(defaultBenchmarkExecutor);
         }
 
-        new Timer("timer").schedule(new TimerTask() {
+        new Timer("termination_timer").schedule(new TimerTask() {
             @Override
             public void run() {
                 log.info("start to shut down thread pool");
@@ -43,14 +51,14 @@ public class BenchmarkExecutorService {
         HikariConfig hikariConfig = new HikariConfig();
         if (BenchmarkConstant.MYSQL_DB_DRIVER.equals(baseBenchmarkParam.getDriver())) {
             MySQLBenchmarkParam mySQLBenchmarkParam = (MySQLBenchmarkParam) baseBenchmarkParam;
+            String password = mySQLBenchmarkParam.getMysqlPassword();
             hikariConfig.setUsername(mySQLBenchmarkParam.getMysqlUser());
-            hikariConfig.setPassword(mySQLBenchmarkParam.getMysqlPassword());
+            hikariConfig.setPassword(password.substring(1, password.length() - 1));
             hikariConfig.setJdbcUrl(String.format("jdbc:%s://%s:%s/%s", mySQLBenchmarkParam.getDriver(), mySQLBenchmarkParam.getMysqlHost(),
                                                   mySQLBenchmarkParam.getMysqlPort(), mySQLBenchmarkParam.getMysqlDb()));
         } else {
             //TODO: for pgsql
         }
-
         return hikariConfig;
     }
 }

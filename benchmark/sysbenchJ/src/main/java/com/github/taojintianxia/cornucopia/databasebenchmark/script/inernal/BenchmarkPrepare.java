@@ -17,6 +17,6 @@ public class BenchmarkPrepare implements BenchmarkScript {
                "  `pad` char(60) NOT NULL DEFAULT '',\n" +
                "  PRIMARY KEY (`id`),\n" +
                "  KEY `k_1` (`k`)\n" +
-               ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4";
+               ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
     }
 }
