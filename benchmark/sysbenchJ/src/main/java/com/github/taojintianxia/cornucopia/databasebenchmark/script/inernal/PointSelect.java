@@ -9,6 +9,8 @@ import lombok.SneakyThrows;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
@@ -18,6 +20,8 @@ import javax.sql.DataSource;
 public class PointSelect implements BenchmarkScript {
 
     private final static Map<Integer, Statement> STATEMENT_MAP = new HashMap<>();
+
+    private final List<Long> LATENCY_LIST = new LinkedList<>();
 
     private final static String PREPARE_SQL_TEMPLATE = "SELECT c FROM sbtest%s WHERE id=?";
 
@@ -40,7 +44,6 @@ public class PointSelect implements BenchmarkScript {
         if (!STATEMENT_MAP.isEmpty()) {
             return;
         }
-
         for (int i = 1; i <= baseBenchmarkParam.getThreads(); i++) {
             Connection connection = dataSource.getConnection();
             Statement statement = connection.prepareStatement(String.format(PREPARE_SQL_TEMPLATE, i));

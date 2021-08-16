@@ -44,7 +44,7 @@ public class DefaultBenchmarkExecutor implements BenchmarkExecutor, Runnable {
     @SneakyThrows
     private void generatePrepareStatement() {
         Connection connection = dataSource.getConnection();
-        String sql = ScriptHolder.getInstance().getByCommand(baseBenchmarkParam.getCommand()).getScriptContent();
+        String sql = ScriptHolder.getByCommand(dataSource, baseBenchmarkParam).getScriptContent();
         for (int i = 1; i <= baseBenchmarkParam.getTables(); i++) {
             PreparedStatement preparedStatement = connection.prepareStatement(String.format(sql, i));
             statementMap.put(i, preparedStatement);
