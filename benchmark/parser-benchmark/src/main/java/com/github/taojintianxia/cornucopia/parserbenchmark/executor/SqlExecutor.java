@@ -20,7 +20,7 @@ public class SqlExecutor {
         Stopwatch stopwatch = Stopwatch.createStarted();
         ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
         for (int i = 0; i < LOOP_COUNT; i++) {
-            sqlStatementParserEngine.parse(sql, true);
+            sqlStatementParserEngine.parse(sql, false);
         }
         log.info("{} execution takes : {}", caseName, stopwatch.elapsed(TimeUnit.MILLISECONDS));
     }

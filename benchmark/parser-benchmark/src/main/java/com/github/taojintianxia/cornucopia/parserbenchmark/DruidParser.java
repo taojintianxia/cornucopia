@@ -67,7 +67,11 @@ public class DruidParser {
     }
 
     public static void evaluateGroupByHaving() {
-        SqlExecutor.executeAndEvaluateSqlByDruid("GROUP_BY_HAVING", SQLConstant.GROUP_BY_HAVING);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByDruid("GROUP_BY_HAVING", SQLConstant.GROUP_BY_HAVING);
+        } catch (Exception e) {
+            log.error("got exception for {}", "GROUP_BY_HAVING");
+        }
     }
 
     public static void evaluateCreateIndexInCreateTable() {

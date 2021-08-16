@@ -33,7 +33,11 @@ public class ShardingParser5 {
     }
 
     public static void evaluateCreateTable() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_TABLE", SQLConstant.CREATE_TABLE);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_TABLE", SQLConstant.CREATE_TABLE);
+        } catch (Exception e) {
+            log.error("got exception for {}", "CREATE_TABLE");
+        }
     }
 
     public static void evaluateSimpleInsert() {
@@ -57,19 +61,35 @@ public class ShardingParser5 {
     }
 
     public static void evaluateAddPrimaryKey() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("ADD_PRIMARY_KEY", SQLConstant.ADD_PRIMARY_KEY);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("ADD_PRIMARY_KEY", SQLConstant.ADD_PRIMARY_KEY);
+        } catch (Exception e) {
+            log.error("got exception for {}", "ADD_PRIMARY_KEY");
+        }
     }
 
     public static void evaluateDropPrimaryKey() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("DROP_PRIMARY_KEY", SQLConstant.DROP_PRIMARY_KEY);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("DROP_PRIMARY_KEY", SQLConstant.DROP_PRIMARY_KEY);
+        } catch (Exception e) {
+            log.error("got exception for {}", "DROP_PRIMARY_KEY");
+        }
     }
 
     public static void evaluateGroupByHaving() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("GROUP_BY_HAVING", SQLConstant.GROUP_BY_HAVING);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("GROUP_BY_HAVING", SQLConstant.GROUP_BY_HAVING);
+        } catch (Exception e) {
+            log.error("got exception for {}", "GROUP_BY_HAVING");
+        }
     }
 
     public static void evaluateCreateIndexInCreateTable() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_CREATE_TABLE);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_CREATE_TABLE);
+        } catch (Exception e) {
+            log.error("got exception for {}", "CREATE_INDEX_IN_CREATE_TABLE");
+        }
     }
 
     public static void evaluateCreateIndexForExistingTable() {
@@ -81,22 +101,42 @@ public class ShardingParser5 {
     }
 
     public static void evaluateAddColumn() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("ADD_COLUMN", SQLConstant.ADD_COLUMN);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("ADD_COLUMN", SQLConstant.ADD_COLUMN);
+        } catch (Exception e) {
+            log.error("got exception for {}", "ADD_COLUMN");
+        }
     }
 
     public static void evaluateEditColumn() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("EDIT_COLUMN", SQLConstant.EDIT_COLUMN);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("EDIT_COLUMN", SQLConstant.EDIT_COLUMN);
+        } catch (Exception e) {
+            log.error("got exception for {}", "EDIT_COLUMN");
+        }
     }
 
     public static void evaluateRenameColumn() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("RENAME_COLUMN", SQLConstant.RENAME_COLUMN);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("RENAME_COLUMN", SQLConstant.RENAME_COLUMN);
+        } catch (Exception e) {
+            log.error("got exception for {}", "RENAME_COLUMN");
+        }
     }
 
     public static void evaluateDropColumn() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("DROP_COLUMN", SQLConstant.DROP_COLUMN);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("DROP_COLUMN", SQLConstant.DROP_COLUMN);
+        } catch (Exception e) {
+            log.error("got exception for {}", "DROP_COLUMN");
+        }
     }
 
     public static void evaluateCreateTableWithNonDuplicateValue() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE", SQLConstant.CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE", SQLConstant.CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE);
+        } catch (Exception e) {
+            log.error("got exception for {}", "CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE");
+        }
     }
 }
