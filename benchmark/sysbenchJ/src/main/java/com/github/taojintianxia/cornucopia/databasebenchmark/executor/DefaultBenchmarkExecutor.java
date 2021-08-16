@@ -1,7 +1,6 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.BaseBenchmarkParam;
-import com.github.taojintianxia.cornucopia.databasebenchmark.script.ScriptHolder;
 import com.github.taojintianxia.cornucopia.databasebenchmark.script.inernal.BenchmarkExtensionScript;
 import com.github.taojintianxia.cornucopia.databasebenchmark.script.inernal.BenchmarkPrepare;
 import com.github.taojintianxia.cornucopia.databasebenchmark.statistic.BenchmarkStatistics;
@@ -44,7 +43,9 @@ public class DefaultBenchmarkExecutor implements BenchmarkExecutor, Runnable {
     @SneakyThrows
     private void generatePrepareStatement() {
         Connection connection = dataSource.getConnection();
-        String sql = ScriptHolder.getByCommand(dataSource, baseBenchmarkParam).getScriptContent();
+        // TODO: fix this
+//        String sql = ScriptHolder.getByCommand(dataSource, baseBenchmarkParam).getScriptContent();
+        String sql = null;
         for (int i = 1; i <= baseBenchmarkParam.getTables(); i++) {
             PreparedStatement preparedStatement = connection.prepareStatement(String.format(sql, i));
             statementMap.put(i, preparedStatement);
