@@ -8,24 +8,28 @@ import lombok.extern.slf4j.Slf4j;
 public class ShardingParser5 {
 
     public static void main( String... args ) {
-        evaluateSimpleSelect();
-        evaluateCreateTable();
-        evaluateSimpleInsert();
-        evaluateInsertAndUpdate();
-        evaluateRegularJoin();
-        evaluateLeftJoin();
-        evaluateRightJoin();
-        evaluateAddPrimaryKey();
-        evaluateDropPrimaryKey();
-        evaluateGroupByHaving();
-        evaluateCreateIndexInCreateTable();
-        evaluateCreateIndexForExistingTable();
-        evaluateAggregateFunctionQueries();
-        evaluateAddColumn();
-        evaluateEditColumn();
-        evaluateRenameColumn();
-        evaluateDropColumn();
-        evaluateCreateTableWithNonDuplicateValue();
+//        evaluateSimpleSelect();
+//        evaluateCreateTable();
+//        evaluateSimpleInsert();
+//        evaluateInsertAndUpdate();
+//        evaluateRegularJoin();
+//        evaluateLeftJoin();
+//        evaluateRightJoin();
+//        evaluateAddPrimaryKey();
+//        evaluateDropPrimaryKey();
+//        evaluateGroupByHaving();
+//        evaluateCreateIndexInCreateTable();
+//        evaluateCreateIndexForExistingTable();
+//        evaluateAggregateFunctionQueries();
+//        evaluateAddColumn();
+//        evaluateEditColumn();
+//        evaluateRenameColumn();
+//        evaluateDropColumn();
+//        evaluateCreateTableWithNonDuplicateValue();
+        evaluateSelectComplexMax();
+        evaluateSelectComplexExist();
+        evaluateSelectComplexIn();
+        evaluateSelectComplexSelfJoin();
     }
 
     public static void evaluateSimpleSelect() {
@@ -138,5 +142,21 @@ public class ShardingParser5 {
         } catch (Exception e) {
             log.error("got exception for {}", "CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE");
         }
+    }
+
+    public static void evaluateSelectComplexMax() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_COMPLEX_MAX", SQLConstant.SELECT_COMPLEX_MAX);
+    }
+
+    public static void evaluateSelectComplexExist() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_COMPLEX_EXIST", SQLConstant.SELECT_COMPLEX_EXIST);
+    }
+
+    public static void evaluateSelectComplexIn() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_COMPLEX_IN", SQLConstant.SELECT_COMPLEX_IN);
+    }
+
+    public static void evaluateSelectComplexSelfJoin() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
     }
 }

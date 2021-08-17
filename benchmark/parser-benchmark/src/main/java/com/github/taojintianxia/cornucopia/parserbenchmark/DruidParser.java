@@ -7,8 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DruidParser {
 
-    private final static int LOOP_COUNT = 10000000;
-
     public static void main( String... args ) {
         evaluateSimpleSelect();
         evaluateCreateTable();
@@ -28,6 +26,10 @@ public class DruidParser {
         evaluateRenameColumn();
         evaluateDropColumn();
         evaluateCreateTableWithNonDuplicateValue();
+        evaluateSelectComplexMax();
+        evaluateSelectComplexExist();
+        evaluateSelectComplexIn();
+        evaluateSelectComplexSelfJoin();
     }
 
     public static void evaluateSimpleSelect() {
@@ -104,6 +106,22 @@ public class DruidParser {
 
     public static void evaluateCreateTableWithNonDuplicateValue() {
         SqlExecutor.executeAndEvaluateSqlByDruid("CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE", SQLConstant.CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE);
+    }
+
+    public static void evaluateSelectComplexMax() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_MAX", SQLConstant.SELECT_COMPLEX_MAX);
+    }
+
+    public static void evaluateSelectComplexExist() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_EXIST", SQLConstant.SELECT_COMPLEX_EXIST);
+    }
+
+    public static void evaluateSelectComplexIn() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_IN", SQLConstant.SELECT_COMPLEX_IN);
+    }
+
+    public static void evaluateSelectComplexSelfJoin() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
     }
 }
 

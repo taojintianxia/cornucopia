@@ -48,5 +48,30 @@ public interface SQLConstant {
     String DROP_COLUMN = "Alter table 'emp' drop column salary;";
 
     String CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE = "create table 'emp2' as select * from emp where 1 group by 'lastname';";
+
+    String SELECT_COMPLEX_MAX = "SELECT F.*\n" +
+                                "FROM FIRES F,\n" +
+                                "(SELECT MAX(ESTLOSS) MAXLOSS\n" +
+                                "FROM FIRES) M\n" +
+                                "WHERE F.ESTLOSS = M.MAXLOSS;";
+
+    String SELECT_COMPLEX_EXIST = "SELECT *\n" +
+                                  "FROM PARCELS P\n" +
+                                  "WHERE NOT EXISTS\n" +
+                                  "(SELECT NULL\n" +
+                                  "FROM FIRES F\n" +
+                                  "WHERE P.PARCELID = F.PARCELID);";
+
+    String SELECT_COMPLEX_IN = "SELECT *\n" +
+                               "FROM PARCELS\n" +
+                               "WHERE (PID, WPB) NOT IN\n" +
+                               "(SELECT PID, WPB\n" +
+                               "FROM PERMITS);";
+
+    String SELECT_SELF_JOIN = "SELECT M1.PAPER\n" +
+                              "FROM MATCH M1, MATCH M2\n" +
+                              "WHERE M1.PAPER = M2.PAPER\n" +
+                              "AND M1.CODE = 601\n" +
+                              "AND M2.CODE = 602;";
 }
 
