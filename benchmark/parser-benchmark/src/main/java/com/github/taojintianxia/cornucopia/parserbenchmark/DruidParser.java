@@ -78,7 +78,7 @@ public class DruidParser {
     }
 
     public static void evaluateCreateIndexInCreateTable() {
-        SqlExecutor.executeAndEvaluateSqlByDruid("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_CREATE_TABLE);
+        SqlExecutor.executeAndEvaluateSqlByDruid("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_TABLE);
     }
 
     public static void evaluateCreateIndexForExistingTable() {

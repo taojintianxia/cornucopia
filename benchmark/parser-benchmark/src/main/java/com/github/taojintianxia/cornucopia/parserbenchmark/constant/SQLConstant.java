@@ -24,16 +24,13 @@ public interface SQLConstant {
 
     String RIGHT_JOIN = "select emp.name,department.name from emp right join department on emp.dept = department.name;";
 
-    String ADD_PRIMARY_KEY = "ALTER TABLE 'TABLE_NAME'  DROP PRIMARY KEY, ADD PRIMARY KEY ('COLUMN_NAME');";
+    String ADD_PRIMARY_KEY = "alter table emp add primary key (id);";
 
-    String DROP_PRIMARY_KEY = "ALTER TABLE 'TABLE_NAME'  DROP PRIMARY KEY;";
+    String DROP_PRIMARY_KEY = "alter table 'emp' drop column c, drop column d;";
 
-    String GROUP_BY_HAVING = "Select * from TABLE_NAME group_by dept  having salary > 10000;";
+    String GROUP_BY_HAVING = "select * from emp group_by dept having salary > 10000;";
 
-    String CREATE_INDEX_IN_CREATE_TABLE = "CREATE TABLE  'emp' ( " +
-                                          "Name varchar(45), " +
-                                          "  'id' INT, INDEX(ID) " +
-                                          ");";
+    String CREATE_INDEX_IN_TABLE = "create table `blog_comment`(`id` integer  not null auto_increment,primary key (`id`),`blog_id` integer,index `blog_comment_fi_1` (`blog_id`));";
 
     String CREATE_INDEX_FOR_EXISTING_TABLE = "Create Index id_index on emp(ID);";
 
@@ -47,7 +44,7 @@ public interface SQLConstant {
 
     String DROP_COLUMN = "Alter table 'emp' drop column salary;";
 
-    String CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE = "create table 'emp2' as select * from emp where 1 group by 'lastname';";
+    String CREATE_TABLE_WITH_NONE_DUPLICATE_VALUE = "create table new_table select * from old_table;";
 
     String SELECT_COMPLEX_MAX = "SELECT F.* " +
                                 "FROM FIRES F, " +

@@ -8,24 +8,24 @@ import lombok.extern.slf4j.Slf4j;
 public class ShardingParser5 {
 
     public static void main( String... args ) {
-//        evaluateSimpleSelect();
-//        evaluateCreateTable();
-//        evaluateSimpleInsert();
-//        evaluateInsertAndUpdate();
-//        evaluateRegularJoin();
-//        evaluateLeftJoin();
-//        evaluateRightJoin();
-//        evaluateAddPrimaryKey();
-//        evaluateDropPrimaryKey();
-//        evaluateGroupByHaving();
-//        evaluateCreateIndexInCreateTable();
-//        evaluateCreateIndexForExistingTable();
-//        evaluateAggregateFunctionQueries();
-//        evaluateAddColumn();
-//        evaluateEditColumn();
-//        evaluateRenameColumn();
-//        evaluateDropColumn();
-//        evaluateCreateTableWithNonDuplicateValue();
+        evaluateSimpleSelect();
+        evaluateCreateTable();
+        evaluateSimpleInsert();
+        evaluateInsertAndUpdate();
+        evaluateRegularJoin();
+        evaluateLeftJoin();
+        evaluateRightJoin();
+        evaluateAddPrimaryKey();
+        evaluateDropPrimaryKey();
+        evaluateGroupByHaving();
+        evaluateCreateIndexInCreateTable();
+        evaluateCreateIndexForExistingTable();
+        evaluateAggregateFunctionQueries();
+        evaluateAddColumn();
+        evaluateEditColumn();
+        evaluateRenameColumn();
+        evaluateDropColumn();
+        evaluateCreateTableWithNonDuplicateValue();
         evaluateSelectComplexMax();
         evaluateSelectComplexExist();
         evaluateSelectComplexIn();
@@ -91,7 +91,7 @@ public class ShardingParser5 {
 
     public static void evaluateCreateIndexInCreateTable() {
         try {
-            SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_CREATE_TABLE);
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_TABLE);
         } catch (Exception e) {
             log.error("got exception for {}", "CREATE_INDEX_IN_CREATE_TABLE");
         }
