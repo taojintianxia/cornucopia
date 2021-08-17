@@ -158,10 +158,18 @@ public class ShardingParser5 {
     }
 
     public static void evaluateSelectComplexSelfJoin() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
+        } catch (Exception e) {
+            log.error("got exception for {}", "SELECT_SELF_JOIN");
+        }
     }
 
     public static void evaluateSelectComplexInnerJoin() {
-        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_COMPLEX_INNER_JOIN", SQLConstant.SELECT_COMPLEX_INNER_JOIN);
+        try {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_COMPLEX_INNER_JOIN", SQLConstant.SELECT_COMPLEX_INNER_JOIN);
+        } catch (Exception e) {
+            log.error("got exception for {}", "SELECT_COMPLEX_INNER_JOIN");
+        }
     }
 }
