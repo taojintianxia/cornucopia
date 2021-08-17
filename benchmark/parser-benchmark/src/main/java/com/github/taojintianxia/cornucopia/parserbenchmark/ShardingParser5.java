@@ -30,6 +30,7 @@ public class ShardingParser5 {
         evaluateSelectComplexExist();
         evaluateSelectComplexIn();
         evaluateSelectComplexSelfJoin();
+        evaluateSelectComplexInnerJoin();
     }
 
     public static void evaluateSimpleSelect() {
@@ -158,5 +159,9 @@ public class ShardingParser5 {
 
     public static void evaluateSelectComplexSelfJoin() {
         SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
+    }
+
+    public static void evaluateSelectComplexInnerJoin() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_COMPLEX_INNER_JOIN", SQLConstant.SELECT_COMPLEX_INNER_JOIN);
     }
 }

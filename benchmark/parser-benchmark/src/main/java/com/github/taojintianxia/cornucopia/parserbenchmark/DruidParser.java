@@ -30,6 +30,7 @@ public class DruidParser {
         evaluateSelectComplexExist();
         evaluateSelectComplexIn();
         evaluateSelectComplexSelfJoin();
+        evaluateSelectComplexInnerJoin();
     }
 
     public static void evaluateSimpleSelect() {
@@ -122,6 +123,10 @@ public class DruidParser {
 
     public static void evaluateSelectComplexSelfJoin() {
         SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
+    }
+
+    public static void evaluateSelectComplexInnerJoin() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_INNER_JOIN", SQLConstant.SELECT_COMPLEX_INNER_JOIN);
     }
 }
 
