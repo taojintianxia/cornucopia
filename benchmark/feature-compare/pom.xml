@@ -3,22 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cornucopia</artifactId>
+        <artifactId>benchmark</artifactId>
         <groupId>com.github.taojintianxia.cornucopia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>benchmark</artifactId>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>sysbenchJ</module>
-        <module>parser-benchmark</module>
-        <module>feature-compare</module>
-    </modules>
+    <artifactId>feature-compare</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <!-- guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+    </dependencies>
 </project>
