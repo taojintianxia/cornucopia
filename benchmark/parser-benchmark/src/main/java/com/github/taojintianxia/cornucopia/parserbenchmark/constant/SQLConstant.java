@@ -4,6 +4,20 @@ public interface SQLConstant {
 
     String SIMPLE_SELECT = "select c from emp;";
 
+    String SELECT_IN_SUB_SQL = "select * " +
+                               "from student " +
+                               "where id in " +
+                               "      ( " +
+                               "          (select distinct(student_id) " +
+                               "          from student_course " +
+                               "          where teacher_id = " +
+                               "                ( " +
+                               "                    select distinct(id) " +
+                               "                    from teacher " +
+                               "                    where name = \"liu\" " +
+                               "                ) " +
+                               "      ); ";
+
     String CREATE_TABLE = "CREATE TABLE  'emp' ( " +
                                               "  'id' INTEGER UNSIGNED NOT NULL AUTO_INCREMENT, " +
                                               "  'name' VARCHAR(45) NOT NULL, " +
