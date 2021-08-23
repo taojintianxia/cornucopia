@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 @Setter
 @Slf4j
-public class DefaultBenchmarkExecutor implements BenchmarkExecutor, Runnable {
+public class BenchmarkExecutorManager implements BenchmarkExecutor, Runnable {
 
     private DataSource dataSource;
 
@@ -27,10 +27,10 @@ public class DefaultBenchmarkExecutor implements BenchmarkExecutor, Runnable {
 
     private Map<Integer, PreparedStatement> statementMap = new HashMap<>();
 
-    public DefaultBenchmarkExecutor() {
+    public BenchmarkExecutorManager() {
     }
 
-    public DefaultBenchmarkExecutor( DataSource dataSource, BaseBenchmarkParam baseBenchmarkParam ) {
+    public BenchmarkExecutorManager( DataSource dataSource, BaseBenchmarkParam baseBenchmarkParam ) {
         this.dataSource = dataSource;
         this.baseBenchmarkParam = baseBenchmarkParam;
     }

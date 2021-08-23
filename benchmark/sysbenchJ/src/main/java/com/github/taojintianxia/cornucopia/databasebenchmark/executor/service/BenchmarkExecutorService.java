@@ -1,7 +1,7 @@
 package com.github.taojintianxia.cornucopia.databasebenchmark.executor.service;
 
 import com.github.taojintianxia.cornucopia.databasebenchmark.constants.BenchmarkConstant;
-import com.github.taojintianxia.cornucopia.databasebenchmark.executor.DefaultBenchmarkExecutor;
+import com.github.taojintianxia.cornucopia.databasebenchmark.executor.BenchmarkExecutorManager;
 import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.BaseBenchmarkParam;
 import com.github.taojintianxia.cornucopia.databasebenchmark.executor.param.MySQLBenchmarkParam;
 import com.zaxxer.hikari.HikariConfig;
@@ -21,18 +21,18 @@ public class BenchmarkExecutorService {
     public void execute( BaseBenchmarkParam baseBenchmarkParam ) {
         HikariDataSource hikariDataSource = new HikariDataSource(generateHikariConfig(baseBenchmarkParam));
         if (BenchmarkConstant.COMMAND_PREPARE.equals(baseBenchmarkParam.getCommand())) {
-            new DefaultBenchmarkExecutor(hikariDataSource, baseBenchmarkParam).prepare();
+            new BenchmarkExecutorManager(hikariDataSource, baseBenchmarkParam).prepare();
             return;
         }
         if (BenchmarkConstant.COMMAND_CLEAN.equals(baseBenchmarkParam.getCommand())) {
-            new DefaultBenchmarkExecutor(hikariDataSource, baseBenchmarkParam).cleanup();
+            new BenchmarkExecutorManager(hikariDataSource, baseBenchmarkParam).cleanup();
             return;
         }
         int threads = baseBenchmarkParam.getThreads();
         ExecutorService executor = Executors.newFixedThreadPool(threads);
 
         for (int i = 0; i < threads; i++) {
-            DefaultBenchmarkExecutor defaultBenchmarkExecutor = new DefaultBenchmarkExecutor();
+            BenchmarkExecutorManager defaultBenchmarkExecutor = new BenchmarkExecutorManager();
             defaultBenchmarkExecutor.setDataSource(hikariDataSource);
             defaultBenchmarkExecutor.setBaseBenchmarkParam(baseBenchmarkParam);
             executor.submit(defaultBenchmarkExecutor);
