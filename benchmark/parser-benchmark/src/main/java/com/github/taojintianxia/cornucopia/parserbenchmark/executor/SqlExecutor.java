@@ -12,9 +12,9 @@ public class SqlExecutor {
 
     private final static int LOOP_COUNT = 10000000;
 
-    public static void executeAndEvaluateSqlByShardingParser5( String sql ) {
-        executeAndEvaluateSqlByShardingParser5("sql", sql);
-    }
+//    public static void executeAndEvaluateSqlByShardingParser5( String sql ) {
+//        executeAndEvaluateSqlByShardingParser5("sql", sql);
+//    }
 
     public static void executeAndEvaluateSqlByShardingParser5( String caseName, String sql ) {
         Stopwatch stopwatch = Stopwatch.createStarted();
@@ -25,9 +25,9 @@ public class SqlExecutor {
         log.info("{} execution takes : {}", caseName, stopwatch.elapsed(TimeUnit.MILLISECONDS));
     }
 
-    public static void executeAndEvaluateSqlByDruid( String sql ) {
-        executeAndEvaluateSqlByDruid("sql", sql);
-    }
+//    public static void executeAndEvaluateSqlByDruid( String sql ) {
+//        executeAndEvaluateSqlByDruid("sql", sql);
+//    }
 
     public static void executeAndEvaluateSqlByDruid( String caseName, String sql ) {
         Stopwatch stopwatch = Stopwatch.createStarted();
