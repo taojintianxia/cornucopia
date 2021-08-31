@@ -16,6 +16,14 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

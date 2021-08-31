@@ -23,6 +23,7 @@
         <module>jdk</module>
         <module>benchmark</module>
         <module>toolbox</module>
+        <module>maven</module>
     </modules>
 
     <properties>
