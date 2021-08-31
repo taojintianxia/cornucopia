@@ -8,29 +8,33 @@ import lombok.extern.slf4j.Slf4j;
 public class ShardingParser5 {
 
     public static void main( String... args ) {
-        evaluateSimpleSelect();
-        evaluateCreateTable();
-        evaluateSimpleInsert();
-        evaluateInsertAndUpdate();
-        evaluateRegularJoin();
-        evaluateLeftJoin();
-        evaluateRightJoin();
-        evaluateAddPrimaryKey();
-        evaluateDropPrimaryKey();
-        evaluateGroupByHaving();
-        evaluateCreateIndexInCreateTable();
-        evaluateCreateIndexForExistingTable();
-        evaluateAggregateFunctionQueries();
-        evaluateAddColumn();
-        evaluateEditColumn();
-        evaluateRenameColumn();
-        evaluateDropColumn();
-        evaluateCreateTableWithNonDuplicateValue();
-        evaluateSelectComplexMax();
-        evaluateSelectComplexExist();
-        evaluateSelectComplexIn();
-        evaluateSelectComplexSelfJoin();
-        evaluateSelectComplexInnerJoin();
+//        evaluateSimpleSelect();
+//        evaluateCreateTable();
+//        evaluateSimpleInsert();
+//        evaluateInsertAndUpdate();
+//        evaluateRegularJoin();
+//        evaluateLeftJoin();
+//        evaluateRightJoin();
+//        evaluateAddPrimaryKey();
+//        evaluateDropPrimaryKey();
+//        evaluateGroupByHaving();
+//        evaluateCreateIndexInCreateTable();
+//        evaluateCreateIndexForExistingTable();
+//        evaluateAggregateFunctionQueries();
+//        evaluateAddColumn();
+//        evaluateEditColumn();
+//        evaluateRenameColumn();
+//        evaluateDropColumn();
+//        evaluateCreateTableWithNonDuplicateValue();
+//        evaluateSelectComplexMax();
+//        evaluateSelectComplexExist();
+//        evaluateSelectComplexIn();
+//        evaluateSelectComplexSelfJoin();
+//        evaluateSelectComplexInnerJoin();
+//        evaluateComment();
+        evaluateCommentA();
+        evaluateCommentB();
+        evaluateCommentC();
     }
 
     public static void evaluateSimpleSelect() {
@@ -171,5 +175,21 @@ public class ShardingParser5 {
         } catch (Exception e) {
             log.error("got exception for {}", "SELECT_COMPLEX_INNER_JOIN");
         }
+    }
+
+    public static void evaluateComment() {
+            SqlExecutor.executeAndEvaluateSqlByShardingParser5("COMMENT", SQLConstant.COMMENT);
+    }
+
+    public static void evaluateCommentA() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("COMMENT_A", SQLConstant.COMMENT_A);
+    }
+
+    public static void evaluateCommentB() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("COMMENT_B", SQLConstant.COMMENT_B);
+    }
+
+    public static void evaluateCommentC() {
+        SqlExecutor.executeAndEvaluateSqlByShardingParser5("COMMENT_C", SQLConstant.COMMENT_C);
     }
 }

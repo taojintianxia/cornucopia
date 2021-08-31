@@ -98,5 +98,13 @@ public interface SQLConstant {
                                        "            FROM order   " +
                                        "            WHERE (ItemBought = 'Adult Membership' AND ItemValidDate = '2012/13')) Sub2  " +
                                        "ON contact.Id = Sub2.ContactId";
+
+    String COMMENT = "/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;";
+
+    String COMMENT_A = "/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */ select * from t;";
+
+    String COMMENT_B = "select /*dddddddd*/ 1;";
+
+    String COMMENT_C = "select 1 /*8989898*/;";
 }
 

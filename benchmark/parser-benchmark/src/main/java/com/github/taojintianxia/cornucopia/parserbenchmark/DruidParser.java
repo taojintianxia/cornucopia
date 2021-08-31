@@ -8,29 +8,33 @@ import lombok.extern.slf4j.Slf4j;
 public class DruidParser {
 
     public static void main( String... args ) {
-        evaluateSimpleSelect();
-        evaluateCreateTable();
-        evaluateSimpleInsert();
-        evaluateInsertAndUpdate();
-        evaluateRegularJoin();
-        evaluateLeftJoin();
-        evaluateRightJoin();
-        evaluateAddPrimaryKey();
-        evaluateDropPrimaryKey();
-        evaluateGroupByHaving();
-        evaluateCreateIndexInCreateTable();
-        evaluateCreateIndexForExistingTable();
-        evaluateAggregateFunctionQueries();
-        evaluateAddColumn();
-        evaluateEditColumn();
-        evaluateRenameColumn();
-        evaluateDropColumn();
-        evaluateCreateTableWithNonDuplicateValue();
-        evaluateSelectComplexMax();
-        evaluateSelectComplexExist();
-        evaluateSelectComplexIn();
-        evaluateSelectComplexSelfJoin();
-        evaluateSelectComplexInnerJoin();
+//        evaluateSimpleSelect();
+//        evaluateCreateTable();
+//        evaluateSimpleInsert();
+//        evaluateInsertAndUpdate();
+//        evaluateRegularJoin();
+//        evaluateLeftJoin();
+//        evaluateRightJoin();
+//        evaluateAddPrimaryKey();
+//        evaluateDropPrimaryKey();
+//        evaluateGroupByHaving();
+//        evaluateCreateIndexInCreateTable();
+//        evaluateCreateIndexForExistingTable();
+//        evaluateAggregateFunctionQueries();
+//        evaluateAddColumn();
+//        evaluateEditColumn();
+//        evaluateRenameColumn();
+//        evaluateDropColumn();
+//        evaluateCreateTableWithNonDuplicateValue();
+//        evaluateSelectComplexMax();
+//        evaluateSelectComplexExist();
+//        evaluateSelectComplexIn();
+//        evaluateSelectComplexSelfJoin();
+//        evaluateSelectComplexInnerJoin();
+        evaluateComment();
+        evaluateCommentA();
+        evaluateCommentB();
+        evaluateCommentC();
     }
 
     public static void evaluateSimpleSelect() {
@@ -76,7 +80,6 @@ public class DruidParser {
             log.error("got exception for {}", "GROUP_BY_HAVING");
         }
     }
-
     public static void evaluateCreateIndexInCreateTable() {
         SqlExecutor.executeAndEvaluateSqlByDruid("CREATE_INDEX_IN_CREATE_TABLE", SQLConstant.CREATE_INDEX_IN_TABLE);
     }
@@ -116,7 +119,6 @@ public class DruidParser {
     public static void evaluateSelectComplexExist() {
         SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_EXIST", SQLConstant.SELECT_COMPLEX_EXIST);
     }
-
     public static void evaluateSelectComplexIn() {
         SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_IN", SQLConstant.SELECT_COMPLEX_IN);
     }
@@ -128,5 +130,22 @@ public class DruidParser {
     public static void evaluateSelectComplexInnerJoin() {
         SqlExecutor.executeAndEvaluateSqlByDruid("SELECT_COMPLEX_INNER_JOIN", SQLConstant.SELECT_COMPLEX_INNER_JOIN);
     }
+
+    public static void evaluateComment() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("COMMENT", SQLConstant.COMMENT);
+    }
+
+    public static void evaluateCommentA() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("COMMENT_A", SQLConstant.COMMENT_A);
+    }
+
+    public static void evaluateCommentB() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("COMMENT_B", SQLConstant.COMMENT_B);
+    }
+
+    public static void evaluateCommentC() {
+        SqlExecutor.executeAndEvaluateSqlByDruid("COMMENT_C", SQLConstant.COMMENT_C);
+    }
+
 }
 
