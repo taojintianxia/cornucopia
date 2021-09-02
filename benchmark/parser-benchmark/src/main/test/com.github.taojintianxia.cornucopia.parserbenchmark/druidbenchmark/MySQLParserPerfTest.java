@@ -15,15 +15,11 @@
  */
 package com.github.taojintianxia.cornucopia.parserbenchmark.druidbenchmark;
 
-import com.alibaba.druid.sql.ast.SQLStatement;
 import com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser;
-import com.alibaba.druid.sql.dialect.mysql.visitor.MySqlOutputVisitor;
 import junit.framework.TestCase;
 import org.apache.shardingsphere.infra.parser.ShardingSphereSQLParserEngine;
 
-import java.util.List;
-
-public class MySQLPerfTest extends TestCase {
+public class MySQLParserPerfTest extends TestCase {
 
     private String sql;
 
@@ -31,30 +27,36 @@ public class MySQLPerfTest extends TestCase {
 
     private final int WITH_CACHE_LOOP_COUNT = 1000 * 10000;
 
-    protected void setUp() throws Exception {
+    protected void setUp() {
 //        sql = "SELECT * FROM T";
         sql = "SELECT ID, NAME, AGE FROM USER WHERE ID = ?";
     }
 
-    public void test_druid_with_cache() throws Exception {
+    public void test_druid_with_cache() {
         for (int i = 0; i < 10; ++i) {
-            parseWithCacheByDruid(sql, "druid");
+            parseWithCacheByDruid(sql);
         }
     }
 
-    public void test_druid_without_cache() throws Exception {
+    public void test_druid_without_cache() {
         for (int i = 0; i < 10; ++i) {
-            parseWithCacheByDruid(sql, "druid");
+            parseWithOutCacheByDruid(sql);
         }
     }
 
-    public void test_ss() throws Exception {
+    public void test_ss_with_cache() {
         for (int i = 0; i < 10; ++i) {
-            parseWithCacheByDruid(sql, "ss");
+            parseWithCacheBySS(sql);
         }
     }
 
-    void parseWithCacheByDruid( String sql, String engine ) {
+    public void test_ss_without_cache() {
+        for (int i = 0; i < 10; ++i) {
+            parseWithOutCacheBySS(sql);
+        }
+    }
+
+    void parseWithCacheByDruid( String sql ) {
         long startYGC = TestUtils.getYoungGC();
         long startYGCTime = TestUtils.getYoungGCTime();
         long startFGC = TestUtils.getFullGC();
@@ -73,31 +75,36 @@ public class MySQLPerfTest extends TestCase {
         System.out.println("MySql\t" + millis + ", ygc " + ygc + ", ygct " + ygct + ", fgc " + fgc);
     }
 
-    private String execMySqlByDruildParser( String sql ) {
-        StringBuilder out = new StringBuilder();
+    void parseWithOutCacheByDruid( String sql ) {
+        long startYGC = TestUtils.getYoungGC();
+        long startYGCTime = TestUtils.getYoungGCTime();
+        long startFGC = TestUtils.getFullGC();
+        long startMillis = System.currentTimeMillis();
+
         for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
-            MySqlOutputVisitor visitor = new MySqlOutputVisitor(out);
             MySqlStatementParser parser = new MySqlStatementParser(sql);
-            List<SQLStatement> statementList = parser.parseStatementList();
-            for (SQLStatement statement : statementList) {
-                statement.accept(visitor);
-                visitor.println();
-            }
+            parser.parseStatementList();
         }
 
-        return out.toString();
+        long millis = System.currentTimeMillis() - startMillis;
+        long ygc = TestUtils.getYoungGC() - startYGC;
+        long ygct = TestUtils.getYoungGCTime() - startYGCTime;
+        long fgc = TestUtils.getFullGC() - startFGC;
+
+        System.out.println("MySql\t" + millis + ", ygc " + ygc + ", ygct " + ygct + ", fgc " + fgc);
     }
 
-    private String execMySqlBySSParser( String sql ) {
-        StringBuilder out = new StringBuilder();
+    private void parseWithCacheBySS( String sql ) {
         ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
         for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
-            org.apache.shardingsphere.sql.parser.sql.common.statement.SQLStatement statement = sqlStatementParserEngine.parse(sql, false);
+            sqlStatementParserEngine.parse(sql, true);
         }
-        // for (SQLStatement statement : statementList) {
-        // statement.accept(visitor);
-        // visitor.println();
-        // }
-        return out.toString();
+    }
+
+    private void parseWithOutCacheBySS( String sql ) {
+        for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
+            ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+            sqlStatementParserEngine.parse(sql, false);
+        }
     }
 }
