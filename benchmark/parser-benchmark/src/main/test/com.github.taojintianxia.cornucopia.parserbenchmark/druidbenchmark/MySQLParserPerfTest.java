@@ -18,14 +18,13 @@ package com.github.taojintianxia.cornucopia.parserbenchmark.druidbenchmark;
 import com.alibaba.druid.sql.dialect.mysql.parser.MySqlStatementParser;
 import junit.framework.TestCase;
 import org.apache.shardingsphere.infra.parser.ShardingSphereSQLParserEngine;
+import org.apache.shardingsphere.sql.parser.api.SQLParserEngine;
 
 public class MySQLParserPerfTest extends TestCase {
 
     private String sql;
 
-    private final int NOT_CACHE_LOOP_COUNT = 1000 * 1000;
-
-    private final int WITH_CACHE_LOOP_COUNT = 1000 * 10000;
+    private final int LOOP_COUNT = 1000 * 1000;
 
     protected void setUp() {
 //        sql = "SELECT * FROM T";
@@ -63,7 +62,7 @@ public class MySQLParserPerfTest extends TestCase {
         long startMillis = System.currentTimeMillis();
         MySqlStatementParser parser = new MySqlStatementParser(sql);
 
-        for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
+        for (int i = 0; i < LOOP_COUNT; ++i) {
             parser.parseStatementList();
         }
 
@@ -81,7 +80,7 @@ public class MySQLParserPerfTest extends TestCase {
         long startFGC = TestUtils.getFullGC();
         long startMillis = System.currentTimeMillis();
 
-        for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
+        for (int i = 0; i < LOOP_COUNT; ++i) {
             MySqlStatementParser parser = new MySqlStatementParser(sql);
             parser.parseStatementList();
         }
@@ -94,17 +93,60 @@ public class MySQLParserPerfTest extends TestCase {
         System.out.println("MySql\t" + millis + ", ygc " + ygc + ", ygct " + ygct + ", fgc " + fgc);
     }
 
+    // TODO
+    //
+    // 测试 parserEngine.parse(sql, false)
+    // SQLParserEngine parserEngine = new SQLParserEngine(databaseType);
+
+    private void nakedParser(String sql) {
+        SQLParserEngine parserEngine = new SQLParserEngine("MySQL");
+        for (int i = 0; i < LOOP_COUNT; ++i) {
+            parserEngine.parse(sql, false);
+        }
+    }
+
     private void parseWithCacheBySS( String sql ) {
         ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
-        for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
+        for (int i = 0; i < LOOP_COUNT; ++i) {
             sqlStatementParserEngine.parse(sql, true);
         }
     }
 
     private void parseWithOutCacheBySS( String sql ) {
-        for (int i = 0; i < NOT_CACHE_LOOP_COUNT; ++i) {
+        for (int i = 0; i < LOOP_COUNT; ++i) {
             ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
             sqlStatementParserEngine.parse(sql, false);
         }
+    }
+
+    private void parseWithOutCacheBySSA( String sql ) {
+        for (int i = 0; i < LOOP_COUNT; ++i) {
+            ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+            sqlStatementParserEngine.parse(sql, false);
+        }
+    }
+
+    private void parseWithOutCacheBySSB( String sql ) {
+        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+        for (int i = 0; i < LOOP_COUNT; ++i) {
+            sqlStatementParserEngine.parse(sql, false);
+        }
+    }
+
+    public static void main(String...args) {
+        String sql = "SELECT ID, NAME, AGE FROM USER WHERE ID = ?";
+        MySQLParserPerfTest test = new MySQLParserPerfTest();
+        long start = System.currentTimeMillis();
+        test.parseWithCacheBySS(sql);
+        System.out.println("parseWithCacheBySS : " + (System.currentTimeMillis() - start));
+        start = System.currentTimeMillis();
+        test.parseWithOutCacheBySSA(sql);
+        System.out.println("parseWithOutCacheBySSA : " + (System.currentTimeMillis() - start));
+        start = System.currentTimeMillis();
+        test.parseWithOutCacheBySSB(sql);
+        System.out.println("parseWithOutCacheBySSB : " + (System.currentTimeMillis() - start));
+        start = System.currentTimeMillis();
+        test.nakedParser(sql);
+        System.out.println("nakedParser : " + (System.currentTimeMillis() - start));
     }
 }
