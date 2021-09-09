@@ -24,7 +24,7 @@ public class MySQLParserPerfTest extends TestCase {
 
     private String sql;
 
-    private final int LOOP_COUNT = 1000 * 1000;
+    private final int LOOP_COUNT = 10000 * 1000;
 
     protected void setUp() {
 //        sql = "SELECT * FROM T";
@@ -101,7 +101,7 @@ public class MySQLParserPerfTest extends TestCase {
     private void nakedParser(String sql) {
         SQLParserEngine parserEngine = new SQLParserEngine("MySQL");
         for (int i = 0; i < LOOP_COUNT; ++i) {
-            parserEngine.parse(sql, false);
+            parserEngine.parse(sql, true);
         }
     }
 
@@ -137,16 +137,18 @@ public class MySQLParserPerfTest extends TestCase {
         String sql = "SELECT ID, NAME, AGE FROM USER WHERE ID = ?";
         MySQLParserPerfTest test = new MySQLParserPerfTest();
         long start = System.currentTimeMillis();
-        test.parseWithCacheBySS(sql);
-        System.out.println("parseWithCacheBySS : " + (System.currentTimeMillis() - start));
-        start = System.currentTimeMillis();
-        test.parseWithOutCacheBySSA(sql);
-        System.out.println("parseWithOutCacheBySSA : " + (System.currentTimeMillis() - start));
-        start = System.currentTimeMillis();
-        test.parseWithOutCacheBySSB(sql);
-        System.out.println("parseWithOutCacheBySSB : " + (System.currentTimeMillis() - start));
-        start = System.currentTimeMillis();
-        test.nakedParser(sql);
-        System.out.println("nakedParser : " + (System.currentTimeMillis() - start));
+//        test.parseWithCacheBySS(sql);
+//        System.out.println("parseWithCacheBySS : " + (System.currentTimeMillis() - start));
+//        start = System.currentTimeMillis();
+//        test.parseWithOutCacheBySSA(sql);
+//        System.out.println("parseWithOutCacheBySSA : " + (System.currentTimeMillis() - start));
+//        start = System.currentTimeMillis();
+//        test.parseWithOutCacheBySSB(sql);
+//        System.out.println("parseWithOutCacheBySSB : " + (System.currentTimeMillis() - start));
+        for (int i =0 ; i < 10 ;i++) {
+            start = System.currentTimeMillis();
+            test.nakedParser(sql);
+            System.out.println("nakedParser : " + (System.currentTimeMillis() - start));
+        }
     }
 }
