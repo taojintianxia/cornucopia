@@ -98,7 +98,7 @@ public class MySQLParserPerfTest extends TestCase {
     // 测试 parserEngine.parse(sql, false)
     // SQLParserEngine parserEngine = new SQLParserEngine(databaseType);
 
-    private void nakedParser(String sql) {
+    private void nakedParser( String sql ) {
         SQLParserEngine parserEngine = new SQLParserEngine("MySQL");
         for (int i = 0; i < LOOP_COUNT; ++i) {
             parserEngine.parse(sql, true);
@@ -133,7 +133,7 @@ public class MySQLParserPerfTest extends TestCase {
         }
     }
 
-    public static void main(String...args) {
+    public static void main( String... args ) {
         String sql = "SELECT ID, NAME, AGE FROM USER WHERE ID = ?";
         MySQLParserPerfTest test = new MySQLParserPerfTest();
         long start = System.currentTimeMillis();
@@ -145,7 +145,7 @@ public class MySQLParserPerfTest extends TestCase {
 //        start = System.currentTimeMillis();
 //        test.parseWithOutCacheBySSB(sql);
 //        System.out.println("parseWithOutCacheBySSB : " + (System.currentTimeMillis() - start));
-        for (int i =0 ; i < 10 ;i++) {
+        for (int i = 0; i < 10; i++) {
             start = System.currentTimeMillis();
             test.nakedParser(sql);
             System.out.println("nakedParser : " + (System.currentTimeMillis() - start));
