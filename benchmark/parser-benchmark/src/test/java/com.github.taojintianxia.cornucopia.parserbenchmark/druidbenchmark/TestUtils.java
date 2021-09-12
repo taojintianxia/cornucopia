@@ -31,7 +31,6 @@ public class TestUtils {
     public static String outputOracle(List<SQLStatement> stmtList) {
         StringBuilder out = new StringBuilder();
         OracleOutputVisitor visitor = new OracleOutputVisitor(out);
-
         for (SQLStatement stmt : stmtList) {
             stmt.accept(visitor);
         }
@@ -42,7 +41,6 @@ public class TestUtils {
     public static String outputSqlServer(List<SQLStatement> stmtList) {
         StringBuilder out = new StringBuilder();
         SQLServerOutputVisitor visitor = new SQLServerOutputVisitor(out);
-
         for (SQLStatement stmt : stmtList) {
             stmt.accept(visitor);
         }
@@ -65,7 +63,6 @@ public class TestUtils {
     public static String output(List<SQLStatement> stmtList) {
         StringBuilder out = new StringBuilder();
         SQLASTOutputVisitor visitor = new SQLASTOutputVisitor(out);
-
         for (SQLStatement stmt : stmtList) {
             stmt.accept(visitor);
         }
