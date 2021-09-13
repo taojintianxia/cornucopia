@@ -28,7 +28,7 @@ import javax.management.ObjectName;
 
 public class TestUtils {
 
-    public static String outputOracle(List<SQLStatement> stmtList) {
+    public static String outputOracle( List<SQLStatement> stmtList ) {
         StringBuilder out = new StringBuilder();
         OracleOutputVisitor visitor = new OracleOutputVisitor(out);
         for (SQLStatement stmt : stmtList) {
@@ -38,7 +38,7 @@ public class TestUtils {
         return out.toString();
     }
 
-    public static String outputSqlServer(List<SQLStatement> stmtList) {
+    public static String outputSqlServer( List<SQLStatement> stmtList ) {
         StringBuilder out = new StringBuilder();
         SQLServerOutputVisitor visitor = new SQLServerOutputVisitor(out);
         for (SQLStatement stmt : stmtList) {
@@ -48,19 +48,19 @@ public class TestUtils {
         return out.toString();
     }
 
-    public static String outputOracle(SQLStatement... stmtList) {
+    public static String outputOracle( SQLStatement... stmtList ) {
         return outputOracle(Arrays.asList(stmtList));
     }
 
-    public static String outputSqlServer(SQLStatement... stmtList) {
+    public static String outputSqlServer( SQLStatement... stmtList ) {
         return outputSqlServer(Arrays.asList(stmtList));
     }
 
-    public static String output(SQLStatement... stmtList) {
+    public static String output( SQLStatement... stmtList ) {
         return output(Arrays.asList(stmtList));
     }
 
-    public static String output(List<SQLStatement> stmtList) {
+    public static String output( List<SQLStatement> stmtList ) {
         StringBuilder out = new StringBuilder();
         SQLASTOutputVisitor visitor = new SQLASTOutputVisitor(out);
         for (SQLStatement stmt : stmtList) {
