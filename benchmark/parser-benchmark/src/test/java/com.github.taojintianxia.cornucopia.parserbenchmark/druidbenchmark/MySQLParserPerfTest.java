@@ -24,11 +24,12 @@ public class MySQLParserPerfTest extends TestCase {
 
     private String sql;
 
-    private final int LOOP_COUNT = 10000 * 1000;
+    private final int LOOP_COUNT = 1000 * 1000;
 
     protected void setUp() {
 //        sql = "SELECT * FROM T";
         sql = "SELECT ID, NAME, AGE FROM USER WHERE ID = ?";
+//        sql = "/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */ select * from t;";
     }
 
     public void test_druid_with_cache() {
@@ -101,7 +102,7 @@ public class MySQLParserPerfTest extends TestCase {
     private void nakedParser( String sql ) {
         SQLParserEngine parserEngine = new SQLParserEngine("MySQL");
         for (int i = 0; i < LOOP_COUNT; ++i) {
-            parserEngine.parse(sql, true);
+            parserEngine.parse(sql, false);
         }
     }
 
@@ -148,7 +149,7 @@ public class MySQLParserPerfTest extends TestCase {
         for (int i = 0; i < 10; i++) {
             start = System.currentTimeMillis();
             test.nakedParser(sql);
-            System.out.println("nakedParser : " + (System.currentTimeMillis() - start));
+            System.out.println("Parser : " + (System.currentTimeMillis() - start));
         }
     }
 }

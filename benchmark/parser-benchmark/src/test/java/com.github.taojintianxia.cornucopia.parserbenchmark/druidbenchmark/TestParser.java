@@ -4,8 +4,8 @@ import org.apache.shardingsphere.infra.parser.ShardingSphereSQLParserEngine;
 
 public class TestParser {
 
-    public static void main(final String[] args) {
-        ShardingSphereSQLParserEngine engine = new ShardingSphereSQLParserEngine("MySQL");
+    public static void main( final String[] args ) {
+        ShardingSphereSQLParserEngine engine = new ShardingSphereSQLParserEngine("MySQL", null);
         long before = System.currentTimeMillis();
         for (int i = 0; i < 1000000; i++) {
             engine.parse("SELECT ID, NAME, AGE FROM USER WHERE ID = ?", false);

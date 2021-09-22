@@ -21,4 +21,5 @@ public class ConnectionUtil {
                 .getConnection(properties.getProperty(JdbcConstant.URL), properties.getProperty(JdbcConstant.USERNAME),
                         properties.getProperty(JdbcConstant.PASSWORD));
     }
+
 }
