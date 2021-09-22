@@ -100,14 +100,14 @@ public class MySQLParserPerfTest extends TestCase {
     // SQLParserEngine parserEngine = new SQLParserEngine(databaseType);
 
     private void nakedParser( String sql ) {
-        SQLParserEngine parserEngine = new SQLParserEngine("MySQL");
+        SQLParserEngine parserEngine = new SQLParserEngine("MySQL", false);
         for (int i = 0; i < LOOP_COUNT; ++i) {
             parserEngine.parse(sql, false);
         }
     }
 
     private void parseWithCacheBySS( String sql ) {
-        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL", null);
         for (int i = 0; i < LOOP_COUNT; ++i) {
             sqlStatementParserEngine.parse(sql, true);
         }
@@ -115,20 +115,20 @@ public class MySQLParserPerfTest extends TestCase {
 
     private void parseWithOutCacheBySS( String sql ) {
         for (int i = 0; i < LOOP_COUNT; ++i) {
-            ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+            ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL", null);
             sqlStatementParserEngine.parse(sql, false);
         }
     }
 
     private void parseWithOutCacheBySSA( String sql ) {
         for (int i = 0; i < LOOP_COUNT; ++i) {
-            ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+            ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL", null);
             sqlStatementParserEngine.parse(sql, false);
         }
     }
 
     private void parseWithOutCacheBySSB( String sql ) {
-        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL", null);
         for (int i = 0; i < LOOP_COUNT; ++i) {
             sqlStatementParserEngine.parse(sql, false);
         }
