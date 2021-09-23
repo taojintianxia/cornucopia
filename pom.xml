@@ -24,6 +24,7 @@
         <module>benchmark</module>
         <module>toolbox</module>
         <module>maven</module>
+        <module>temp</module>
     </modules>
 
     <properties>
