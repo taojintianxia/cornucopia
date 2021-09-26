@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class MySQLFailOverTest {
 
-    private static final String URL = "jdbc:mysql://127.0.0.1:23306,127.0.0.1:23307/sbtest?failOverReadOnly=false";
+    private static final String URL = "jdbc:mysql://127.0.0.1:13306,127.0.0.1:13307/sbtest?failOverReadOnly=false";
 
     private static final String USERNAME = "root";
 
@@ -24,7 +24,8 @@ public class MySQLFailOverTest {
             while (resultSet.next()) {
                 Thread.sleep(1000);
                 System.out.println("---------------------");
-                System.out.println("column 1 : " + resultSet.getString(2));
+                System.out.println("the corresponding key id : " + resultSet.getString(2));
+                System.out.println("---------------------");
             }
         }
     }
