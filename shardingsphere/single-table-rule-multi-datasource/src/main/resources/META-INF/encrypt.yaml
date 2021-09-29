@@ -19,7 +19,9 @@ schemaName: encrypt_db
 
 dataSources:
     ds_0:
-        url: jdbc:mysql://127.0.0.1:3306/encrypt_ds_0?serverTimezone=UTC&useSSL=false
+        dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/encrypt_ds_0?serverTimezone=UTC&useSSL=false
         username: root
         password: root
         connectionTimeoutMilliseconds: 30000
@@ -28,7 +30,9 @@ dataSources:
         maxPoolSize: 50
         minPoolSize: 1
     ds_1:
-        url: jdbc:mysql://127.0.0.1:3306/encrypt_ds_1?serverTimezone=UTC&useSSL=false
+        dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://127.0.0.1:3306/encrypt_ds_1?serverTimezone=UTC&useSSL=false
         username: root
         password: root
         connectionTimeoutMilliseconds: 30000
