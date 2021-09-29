@@ -6,7 +6,7 @@
 # (the "License"); you may not use this file except in compliance with
 # the License.  You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#   http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,45 +18,45 @@
 schemaName: encrypt_db
 
 dataSources:
-    ds_0:
-        dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-        driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://127.0.0.1:3306/encrypt_ds_0?serverTimezone=UTC&useSSL=false
-        username: root
-        password: root
-        connectionTimeoutMilliseconds: 30000
-        idleTimeoutMilliseconds: 60000
-        maxLifetimeMilliseconds: 1800000
-        maxPoolSize: 50
-        minPoolSize: 1
-    ds_1:
-        dataSourceClassName: com.zaxxer.hikari.HikariDataSource
-        driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://127.0.0.1:3306/encrypt_ds_1?serverTimezone=UTC&useSSL=false
-        username: root
-        password: root
-        connectionTimeoutMilliseconds: 30000
-        idleTimeoutMilliseconds: 60000
-        maxLifetimeMilliseconds: 1800000
-        maxPoolSize: 50
-        minPoolSize: 1
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/encrypt_ds_0?serverTimezone=UTC&useSSL=false
+    username: root
+    password: root
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+  ds_1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/encrypt_ds_1?serverTimezone=UTC&useSSL=false
+    username: root
+    password: root
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
 
 rules:
-    - !ENCRYPT
-        encryptors:
-            aes_encryptor:
-                type: AES
-                props:
-                    aes-key-value: 123456abc
-            md5_encryptor:
-                type: MD5
-        tables:
-            t_encrypt:
-                columns:
-                    user_id:
-                        plainColumn: user_plain
-                        cipherColumn: user_cipher
-                        encryptorName: aes_encryptor
-                    order_id:
-                        cipherColumn: order_cipher
-                        encryptorName: md5_encryptor
+  - !ENCRYPT
+    encryptors:
+      aes_encryptor:
+        type: AES
+        props:
+          aes-key-value: 123456abc
+      md5_encryptor:
+        type: MD5
+    tables:
+      t_encrypt:
+        columns:
+          user_id:
+            plainColumn: user_plain
+            cipherColumn: user_cipher
+            encryptorName: aes_encryptor
+          order_id:
+            cipherColumn: order_cipher
+            encryptorName: md5_encryptor
