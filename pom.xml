@@ -17,7 +17,6 @@
         <module>shardingsphere</module>
         <module>libraries</module>
         <module>consensus</module>
-        <module>code-generator</module>
         <module>protocol</module>
         <module>spring-cloud-alibaba</module>
         <module>jdk</module>
