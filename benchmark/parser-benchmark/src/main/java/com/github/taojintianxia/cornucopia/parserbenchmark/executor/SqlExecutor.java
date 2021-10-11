@@ -3,8 +3,10 @@ package com.github.taojintianxia.cornucopia.parserbenchmark.executor;
 import com.alibaba.druid.sql.SQLUtils;
 import com.google.common.base.Stopwatch;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shardingsphere.infra.config.properties.ConfigurationProperties;
 import org.apache.shardingsphere.infra.parser.ShardingSphereSQLParserEngine;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -18,7 +20,7 @@ public class SqlExecutor {
 
     public static void executeAndEvaluateSqlByShardingParser5( String caseName, String sql ) {
         Stopwatch stopwatch = Stopwatch.createStarted();
-        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL");
+        ShardingSphereSQLParserEngine sqlStatementParserEngine = new ShardingSphereSQLParserEngine("MySQL",new ConfigurationProperties(new Properties()));
         for (int i = 0; i < LOOP_COUNT; i++) {
             sqlStatementParserEngine.parse(sql, true);
         }

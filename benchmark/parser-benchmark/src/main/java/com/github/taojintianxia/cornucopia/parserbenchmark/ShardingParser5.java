@@ -29,12 +29,12 @@ public class ShardingParser5 {
 //        evaluateSelectComplexMax();
 //        evaluateSelectComplexExist();
 //        evaluateSelectComplexIn();
-//        evaluateSelectComplexSelfJoin();
+        evaluateSelectComplexSelfJoin();
 //        evaluateSelectComplexInnerJoin();
 //        evaluateComment();
-        evaluateCommentA();
-        evaluateCommentB();
-        evaluateCommentC();
+//        evaluateCommentA();
+//        evaluateCommentB();
+//        evaluateCommentC();
     }
 
     public static void evaluateSimpleSelect() {
@@ -165,7 +165,7 @@ public class ShardingParser5 {
         try {
             SqlExecutor.executeAndEvaluateSqlByShardingParser5("SELECT_SELF_JOIN", SQLConstant.SELECT_SELF_JOIN);
         } catch (Exception e) {
-            log.error("got exception for {}", "SELECT_SELF_JOIN");
+            log.error("got exception for {}", "SELECT_SELF_JOIN", e);
         }
     }
 
