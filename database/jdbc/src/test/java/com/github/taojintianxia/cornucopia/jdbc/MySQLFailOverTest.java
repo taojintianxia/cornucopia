@@ -14,6 +14,7 @@ public class MySQLFailOverTest {
 
     private static final String PASSWORD = "root";
 
+    // when it executes, try to kill one mysql instance manually.and then take a look of this log
     public static void main( String... args ) throws ClassNotFoundException, SQLException, InterruptedException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         for (int i =0 ;i < 100 ;i++) {
