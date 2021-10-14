@@ -14,7 +14,12 @@ public class MySQLFailOverTest {
 
     private static final String PASSWORD = "root";
 
-    // when it executes, try to kill one mysql instance manually.and then take a look of this log
+    /*
+    first, create a schema called sbtest in both instances
+    and then insert some test data into the table by sysbench here.
+    for distinguish the instance, I update a column value as the instance port, so that I could know the data from which instance.
+    when it executes, try to kill one mysql instance manually.and then take a look of this log
+     */
     public static void main( String... args ) throws ClassNotFoundException, SQLException, InterruptedException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         for (int i =0 ;i < 100 ;i++) {
