@@ -42,7 +42,7 @@ public interface SQLConstant {
 
     String DROP_PRIMARY_KEY = "alter table 'emp' drop column c, drop column d;";
 
-    String GROUP_BY_HAVING = "select * from emp group_by dept having salary > 10000;";
+    String GROUP_BY_HAVING = "select * from emp group by dept having salary > 10000;";
 
     String CREATE_INDEX_IN_TABLE = "create table `blog_comment`(`id` integer  not null auto_increment,primary key (`id`),`blog_id` integer,index `blog_comment_fi_1` (`blog_id`));";
 
