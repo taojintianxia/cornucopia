@@ -24,6 +24,7 @@
         <module>toolbox</module>
         <module>maven</module>
         <module>temp</module>
+        <module>demo</module>
     </modules>
 
     <properties>
@@ -324,6 +325,15 @@
     </dependencyManagement>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${springboot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
