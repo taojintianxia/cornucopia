@@ -1,6 +1,7 @@
 package com.github.taojintianxia.cornucopia.demo.springmvc.service;
 
 import com.github.taojintianxia.cornucopia.demo.springmvc.pojo.Order;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -11,13 +12,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Service
-public class OrderService {
+public class OrderServiceJDBCTemplate {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Order> listAllOrders() {
+    @SneakyThrows
+    public List<Order> listAllOrders() throws ClassNotFoundException, SQLException {
         String sql = "SELECT order_id, user_id, status FROM t_order";
+
         return jdbcTemplate.query(sql, new RowMapper<Order>(){
             @Override
             public Order mapRow( ResultSet rs, int rowNum) throws SQLException {
