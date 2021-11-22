@@ -7,8 +7,6 @@ import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFac
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
@@ -16,8 +14,6 @@ import java.util.concurrent.Executors;
 import javax.sql.DataSource;
 
 public class ShardingJDBCApplication {
-
-    private static Map<String, Integer> THREAD_COUNTER_MAP = new HashMap<>();
 
     public static int TABLE_SIZE;
 
