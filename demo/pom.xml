@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>springboot-mvc</module>
+        <module>jdbc-pressure-test</module>
     </modules>
 
     <properties>
