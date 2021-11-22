@@ -9,11 +9,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.sql.DataSource;
 
 public class ShardingJDBCApplication {
+
+    private static CopyOnWriteArrayList<Long> executionTimeList = new CopyOnWriteArrayList();
 
     public static int TABLE_SIZE;
 
@@ -36,6 +39,17 @@ public class ShardingJDBCApplication {
         ThreadPoolTimerTask threadPoolTimerTask = new ThreadPoolTimerTask();
         threadPoolTimerTask.setExecutorService(service);
         timer.schedule(threadPoolTimerTask, time * 1000);
+        System.out.println("Total execution count : " + executionTimeList.size());
+        System.out.println("Average time is : " + getAverageTime(executionTimeList));
+        System.out.println("TPS is : " + executionTimeList.size() / time);
+    }
+
+    private static long getAverageTime( CopyOnWriteArrayList<Long> executionTimeList ) {
+        long timeTotal = 0;
+        for (long each : executionTimeList) {
+            timeTotal += each;
+        }
+        return timeTotal / executionTimeList.size();
     }
 
     private static void paramCheck() {
@@ -66,9 +80,9 @@ public class ShardingJDBCApplication {
 
         @Override
         public void run() {
-            System.out.println("-----------------------------");
-            System.out.println("Timer is running");
-            System.out.println("-----------------------------");
+            System.out.println("----------------------------------------------------------");
+            System.out.println("all tests finished");
+            System.out.println("----------------------------------------------------------");
             executorService.shutdownNow();
         }
     }
@@ -87,7 +101,9 @@ public class ShardingJDBCApplication {
             int i = 0;
             while (!Thread.interrupted()) {
                 try {
+                    long start = System.currentTimeMillis();
                     sysbenchBenchmark.execute();
+                    executionTimeList.add(System.currentTimeMillis() - start);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
