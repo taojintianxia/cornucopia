@@ -9,20 +9,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ReadWriteBenchmark implements SysbenchBenchmark {
 
-    private Connection connection;
+    private final Connection connection;
 
-    private PreparedStatement pointSelectStatement;
+    private final PreparedStatement pointSelectStatement;
 
-    private PreparedStatement updateIndexStatement;
+    private final PreparedStatement updateIndexStatement;
 
-    private PreparedStatement updateNonIndexStatement;
+    private final PreparedStatement updateNonIndexStatement;
 
-    private PreparedStatement deleteStatement;
+    private final PreparedStatement deleteStatement;
 
-    private PreparedStatement insertStatement;
+    private final PreparedStatement insertStatement;
 
-    @Override
-    public void setConnection(Connection connection) throws SQLException {
+    public ReadWriteBenchmark(Connection connection) throws SQLException {
         this.connection = connection;
         pointSelectStatement = connection.prepareStatement("select c from sbtest1 where id = ?");
         updateIndexStatement = connection.prepareStatement("UPDATE sbtest1 SET k=k+1 WHERE id=?");
@@ -30,7 +29,6 @@ public class ReadWriteBenchmark implements SysbenchBenchmark {
         deleteStatement = connection.prepareStatement("DELETE FROM sbtest1 WHERE id=?");
         insertStatement = connection.prepareStatement("INSERT INTO sbtest1 (id, k, c, pad) VALUES (?, ?, ?, ?)");
     }
-
 
     @Override
     public void execute() throws SQLException {
@@ -51,6 +49,5 @@ public class ReadWriteBenchmark implements SysbenchBenchmark {
         insertStatement.setString(4, String.valueOf(randomId));
         insertStatement.execute();
         connection.commit();
-
     }
 }

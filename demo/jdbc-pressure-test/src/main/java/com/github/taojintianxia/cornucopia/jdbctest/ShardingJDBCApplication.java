@@ -7,6 +7,8 @@ import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFac
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -17,6 +19,8 @@ import javax.sql.DataSource;
 public class ShardingJDBCApplication {
 
     private static CopyOnWriteArrayList<Long> executionTimeList = new CopyOnWriteArrayList();
+
+    private static final Map<String, String> PARAM_MAP = new HashMap<>();
 
     public static int TABLE_SIZE;
 
@@ -39,9 +43,12 @@ public class ShardingJDBCApplication {
         ThreadPoolTimerTask threadPoolTimerTask = new ThreadPoolTimerTask();
         threadPoolTimerTask.setExecutorService(service);
         timer.schedule(threadPoolTimerTask, time * 1000);
+    }
+
+    private static void analyze() {
         System.out.println("Total execution count : " + executionTimeList.size());
         System.out.println("Average time is : " + getAverageTime(executionTimeList));
-        System.out.println("TPS is : " + executionTimeList.size() / time);
+        System.out.println("TPS is : " + executionTimeList.size() / Integer.parseInt(PARAM_MAP.get("time")));
     }
 
     private static long getAverageTime( CopyOnWriteArrayList<Long> executionTimeList ) {
@@ -68,6 +75,7 @@ public class ShardingJDBCApplication {
         if (System.getProperty("script") == null) {
             throw new RuntimeException("\"-Dscript\" has not been set");
         }
+        PARAM_MAP.put("time",System.getProperty("time"));
     }
 
     private static class ThreadPoolTimerTask extends TimerTask {
@@ -84,6 +92,7 @@ public class ShardingJDBCApplication {
             System.out.println("all tests finished");
             System.out.println("----------------------------------------------------------");
             executorService.shutdownNow();
+            analyze();
         }
     }
 

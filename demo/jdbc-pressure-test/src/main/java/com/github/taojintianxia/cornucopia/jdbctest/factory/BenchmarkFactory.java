@@ -1,5 +1,6 @@
 package com.github.taojintianxia.cornucopia.jdbctest.factory;
 
+import com.github.taojintianxia.cornucopia.jdbctest.statement.PointSelectOrderBy;
 import com.github.taojintianxia.cornucopia.jdbctest.statement.ReadWriteBenchmark;
 import com.github.taojintianxia.cornucopia.jdbctest.statement.SysbenchBenchmark;
 
@@ -10,9 +11,10 @@ public class BenchmarkFactory {
 
     public static SysbenchBenchmark getBenchmarkByName( String benchmarkName, Connection connection ) throws SQLException {
         if ("oltp_read_write".equals(benchmarkName)) {
-            ReadWriteBenchmark readWriteBenchmark = new ReadWriteBenchmark();
-            readWriteBenchmark.setConnection(connection);
-            return readWriteBenchmark;
+            return new ReadWriteBenchmark(connection);
+        }
+        if ("oltp_order_by".equals(benchmarkName)) {
+            return new PointSelectOrderBy(connection);
         }
 
         throw new UnsupportedOperationException("not support your benchmark");
