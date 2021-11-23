@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ReadWriteBenchmark implements SysbenchBenchmark {
+public class ReadWrite implements SysbenchBenchmark {
 
     private final Connection connection;
 
@@ -21,7 +21,7 @@ public class ReadWriteBenchmark implements SysbenchBenchmark {
 
     private final PreparedStatement insertStatement;
 
-    public ReadWriteBenchmark(Connection connection) throws SQLException {
+    public ReadWrite( Connection connection) throws SQLException {
         this.connection = connection;
         pointSelectStatement = connection.prepareStatement("select c from sbtest1 where id = ?");
         updateIndexStatement = connection.prepareStatement("UPDATE sbtest1 SET k=k+1 WHERE id=?");

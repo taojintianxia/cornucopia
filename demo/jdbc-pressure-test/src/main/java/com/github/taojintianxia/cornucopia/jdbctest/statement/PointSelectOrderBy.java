@@ -12,7 +12,7 @@ public class PointSelectOrderBy implements SysbenchBenchmark {
 
     public PointSelectOrderBy(Connection connection) throws SQLException {
         this.connection = connection;
-        pointSelectStatement = connection.prepareStatement("SELECT c FROM sbtest%u WHERE id BETWEEN 1 AND 100");
+        pointSelectStatement = connection.prepareStatement("SELECT c FROM sbtest1 WHERE id BETWEEN 1 AND 100");
     }
 
     @Override

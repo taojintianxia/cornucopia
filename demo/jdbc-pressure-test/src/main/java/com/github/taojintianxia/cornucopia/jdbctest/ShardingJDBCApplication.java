@@ -6,6 +6,8 @@ import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFac
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +33,7 @@ public class ShardingJDBCApplication {
         int thread = Integer.parseInt(System.getProperty("thread"));
         String scriptName = System.getProperty("script");
         TABLE_SIZE = Integer.parseInt(System.getProperty("table-size"));
-
+        String transactionMode = System.getProperty("transaction-mode");
         DataSource dataSource = YamlShardingSphereDataSourceFactory.createDataSource(new File(configurationFile));
         ExecutorService service = Executors.newFixedThreadPool(thread);
         for (int i = 0; i < thread; i++) {
@@ -47,16 +49,16 @@ public class ShardingJDBCApplication {
 
     private static void analyze() {
         System.out.println("Total execution count : " + executionTimeList.size());
-        System.out.println("Average time is : " + getAverageTime(executionTimeList));
+        System.out.println("Average time is : " + BigDecimal.valueOf(getAverageTime(executionTimeList)).setScale(2, RoundingMode.HALF_UP).doubleValue());
         System.out.println("TPS is : " + executionTimeList.size() / Integer.parseInt(PARAM_MAP.get("time")));
     }
 
-    private static long getAverageTime( CopyOnWriteArrayList<Long> executionTimeList ) {
+    private static double getAverageTime( CopyOnWriteArrayList<Long> executionTimeList ) {
         long timeTotal = 0;
         for (long each : executionTimeList) {
             timeTotal += each;
         }
-        return timeTotal / executionTimeList.size();
+        return timeTotal * 1.0 / executionTimeList.size();
     }
 
     private static void paramCheck() {
@@ -75,7 +77,7 @@ public class ShardingJDBCApplication {
         if (System.getProperty("script") == null) {
             throw new RuntimeException("\"-Dscript\" has not been set");
         }
-        PARAM_MAP.put("time",System.getProperty("time"));
+        PARAM_MAP.put("time", System.getProperty("time"));
     }
 
     private static class ThreadPoolTimerTask extends TimerTask {
