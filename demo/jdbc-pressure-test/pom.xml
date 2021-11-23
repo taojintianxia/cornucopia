@@ -64,7 +64,10 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <!-- 用如下配置，依赖都会放入 lib 文件夹 -->
+<!--                            <outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+                            <!-- 用如下配置，所有依赖都会打入一个 jar -->
+                            <outputDirectory>${project.build.directory}/classes/lib</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
