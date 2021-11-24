@@ -1,6 +1,6 @@
 package com.github.taojintianxia.cornucopia.jdbctest.statement;
 
-import com.github.taojintianxia.cornucopia.jdbctest.ShardingJDBCApplication;
+import com.github.taojintianxia.cornucopia.jdbctest.constants.SysbenchConstant;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +33,7 @@ public class ReadWrite implements SysbenchBenchmark {
     @Override
     public void execute() throws SQLException {
         connection.setAutoCommit(false);
-        int randomId = ThreadLocalRandom.current().nextInt(ShardingJDBCApplication.TABLE_SIZE);
+        int randomId = ThreadLocalRandom.current().nextInt(Integer.parseInt(SysbenchConstant.SYSBENCH_PARAM_MAP.get("table-size")));
         pointSelectStatement.setInt(1, randomId);
         pointSelectStatement.execute();
         updateIndexStatement.setInt(1, randomId);

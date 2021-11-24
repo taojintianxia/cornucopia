@@ -2,6 +2,8 @@ package com.github.taojintianxia.cornucopia.jdbctest;
 
 import com.github.taojintianxia.cornucopia.jdbctest.factory.BenchmarkFactory;
 import com.github.taojintianxia.cornucopia.jdbctest.statement.SysbenchBenchmark;
+import com.github.taojintianxia.cornucopia.jdbctest.validation.SysbenchParamValidator;
+import lombok.SneakyThrows;
 import org.apache.shardingsphere.driver.api.yaml.YamlShardingSphereDataSourceFactory;
 
 import java.io.File;
@@ -9,75 +11,46 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.sql.DataSource;
 
+import static com.github.taojintianxia.cornucopia.jdbctest.constants.SysbenchConstant.SYSBENCH_PARAM_MAP;
+
 public class ShardingJDBCApplication {
 
-    private static CopyOnWriteArrayList<Long> executionTimeList = new CopyOnWriteArrayList();
-
-    private static final Map<String, String> PARAM_MAP = new HashMap<>();
-
-    public static int TABLE_SIZE;
+    private static final ConcurrentLinkedQueue<Long> concurrentLinkedQueue = new ConcurrentLinkedQueue();
 
     public static void main( String... args ) throws SQLException, IOException {
-        paramCheck();
-        String configurationFile = System.getProperty("conf");
-        int time = Integer.parseInt(System.getProperty("time"));
-        int thread = Integer.parseInt(System.getProperty("thread"));
-        String scriptName = System.getProperty("script");
-        TABLE_SIZE = Integer.parseInt(System.getProperty("table-size"));
-        String transactionMode = System.getProperty("transaction-mode");
-        DataSource dataSource = YamlShardingSphereDataSourceFactory.createDataSource(new File(configurationFile));
-        ExecutorService service = Executors.newFixedThreadPool(thread);
-        for (int i = 0; i < thread; i++) {
+        SysbenchParamValidator.validateSysbenchParam();
+        DataSource dataSource = YamlShardingSphereDataSourceFactory.createDataSource(new File(SYSBENCH_PARAM_MAP.get("conf")));
+        ExecutorService service = Executors.newFixedThreadPool(Integer.parseInt(SYSBENCH_PARAM_MAP.get("thread")));
+        for (int i = 0; i < Integer.parseInt(SYSBENCH_PARAM_MAP.get("thread")); i++) {
             DataSourceExecutor dataSourceExecutor = new DataSourceExecutor();
-            dataSourceExecutor.setBenchmark(BenchmarkFactory.getBenchmarkByName(scriptName, dataSource.getConnection()));
+            dataSourceExecutor.setBenchmark(BenchmarkFactory.getBenchmarkByName(SYSBENCH_PARAM_MAP.get("script"), dataSource.getConnection()));
             service.submit(dataSourceExecutor);
         }
         Timer timer = new Timer();
         ThreadPoolTimerTask threadPoolTimerTask = new ThreadPoolTimerTask();
         threadPoolTimerTask.setExecutorService(service);
-        timer.schedule(threadPoolTimerTask, time * 1000);
+        timer.schedule(threadPoolTimerTask, Integer.parseInt(SYSBENCH_PARAM_MAP.get("time")) * 1000L);
     }
 
     private static void analyze() {
-        System.out.println("Total execution count : " + executionTimeList.size());
-        System.out.println("Average time is : " + BigDecimal.valueOf(getAverageTime(executionTimeList)).setScale(2, RoundingMode.HALF_UP).doubleValue());
-        System.out.println("TPS is : " + executionTimeList.size() / Integer.parseInt(PARAM_MAP.get("time")));
+        System.out.println("Total execution count : " + concurrentLinkedQueue.size());
+        System.out.println("Average time is : " + BigDecimal.valueOf(getAverageTime(concurrentLinkedQueue)).setScale(2, RoundingMode.HALF_UP).doubleValue());
+        System.out.println("TPS is : " + concurrentLinkedQueue.size() / Integer.parseInt(SYSBENCH_PARAM_MAP.get("time")));
     }
 
-    private static double getAverageTime( CopyOnWriteArrayList<Long> executionTimeList ) {
+    private static double getAverageTime( ConcurrentLinkedQueue<Long> concurrentLinkedQueue ) {
         long timeTotal = 0;
-        for (long each : executionTimeList) {
+        for (long each : concurrentLinkedQueue) {
             timeTotal += each;
         }
-        return timeTotal * 1.0 / executionTimeList.size();
-    }
-
-    private static void paramCheck() {
-        if (System.getProperty("conf") == null) {
-            throw new RuntimeException("\"-Dcon\" has not been set");
-        }
-        if (System.getProperty("time") == null) {
-            throw new RuntimeException("\"-Dtime\" has not been set");
-        }
-        if (System.getProperty("thread") == null) {
-            throw new RuntimeException("\"-Dthread\" has not been set");
-        }
-        if (System.getProperty("table-size") == null) {
-            throw new RuntimeException("\"-Dtable-size\" has not been set");
-        }
-        if (System.getProperty("script") == null) {
-            throw new RuntimeException("\"-Dscript\" has not been set");
-        }
-        PARAM_MAP.put("time", System.getProperty("time"));
+        return timeTotal * 1.0 / concurrentLinkedQueue.size();
     }
 
     private static class ThreadPoolTimerTask extends TimerTask {
@@ -98,26 +71,21 @@ public class ShardingJDBCApplication {
         }
     }
 
-
     private static class DataSourceExecutor implements Runnable {
 
         private SysbenchBenchmark sysbenchBenchmark;
 
-        public void setBenchmark( SysbenchBenchmark sysbenchBenchmark ) throws SQLException {
+        public void setBenchmark( SysbenchBenchmark sysbenchBenchmark ) {
             this.sysbenchBenchmark = sysbenchBenchmark;
         }
 
         @Override
+        @SneakyThrows
         public void run() {
-            int i = 0;
             while (!Thread.interrupted()) {
-                try {
-                    long start = System.currentTimeMillis();
-                    sysbenchBenchmark.execute();
-                    executionTimeList.add(System.currentTimeMillis() - start);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                long start = System.currentTimeMillis();
+                sysbenchBenchmark.execute();
+                concurrentLinkedQueue.add(System.currentTimeMillis() - start);
             }
         }
     }

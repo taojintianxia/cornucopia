@@ -1,6 +1,6 @@
 package com.github.taojintianxia.cornucopia.jdbctest.statement;
 
-import com.github.taojintianxia.cornucopia.jdbctest.ShardingJDBCApplication;
+import com.github.taojintianxia.cornucopia.jdbctest.constants.SysbenchConstant;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +22,7 @@ public class PointSelect implements SysbenchBenchmark {
 
     @Override
     public void execute() throws SQLException {
-        pointSelectStatement.setInt(1, random.nextInt(ShardingJDBCApplication.TABLE_SIZE));
+        pointSelectStatement.setInt(1, random.nextInt(Integer.parseInt(SysbenchConstant.SYSBENCH_PARAM_MAP.get("table-size"))));
         pointSelectStatement.execute();
     }
 }
