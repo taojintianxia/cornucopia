@@ -1,11 +1,25 @@
 package com.github.taojintianxia.cornucopia.jdbctest.constants;
 
-import java.util.HashMap;
-import java.util.Map;
+public class SysbenchConstant {
 
-public interface SysbenchConstant {
+    public static String configFilePath;
 
-    Map<String, String> SYSBENCH_PARAM_MAP = new HashMap<>();
+    public static int time;
 
+    public static int thread;
 
+    public static String scriptName;
+
+    public static int tableSize;
+
+    public static String transactionName;
+
+    public static void initConstants() {
+        configFilePath = System.getProperty("conf");
+        time = Integer.parseInt(System.getProperty("time"));
+        thread = Integer.parseInt(System.getProperty("thread"));
+        scriptName = System.getProperty("script");
+        tableSize = Integer.parseInt(System.getProperty("table-size"));
+        transactionName = System.getProperty("transaction-mode");
+    }
 }
