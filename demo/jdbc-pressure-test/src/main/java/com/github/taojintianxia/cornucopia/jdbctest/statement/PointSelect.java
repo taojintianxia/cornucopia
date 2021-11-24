@@ -22,7 +22,7 @@ public class PointSelect implements SysbenchBenchmark {
 
     @Override
     public void execute() throws SQLException {
-        pointSelectStatement.setInt(1, random.nextInt(Integer.parseInt(SysbenchConstant.SYSBENCH_PARAM_MAP.get("table-size"))));
+        pointSelectStatement.setInt(1, random.nextInt(SysbenchConstant.tableSize));
         pointSelectStatement.execute();
     }
 }

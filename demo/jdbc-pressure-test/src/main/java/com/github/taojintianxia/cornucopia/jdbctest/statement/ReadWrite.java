@@ -33,7 +33,7 @@ public class ReadWrite implements SysbenchBenchmark {
     @Override
     public void execute() throws SQLException {
         connection.setAutoCommit(false);
-        int randomId = ThreadLocalRandom.current().nextInt(Integer.parseInt(SysbenchConstant.SYSBENCH_PARAM_MAP.get("table-size")));
+        int randomId = ThreadLocalRandom.current().nextInt(SysbenchConstant.tableSize);
         pointSelectStatement.setInt(1, randomId);
         pointSelectStatement.execute();
         updateIndexStatement.setInt(1, randomId);
