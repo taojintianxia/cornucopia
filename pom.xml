@@ -46,7 +46,7 @@
         <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
         <h2.version>1.4.200</h2.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
-        <shardingsphere.version>5.0.0-RC1-SNAPSHOT</shardingsphere.version>
+        <shardingsphere.version>5.0.1-SNAPSHOT</shardingsphere.version>
         <netty-all.version>4.1.53.Final</netty-all.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
@@ -163,11 +163,6 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
-                <artifactId>sharding-jdbc-orchestration</artifactId>
-                <version>${shardingsphere.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-transaction-core</artifactId>
                 <version>${shardingsphere.version}</version>
             </dependency>
@@ -188,17 +183,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
-                <artifactId>sharding-jdbc-orchestration-spring-boot-starter</artifactId>
-                <version>${shardingsphere.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>sharding-jdbc-spring-namespace</artifactId>
-                <version>${shardingsphere.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shardingsphere</groupId>
-                <artifactId>sharding-jdbc-orchestration-spring-namespace</artifactId>
                 <version>${shardingsphere.version}</version>
             </dependency>
             <dependency>

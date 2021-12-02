@@ -13,6 +13,7 @@
     <modules>
         <module>springboot-mvc</module>
         <module>jdbc-pressure-test</module>
+        <module>jdbc-transaction</module>
     </modules>
 
     <properties>
