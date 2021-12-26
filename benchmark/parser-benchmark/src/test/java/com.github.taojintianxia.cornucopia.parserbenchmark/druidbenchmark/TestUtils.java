@@ -129,6 +129,7 @@ public class TestUtils {
 
             return (Long) mbeanServer.getAttribute(objectName, "CollectionCount");
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("error");
         }
     }
