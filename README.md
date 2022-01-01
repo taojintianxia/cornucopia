@@ -25,8 +25,6 @@ Cornucopia ![](https://raw.githubusercontent.com/taojintianxia/cornucopia/master
   - Spring Cloud Config
     - [spring cloud config 的例子](configuration/spring-cloud-config)
 
-#### ShardingSphere
-  - [Sharding JDBC](shardingsphere)
-
 #### Consensus
   - [Ratis 数据多写](consensus/ratis/database-replicated)
+
