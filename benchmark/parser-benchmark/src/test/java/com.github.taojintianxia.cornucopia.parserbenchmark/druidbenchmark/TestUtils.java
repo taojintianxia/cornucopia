@@ -126,7 +126,6 @@ public class TestUtils {
             } else {
                 objectName = new ObjectName("java.lang:type=GarbageCollector,name=PS MarkSweep");
             }
-
             return (Long) mbeanServer.getAttribute(objectName, "CollectionCount");
         } catch (Exception e) {
             e.printStackTrace();
