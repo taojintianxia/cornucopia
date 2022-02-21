@@ -24,7 +24,6 @@ dataSources:
     maxPoolSize: 256
     minPoolSize: 1
 
-props:
 rules:
 - !SHARDING
   tables:
