@@ -1,3 +1,5 @@
+schemaName: sbtest_sharding
+
 dataSources:
   ds_0:
     url: jdbc:mysql://10.1.77.111:3306/sbtest
