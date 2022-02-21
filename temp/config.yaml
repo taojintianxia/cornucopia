@@ -2,7 +2,7 @@ dataSources:
   ds_0:
     dataSourceClassName: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.jdbc.Driver
-    jdbcUrl: jdbc:mysql://10.1.77.11:3306/sbtest
+    jdbcUrl: jdbc:mysql://10.1.77.111:3306/sbtest
     username: root
     password: root@ZB
     maximumPoolSize: 1024
