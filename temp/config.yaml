@@ -1,0 +1,185 @@
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://10.1.77.11:3306/sbtest
+    username: root
+    password: root@ZB
+    maximumPoolSize: 1024
+    minimumIdle: 1
+  ds_1:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://10.1.77.114:3306/sbtest
+    username: root
+    password: root@ZB
+    maximumPoolSize: 1024
+    minimumIdle: 1
+  ds_2:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://10.1.77.123:3306/sbtest
+    username: root
+    password: root@ZB
+    maximumPoolSize: 1024
+    minimumIdle: 1
+  ds_3:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://10.1.77.168:3306/sbtest
+    username: root
+    password: root@ZB
+    maximumPoolSize: 1024
+    minimumIdle: 1
+
+props:
+rules:
+- !SHARDING
+  tables:
+    sbtest1:
+      actualDataNodes: ds_${0..3}.sbtest1_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_1
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest2:
+      actualDataNodes: ds_${0..3}.sbtest2_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_2
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest3:
+      actualDataNodes: ds_${0..3}.sbtest3_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_3
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest4:
+      actualDataNodes: ds_${0..3}.sbtest4_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_4
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest5:
+      actualDataNodes: ds_${0..3}.sbtest5_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_5
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest6:
+      actualDataNodes: ds_${0..3}.sbtest6_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_6
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest7:
+      actualDataNodes: ds_${0..3}.sbtest7_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_7
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest8:
+      actualDataNodes: ds_${0..3}.sbtest8_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_8
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest9:
+      actualDataNodes: ds_${0..3}.sbtest9_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_9
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+    sbtest10:
+      actualDataNodes: ds_${0..3}.sbtest10_${0..4}
+      tableStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: table_inline_10
+      keyGenerateStrategy:
+        column: id
+        keyGeneratorName: snowflake
+
+  defaultDatabaseStrategy:
+    standard:
+      shardingColumn: id
+      shardingAlgorithmName: database_inline
+
+  shardingAlgorithms:
+    database_inline:
+      type: INLINE
+      props:
+        algorithm-expression: ds_${id % 4}
+    table_inline_1:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest1_${ud % 5}
+    table_inline_2:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest2_${ud % 5}
+    table_inline_3:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest3_${ud % 5}
+    table_inline_4:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest4_${ud % 5}
+    table_inline_5:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest5_${ud % 5}
+    table_inline_6:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest6_${ud % 5}
+    table_inline_7:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest7_${ud % 5}
+    table_inline_8:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest8_${ud % 5}
+    table_inline_9:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest9_${ud % 5}
+    table_inline_10:
+      type: INLINE
+      props:
+        algorithm-expression: sbtest10_${ud % 5}
+  keyGenerators:
+    snowflake:
+      type: SNOWFLAKE
+      props:
+        worker-id: 123
+
