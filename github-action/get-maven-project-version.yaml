@@ -1,0 +1,15 @@
+on:
+    push:
+        branches: [ master ]
+
+name: Get Maven Project Version Example
+jobs:
+    latest-version:
+        name: Get Project Version
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Set Project Version to GITHUB ENV
+              run: echo "PROJECT_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+            - name: Show Project Version
+              run: echo ${PROJECT_VERSION}
