@@ -18,7 +18,7 @@
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <shardingsphere.version>5.0.1-SNAPSHOT</shardingsphere.version>
         <mysql.version>5.1.49</mysql.version>
-        <postgresql.version>42.2.5</postgresql.version>
+        <postgresql.version>42.4.1</postgresql.version>
     </properties>
 
     <dependencies>
