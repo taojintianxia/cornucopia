@@ -43,7 +43,7 @@
         <lombok.version>1.18.14</lombok.version>
         <freemarker.version>2.3.30</freemarker.version>
         <HikariCP.version>3.4.5</HikariCP.version>
-        <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <h2.version>1.4.200</h2.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
         <shardingsphere.version>5.0.1-SNAPSHOT</shardingsphere.version>
