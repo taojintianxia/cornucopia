@@ -81,10 +81,12 @@ export ZSH="/Users/nianjun/.oh-my-zsh"
 
 ZSH_THEME="steeef"
 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_333.jdk/Contents/Home
+#JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home
 MAVEN_HOME=/Users/nianjun/Work/tool/apache-maven-3.8.1
 ANT_HOME=/Users/nianjun/Work/tool/apache-ant-1.10.10
 GOPATH=$HOME/gopath
+
 
 PATH=$JAVA_HOME/bin:$PATH:.
 PATH=$MAVEN_HOME/bin:$PATH:.
@@ -100,6 +102,12 @@ export PATH
 export CLASSPATH
 export GOPATH
 export PATH=${PATH}:/usr/local/mysql/bin/
+# fix the home brew install got errors sometimes
+export HOMEBREW_BOTTLE_DOMAIN=''
+# export the homebrew environment
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 
 alias ..="cd .."
 alias mvnci="mvn clean install"
@@ -107,6 +115,7 @@ alias mvncid="mvn clean install -Dmaven.test.skip"
 alias gitcm="git commit -m "
 alias gitadd="git add ."
 alias cls="clear"
+#alias python=/usr/local/bin/python3
 
 plugins=(
 git
@@ -143,3 +152,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
