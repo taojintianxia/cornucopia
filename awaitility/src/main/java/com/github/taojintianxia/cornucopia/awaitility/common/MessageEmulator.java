@@ -2,21 +2,40 @@ package com.github.taojintianxia.cornucopia.awaitility.common;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.CompletableFuture;
 
 @Slf4j
+@Getter
 @RequiredArgsConstructor
 public final class MessageEmulator {
-
-    @Getter
+    
+    private int userCount = 0;
+    
     private static final MessageEmulator INSTANCE = new MessageEmulator();
-
-    @SneakyThrows
-    public void sendMessage( User user ) {
-        log.info("Sending message to user: {}", user);
-        Thread.sleep(ThreadLocalRandom.current().nextInt(2000));
+    
+    public static MessageEmulator getInstance() {
+        return new MessageEmulator();
+    }
+    
+    private void increaseUserCount() {
+        ++userCount;
+    }
+    
+    private void runAsync(final User user, final long sleepTime) {
+        CompletableFuture.runAsync(() -> {
+            try {
+                log.info("Sending message to user: {}", user);
+                Thread.sleep(sleepTime);
+                increaseUserCount();
+            } catch (InterruptedException ignored) {
+                Thread.currentThread().interrupt();
+            }
+        });
+    }
+    
+    public void sendMessage(final User user, final long sleepTime) {
+        runAsync(user, sleepTime);
     }
 }
