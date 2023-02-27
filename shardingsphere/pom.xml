@@ -12,6 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>shardingsphere-jdbc</module>
+        <module>shardingsphere-5.3.1</module>
     </modules>
 </project>
