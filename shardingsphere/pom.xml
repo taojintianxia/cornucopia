@@ -12,12 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>sharding-jdbc</module>
-        <module>shardingsphere-common</module>
-        <module>strategy</module>
-        <module>preciseStrategy</module>
-        <module>date-range</module>
-        <module>single-table-rule-multi-datasource</module>
-        <module>shardingsphere-proxy</module>
+        <module>shardingsphere-jdbc</module>
     </modules>
 </project>
