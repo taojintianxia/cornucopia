@@ -1,36 +1,51 @@
 # maven ignore
 target/
+*.class
 *.jar
 *.war
 *.zip
 *.tar
 *.tar.gz
+dependency-reduced-pom.xml
+.flattened-pom.xml
+pom.xml.versionsBackup
+
+# maven plugin ignore
+release.properties
+cobertura.ser
+*.gpg
 
 # eclipse ignore
 .settings/
 .project
 .classpath
+.factorypath
 
 # idea ignore
 .idea/
+!/.idea/icon.png
 *.ipr
 *.iml
 *.iws
 
+# vscode ignore
+.vscode/
+
 # temp ignore
 logs/
-bin/
-*.doc
 *.log
+*.tlog
+*.doc
 *.cache
 *.diff
 *.patch
 *.tmp
-classes/
-build/
+.hugo_build.lock
 
 # system ignore
 .DS_Store
 Thumbs.db
 
-build/
+# antlr ignore
+gen/
+*.tokens

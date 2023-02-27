@@ -7,6 +7,7 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <modules>
+        <module>awaitility</module>
         <module>configuration</module>
         <module>container</module>
         <module>unit-test</module>
@@ -24,8 +25,6 @@
         <module>toolbox</module>
         <module>maven</module>
         <module>temp</module>
-        <module>demo</module>
-        <module>awaitility</module>
     </modules>
 
     <properties>
