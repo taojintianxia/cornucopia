@@ -15,7 +15,7 @@ public class DateShardingSQLGenerator {
     private static final List<String> portList = Arrays.asList("26000", "27000", "28000");
     
     public static void main(String... args) throws Exception {
-        generateDatabaseOnTriplePG();
+        generateDatabaseOnMultiplePG();
     }
     
     private static void generateDatasource() {
@@ -42,27 +42,12 @@ public class DateShardingSQLGenerator {
         }
     }
     
-    private static void generateDatabaseOnTriplePG() {
-        for (int i = 0; i <= 2; i++) {
+    private static void generateDatabaseOnMultiplePG() {
+        List<String> pgList = Arrays.asList("26000", "27000", "28000");
+        for (int i = 0; i < pgList.size(); i++) {
+            System.out.println(" -- For " + pgList.get(i));
             for (int year = 1999; year <= 2027; year++) {
-                if (i % 3 == 0 && year % 3 == 1) {
-                    if (year == 1999) {
-                        System.out.println("\n-- For 26000");
-                    }
-                    System.out.println("create database ds_" + year);
-                }
-                
-                if (i % 3 == 1 && year % 3 == 2) {
-                    if (year == 2000) {
-                        System.out.println("\n-- For 27000");
-                    }
-                    System.out.println("create database ds_" + year);
-                }
-                
-                if (i % 3 == 2 && year % 3 == 0) {
-                    if (year == 2001) {
-                        System.out.println("\n-- For 28000");
-                    }
+                if (i % pgList.size() == i && year % pgList.size() == (i + 1) % pgList.size()) {
                     System.out.println("create database ds_" + year);
                 }
             }
