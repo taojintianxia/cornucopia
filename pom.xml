@@ -25,6 +25,7 @@
         <module>toolbox</module>
         <module>maven</module>
         <module>temp</module>
+        <module>gists</module>
     </modules>
 
     <properties>
