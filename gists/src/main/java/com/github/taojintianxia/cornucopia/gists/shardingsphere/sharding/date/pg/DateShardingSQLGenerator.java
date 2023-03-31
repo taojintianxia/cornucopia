@@ -47,7 +47,7 @@ public class DateShardingSQLGenerator {
         for (int i = 0; i < pgList.size(); i++) {
             System.out.println(" -- For " + pgList.get(i));
             for (int year = 1999; year <= 2027; year++) {
-                if (i % pgList.size() == i && year % pgList.size() == (i + 1) % pgList.size()) {
+                if (year % pgList.size() == (i + 1) % pgList.size()) {
                     System.out.println("create database ds_" + year);
                 }
             }
