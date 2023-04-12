@@ -11,22 +11,38 @@ import java.util.Random;
 
 public class DateShardingSQLGenerator {
     
-    private static final int START_YEAR = 2020;
+    private static final int START_YEAR = 1999;
     
-    private static final int END_YEAR = 2025;
+    private static final int END_YEAR = 2027;
     
     private static String TABLE_NAME = "t_order";
     
     private static String CREATE_TABLE_CONTENT = " (order_id INT NOT NULL, user_id INT NOT NULL, status VARCHAR(45) NULL, create_date datetime NOT NULL, PRIMARY KEY (order_id))";
     
-    private static final List<String> DATASOURCE_PORT = Arrays.asList("13306", "23306", "33306");
+    private static final List<String> DATASOURCE_PORT = Arrays.asList("13306", "23306", "33306", "43306");
     
-    public static void main(String... args) throws Exception {
-        initTestData();
+    private static final String DATASOURCE_TEMPLATE = "  ds_${YEAR}:\n" +
+            "    url: jdbc:mysql://127.0.0.1:${PORT}/ds_${YEAR}?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true\n" +
+            "    username: root\n" +
+            "    password: root\n" +
+            "    connectionTimeoutMilliseconds: 30000\n" +
+            "    idleTimeoutMilliseconds: 60000\n" +
+            "    maxLifetimeMilliseconds: 1800000\n" +
+            "    maxPoolSize: 5\n" +
+            "    minPoolSize: 1";
+    
+    public static void main(String ... args) throws Exception {
+        printDataSource();
+    }
+    
+    private static void printDataSource() {
+        for (int i = START_YEAR; i <= END_YEAR; i++) {
+            System.out.println(DATASOURCE_TEMPLATE.replace("${YEAR}", String.valueOf(i)).replace("${PORT}", DATASOURCE_PORT.get((i + 1) % (DATASOURCE_PORT.size()))));
+        }
     }
     
     private static void printSQL() {
-        for (int i = START_YEAR, j = 3; i <= END_YEAR; i++, j++) {
+        for (int i = START_YEAR, j = DATASOURCE_PORT.size(); i <= END_YEAR; i++, j++) {
             for (int month = 1; month <= 12; month++) {
                 StringBuilder stringBuilder = new StringBuilder("mysql -h127.0.0.1 -uroot -proot -P");
                 String port = DATASOURCE_PORT.get(j % DATASOURCE_PORT.size());
