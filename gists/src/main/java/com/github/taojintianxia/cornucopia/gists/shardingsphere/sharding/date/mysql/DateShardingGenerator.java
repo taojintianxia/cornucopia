@@ -8,8 +8,8 @@ import java.util.List;
 
 public class DateShardingGenerator {
     
-    private static final String DATASOURCE_TEMPLATE = "  ds_${ORDER}_${DATE}:\n" +
-            "    url: jdbc:mysql://${IP}:3306/ds_${ORDER}_${DATE}?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true\n" +
+    private static final String DATASOURCE_TEMPLATE = "  ds_${DATE}:\n" +
+            "    url: jdbc:mysql://${IP}:3306/ds_${DATE}?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true\n" +
             "    username: shardpmsdb\n" +
             "    password: pmsdb1234!\n" +
             "    connectionTimeoutMilliseconds: 30000\n" +
@@ -54,17 +54,16 @@ public class DateShardingGenerator {
         while (!calendar.after(endCalendar)) {
             Date date = calendar.getTime();
             String formattedMonth = dateFormat.format(date);
-            StringBuilder builder = new StringBuilder("mysql -h " + DATASOURCE_LIST.get(i % DATASOURCE_LIST.size()) + " -u shardpmsdb -p pmsdb1234!");
+            StringBuilder builder = new StringBuilder("mysql -h " + DATASOURCE_LIST.get(i % DATASOURCE_LIST.size()) + " -u shardpmsdb -ppmsdb1234!");
             builder.append(" -e \"create database if not exists pmds_" + formattedMonth + "\"");
             calendar.add(Calendar.MONTH, 1);
             System.out.println(builder.toString());
             datasourceBuilder.append(DATASOURCE_TEMPLATE
-                    .replace("${ORDER}", String.valueOf(i % DATASOURCE_LIST.size()))
                     .replace("${DATE}", formattedMonth)
                     .replace("${IP}", DATASOURCE_LIST.get(i % DATASOURCE_LIST.size()))).append("\n");
             i++;
         }
-        System.out.println("\n-------------------------------------------------------------\n”);
+        System.out.println("\n-------------------------------------------------------------\n");
         System.out.println(datasourceBuilder.toString());
     }
 }
