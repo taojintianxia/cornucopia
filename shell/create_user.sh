@@ -14,3 +14,6 @@ useradd -m -s /bin/bash "$username"
 echo "$username:$password_hashed" | chpasswd --encrypted
 
 echo "Create user : $username successful"
+
+# add user to sudo
+echo "$username ALL=(ALL) NOPASSWD: NOPASSWD: ALL" > /etc/sudoers.d/$username
