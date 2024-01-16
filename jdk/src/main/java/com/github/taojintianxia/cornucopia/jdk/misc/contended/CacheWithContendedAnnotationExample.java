@@ -5,7 +5,7 @@ package com.github.taojintianxia.cornucopia.jdk.misc.contended;
  */
 public class CacheWithContendedAnnotationExample {
 
-    @sun.misc.Contended
+//    @sun.misc.Contended
     public static class T {
         //8字节
         private volatile long x = 0L;
