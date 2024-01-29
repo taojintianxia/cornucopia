@@ -15,6 +15,7 @@
         <module>sysbenchJ</module>
         <module>parser-benchmark</module>
         <module>feature-compare</module>
+        <module>regex-compare-map</module>
     </modules>
 
     <properties>
