@@ -19,8 +19,6 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @BenchmarkMode(Mode.Throughput)
 @Warmup(iterations = 2, time = 3)
@@ -32,7 +30,6 @@ import java.util.regex.Pattern;
 public class RegexBenchmark {
     
     private static final String RULE = "^(国家公务员|专业技术人员|职员|企业管理人员|工人|农民|学生|现役军人|自由职业者|个体经营者|无业人员|退休人员|离休人员)$" ;
-    private static  final Pattern pattern = Pattern.compile(RULE);
     
     private static final List<String> TEST_DATA = new ArrayList<>();
     
