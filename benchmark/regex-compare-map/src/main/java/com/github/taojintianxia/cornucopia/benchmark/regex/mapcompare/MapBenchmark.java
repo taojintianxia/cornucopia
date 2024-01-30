@@ -72,13 +72,12 @@ public class MapBenchmark {
     @Benchmark
     public static void testMap() {
         int mappingCount = 0;
-        for (int i = 0; i < 1000; i++) {
-            for (String data : TEST_DATA) {
-                String result = RULE_MAP.get(data);
-                if (null != result) {
-                    mappingCount++;
-                }
+        for (String data : TEST_DATA) {
+            String result = RULE_MAP.get(data);
+            if (null != result) {
+                mappingCount++;
             }
         }
     }
 }
+

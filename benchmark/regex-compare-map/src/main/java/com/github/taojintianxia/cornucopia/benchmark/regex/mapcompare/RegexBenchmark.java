@@ -55,11 +55,9 @@ public class RegexBenchmark {
     @Benchmark
     public static void testRegex() {
         int count = 0;
-        for (int i = 0; i < 1000; i++) {
-            for (String data : TEST_DATA) {
-                if (data.matches(RULE)) {
-                    count++;
-                }
+        for (String data : TEST_DATA) {
+            if (data.matches(RULE)) {
+                count++;
             }
         }
     }
