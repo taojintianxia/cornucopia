@@ -24,5 +24,10 @@
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>1.36</version>
         </dependency>
+        
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 </project>
