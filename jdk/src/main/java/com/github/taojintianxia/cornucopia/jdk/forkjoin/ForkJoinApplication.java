@@ -66,7 +66,6 @@ public class ForkJoinApplication {
             System.out.println("所有的任务都已经完成了");
         }).join();
         
-        
         futures.forEach(each -> {
             try {
                 System.out.println(" Feature 计算出来的总和  : " + each.get());
