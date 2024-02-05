@@ -8,7 +8,7 @@ JDK 自带的 `Feature` 可以在线程结束后返回结果，而 `ListenableFu
 
 ### 回调
 
-大多数人用ListenableFuture 还是为了用回调，基本的用法是 `Futures.addCallback(ListenableFuture<V>, FutureCallback<V>, Executor)`。
+大多数人用 ListenableFuture 还是为了用回调，基本的用法是 `Futures.addCallback(ListenableFuture<V>, FutureCallback<V>, Executor)`。
 FutureCallback<V> 需要实现两个方法 :
 
   - onSuccess(V)

@@ -1,4 +1,4 @@
-package com.github.taojintianxia.cornucopia.guava.common;
+package com.github.taojintianxia.cornucopia.guava.common.base;
 
 import com.google.common.base.Splitter;
 
