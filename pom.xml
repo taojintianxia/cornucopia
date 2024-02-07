@@ -37,7 +37,7 @@
         <java.version>11</java.version>
         
         <!-- dependency versions -->
-        <springboot.version>2.5.2</springboot.version>
+        <springboot.version>2.7.18</springboot.version>
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
         <mybatis-plus-boot-starter.version>3.4.3.1</mybatis-plus-boot-starter.version>
         <spring-cloud-dependencies.version>Edgware.SR6</spring-cloud-dependencies.version>
@@ -48,7 +48,7 @@
         <mysql-connector-java.version>8.0.26</mysql-connector-java.version>
         <h2.version>1.4.200</h2.version>
         <mybatis-plus.version>3.4.0</mybatis-plus.version>
-        <shardingsphere.version>5.0.1-SNAPSHOT</shardingsphere.version>
+        <shardingsphere.version>5.4.1</shardingsphere.version>
         <netty-all.version>4.1.53.Final</netty-all.version>
         <httpclient.version>4.5.13</httpclient.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>

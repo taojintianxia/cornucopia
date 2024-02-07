@@ -13,7 +13,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <shardingsphere-jdbc.version>5.0.0-RC1-SNAPSHOT</shardingsphere-jdbc.version>
+        <shardingsphere-jdbc-core.version>5.4.1</shardingsphere-jdbc-core.version>
     </properties>
 
     <dependencies>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-jdbc-core</artifactId>
-            <version>${shardingsphere-jdbc.version}</version>
+            <version>${shardingsphere-jdbc-core.version}</version>
         </dependency>
 
         <!-- guava -->

@@ -13,7 +13,7 @@
 
     <modules>
         <module>customized-starter</module>
-        <module>dubbo-spring-boot</module>
+<!--        <module>dubbo-spring-boot</module>-->
         <module>grpc-spring-boot</module>
     </modules>
 </project>
