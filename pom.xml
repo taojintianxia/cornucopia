@@ -15,7 +15,6 @@
         <module>network</module>
         <module>spring-cloud</module>
         <module>spring-boot</module>
-        <module>shardingsphere</module>
         <module>libraries</module>
         <module>consensus</module>
         <module>protocol</module>
