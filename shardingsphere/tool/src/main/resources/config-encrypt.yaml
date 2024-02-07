@@ -1,0 +1,36 @@
+databaseName: HR # 逻辑库名称，可以自定义
+
+dataSources:
+  ds_0:
+    url: jdbc:oracle:thin:@10.10.10.10:1521/HELLO
+    username: "system"
+    password: "system"
+    maxPoolSize: 100
+    connectionTimeoutMilliseconds: 18000000
+
+rules:
+- !ENCRYPT
+  encryptors:
+    aes_encryptor:
+      props:
+        aes-key-value: 123456abc
+      type: AES
+  tables:
+    IO_SCANNER:
+      columns:
+        IO:
+          cipher:
+            encryptorName: aes_encryptor # 加密算法
+            name: IO                     # 加密列名称
+          plain:
+            name: IO_CIPHER01            # 待加密列，也就是明文列
+            queryWithPlain: true         # 加密的情况下这个必须为 true，即通过明文查询
+    IO_EXPORTER:
+      columns:
+        IO:
+          cipher:
+            encryptorName: aes_encryptor
+            name: IO
+          plain:
+            name: IO_CIPHER01
+            queryWithPlain: true
