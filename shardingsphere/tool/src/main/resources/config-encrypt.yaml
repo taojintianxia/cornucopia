@@ -1,4 +1,4 @@
-databaseName: HR # 逻辑库名称，可以自定义
+databaseName: IO
 
 dataSources:
   ds_0:
