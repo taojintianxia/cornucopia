@@ -5,8 +5,8 @@ import lombok.SneakyThrows;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 该类用于提取清理加密字段 SQL 中的全部表名
@@ -15,7 +15,7 @@ public class CleanSqlTableNameExtractor {
     
     @SneakyThrows
     public static void main(String... args) {
-        List<String> tableNames = new ArrayList<>();
+        Set<String> tableNames = new HashSet<>();
         try (InputStream inputStream = DatabaseCleanupGenerator.class.getClassLoader().getResourceAsStream("clean_encrypt_column.sql"); BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -25,12 +25,7 @@ public class CleanSqlTableNameExtractor {
             }
         }
         StringBuilder resultBuilder = new StringBuilder();
-        for (int i = 0; i < tableNames.size(); i++) {
-            resultBuilder.append(tableNames.get(i));
-            if (i != tableNames.size() - 1) {
-                resultBuilder.append(", ");
-            }
-        }
+        tableNames.forEach(tableName -> resultBuilder.append(tableName).append(", "));
         System.out.println(resultBuilder);
     }
     
