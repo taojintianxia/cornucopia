@@ -19,7 +19,9 @@ public class CleanSqlTableNameExtractor {
         try (InputStream inputStream = DatabaseCleanupGenerator.class.getClassLoader().getResourceAsStream("clean_encrypt_column.sql"); BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                tableNames.add(extractTableName(line));
+                if (!"".equals(line.trim())) {
+                    tableNames.add(extractTableName(line));
+                }
             }
         }
         StringBuilder resultBuilder = new StringBuilder();
