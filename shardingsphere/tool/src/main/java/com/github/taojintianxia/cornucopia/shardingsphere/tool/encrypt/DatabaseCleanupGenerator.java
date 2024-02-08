@@ -86,7 +86,7 @@ public class DatabaseCleanupGenerator {
     }
     
     private static String extractTableName(String line) {
-        return line.trim().substring(0, line.trim().length() - 2);
+        return line.trim().substring(0, line.trim().length() - 1);
     }
     
     private static String getEncryptColumnName(String line) {
