@@ -8,12 +8,14 @@ import java.util.List;
 public final class PortMappingExample {
     
     public static void main(String... args) throws Exception {
-        MySQLContainer container = new MySQLContainer("mysql:5.7.38").withExposedPorts(3306);
-        container.addEnv("MYSQL_ROOT_PASSWORD", "root");
-        List<String> portBindings = new ArrayList<>();
-        portBindings.add("53306:3306");
-        container.setPortBindings(portBindings);
-        container.start();
-        Thread.sleep(10000000000000L);
+        try (MySQLContainer container = new MySQLContainer("mysql:5.7.38").withExposedPorts(3306)) {
+            container.addEnv("MYSQL_ROOT_PASSWORD", "root");
+            List<String> portBindings = new ArrayList<>();
+            portBindings.add("53306:3306");
+            container.setPortBindings(portBindings);
+            container.start();
+//            Awaitility.await().atMost(Duration.ofMinutes(10));
+            Thread.sleep(1000L * 60 * 10);
+        }
     }
 }
