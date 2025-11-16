@@ -16,7 +16,7 @@ public final class MessageEmulator {
     private static final MessageEmulator INSTANCE = new MessageEmulator();
     
     public static MessageEmulator getInstance() {
-        return new MessageEmulator();
+        return INSTANCE;
     }
     
     private void increaseUserCount() {
